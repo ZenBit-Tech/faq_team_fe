@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { InputProps } from 'src/components/inputField/types';
-import { Theme } from 'src/styles/Theme';
+import { Theme } from 'src/styles/theme';
 
 export const Container = styled.div`
   display: flex;

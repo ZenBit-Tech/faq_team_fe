@@ -5,7 +5,7 @@ export const Button = ({
   variant,
   children,
   ...props
-}: React.PropsWithChildren<buttonProps>) => {
+}: React.PropsWithChildren<buttonProps>): JSX.Element => {
   return (
     <StyledButton variant={variant} {...props}>
       {' '}

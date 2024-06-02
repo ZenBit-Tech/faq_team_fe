@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import { ExampleForm } from './styles';
+import { ExampleForm } from 'src/components/exampleComponent/styles';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import LeftArrowIcon from 'src/assets/icons/iconLeftArrow';
@@ -20,7 +20,7 @@ type Inputs = {
   email: string;
 };
 
-export const ExampleComponent = () => {
+export const ExampleComponent = (): JSX.Element => {
   const { t } = useTranslation();
   const {
     register,
@@ -33,7 +33,9 @@ export const ExampleComponent = () => {
     },
     resolver: yupResolver(schema),
   });
-  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = data => {
+    return JSON.stringify(data);
+  };
   return (
     <>
       <ExampleForm onSubmit={handleSubmit(onSubmit)}>

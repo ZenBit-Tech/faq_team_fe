@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/Theme';
+import { Theme } from 'src/styles/theme';
 
 export const ExampleForm = styled.form<{ theme?: Theme }>`
   width: 300px;
