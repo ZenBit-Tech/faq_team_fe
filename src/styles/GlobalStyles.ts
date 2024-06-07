@@ -29,7 +29,7 @@ import spaceGroteskMedium from '../fonts/SpaceGrotesk-Medium.woff';
 import spaceGroteskMediumSecond from '../fonts/SpaceGrotesk-Medium.woff2';
 import urbanistRegular from '../fonts/Urbanist-Regular.woff';
 import urbanistRegularSecond from '../fonts/Urbanist-Regular.woff2';
-import { theme } from 'src/styles/theme';
+import { theme } from 'src/styles/Theme';
 
 export const globalStyles = css`
   body {
