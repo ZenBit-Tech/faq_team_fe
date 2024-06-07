@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/theme';
 import { Link } from 'react-router-dom';
 import { Button } from '../button';
+import { Theme } from 'styles/Theme';
 
 export const StyledForm = styled.form<{ theme?: Theme }>`
   width: 335px;

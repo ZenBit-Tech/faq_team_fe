@@ -1,7 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import GoogleIcon from 'src/assets/icons/iconGoogle';
-import LogoIcon from 'src/assets/icons/iconLogo';
-import { SignUpForm } from 'src/components/signUpForm';
 import {
   SignUpSection,
   PolicyLink,
@@ -17,14 +14,24 @@ import {
   Google,
   Text,
   SignUpLink,
-} from '../signInPage/style';
-import bgImg from '../../assets/images/sign-up.png';
+} from '../signInPage/styles';
+import bgImg from 'assets/images/sign-up.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
+import LogoIcon from 'assets/icons/iconLogo';
+import GoogleIcon from 'assets/icons/iconGoogle';
+import { SignUpForm } from 'components/signUpForm';
+
+const googleRoute: string = 'http://localhost:3000/google';
+const backLink: string = '/faq_team_fe/signin';
+const signinLink: string = '/signin';
+const termsOfUseLink: string = '/terms-of-use';
+const policyLink: string = '/privacy-policy';
+
 const SignUpPage = () => {
   const { t } = useTranslation();
 
   const verifyGoogle = async () => {
-    window.location.href = 'http://localhost:3000/google';
+    window.location.href = googleRoute;
   };
   return (
     <SignUpSection>
@@ -36,7 +43,7 @@ const SignUpPage = () => {
       <FormContainer>
         <FormHeader>
           <Title>
-            <ArrowBackLink link={'/faq_team_fe/signin'} />
+            <ArrowBackLink link={backLink} />
             {t('signUp.title')}
           </Title>
           <SubTitle>{t('signUp.subtitle')}</SubTitle>
@@ -47,18 +54,16 @@ const SignUpPage = () => {
           <Text>or</Text>
         </FormHeader>
         <SignUpForm />
-        <SignUpLink to="/signin">
+        <SignUpLink to={signinLink}>
           <p>{t('signUp.signInLink')}</p>
           <span>{t('signUp.signIn')}</span>
         </SignUpLink>
         <ListContainer>
           <li>
-            <PolicyLink to="/privacy-policy">
-              {t('signUp.policyLink')}
-            </PolicyLink>
+            <PolicyLink to={policyLink}>{t('signUp.policyLink')}</PolicyLink>
           </li>
           <li>
-            <PolicyLink to="/terms-of-use">{t('signUp.termsLink')}</PolicyLink>
+            <PolicyLink to={termsOfUseLink}>{t('signUp.termsLink')}</PolicyLink>
           </li>
         </ListContainer>
       </FormContainer>

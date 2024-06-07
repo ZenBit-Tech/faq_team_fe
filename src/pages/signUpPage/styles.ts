@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/theme';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
+import { Theme } from 'styles/Theme';
 
 export const SignUpSection = styled.div<{ theme?: Theme }>`
   height: 100vh;

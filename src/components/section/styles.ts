@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/theme';
+import { Theme } from 'styles/Theme';
 
 export const Container = styled.div<{ theme?: Theme }>`
   margin: 0 auto;

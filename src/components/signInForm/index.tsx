@@ -4,25 +4,22 @@ import { useTranslation } from 'react-i18next';
 import { Inputs } from './types';
 import { StyledForm, PasswordLink, SubmitBtn, ErrorMsg } from './styles';
 import { useState } from 'react';
-import EyeIcon from 'src/assets/icons/iconEye';
-import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
-import {
-  useLoginMutation,
-  useRestorePassMutation,
-} from 'src/redux/authApiSlice';
-import { useAppDispatch } from 'src/redux/hooks';
-import { setToken } from 'src/redux/auth/authSlice';
-import { useNavigate } from 'react-router-dom';
 import { useSignInSchema } from './signInFormHook';
+import { useLoginMutation, useRestorePassMutation } from 'redux/authApiSlice';
+import { useAppDispatch } from 'redux/hooks';
+import { useNavigate } from 'react-router-dom';
+import { setToken } from 'redux/auth/authSlice';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
-} from '../../helpers/errorHandler';
+} from 'helpers/errorHandler';
+import EyeIcon from 'assets/icons/iconEye';
+import EyeCloseIcon from 'assets/icons/iconEyeClose';
+
+const verifyRoute: string = '/';
+const passwordRoute: string = '/restore-password';
 
 export const SignInForm = () => {
-  const verifyRoute: string = '/';
-  const passwordRoute: string = '/restore-password';
-
   const [login, { isLoading }] = useLoginMutation();
   const [sendOtp] = useRestorePassMutation();
 

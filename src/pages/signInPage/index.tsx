@@ -1,26 +1,26 @@
 import { useTranslation } from 'react-i18next';
-import { SignInForm } from 'src/components/signInForm';
-import { SignUpLink, SubTitle, Title, Google, Text, LogoWrap } from './style';
-import GoogleIcon from 'src/assets/icons/iconGoogle';
-import LogoIcon from 'src/assets/icons/iconLogo';
-import {
-  FormHeader,
-  ListContainer,
-  LogoContainer,
-  PolicyLink,
-  SignUpSection,
-} from 'src/pages/signUpPage/styles.ts';
-import { FormContainer } from 'src/pages/signUpPage/styles.ts';
-import bgImg from '../../assets/images/sign-in.png';
+import { SignUpLink, SubTitle, Title, Google, Text, LogoWrap } from './styles';
+import bgImg from 'assets/images/sign-in.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
+import {
+  SignUpSection,
+  LogoContainer,
+  FormContainer,
+  FormHeader,
+  PolicyLink,
+  ListContainer,
+} from 'pages/signUpPage/styles';
+import LogoIcon from 'assets/icons/iconLogo';
+import { SignInForm } from 'components/signInForm';
+import GoogleIcon from 'assets/icons/iconGoogle';
+
+const googleRoute: string = 'http://localhost:3000/google';
+const backLink: string = '/faq_team_fe/signin';
+const signupLink: string = '/signup';
+const termsOfUseLink: string = '/terms-of-use';
+const policyLink: string = '/privacy-policy';
 
 const SignInPage = () => {
-  const googleRoute: string = 'http://localhost:3000/google';
-  const backLink: string = '/faq_team_fe/signin';
-  const signupLink: string = '/signup';
-  const termsOfUseLink: string = '/terms-of-use';
-  const policyLink: string = '/privacy-policy';
-
   const { t } = useTranslation();
 
   const verifyGoogle = async () => {

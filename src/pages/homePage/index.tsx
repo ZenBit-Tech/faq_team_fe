@@ -1,4 +1,4 @@
-import { ExampleComponent } from 'src/components/ExampleComponent';
+import { ExampleComponent } from 'components/ExampleComponent';
 import { HomeSection } from './styles';
 
 const HomePage = () => {

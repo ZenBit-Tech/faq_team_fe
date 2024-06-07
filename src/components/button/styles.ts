@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ButtonVariant, buttonProps } from './types';
-import { Theme } from 'src/styles/theme';
+import { Theme } from 'styles/Theme';
 
 export const StyledButton = styled.button<{ theme: Theme } & buttonProps>`
   background-color: ${props =>

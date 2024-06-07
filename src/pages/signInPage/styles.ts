@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/Theme';
 import { Link } from 'react-router-dom';
-import { Section } from 'src/components/section';
 import bgImg from '../../assets/images/sign-in.png';
+import { Theme } from 'styles/Theme';
+import { Section } from 'components/section';
 
 export const Title = styled.h1<{ theme?: Theme }>`
   display: flex;

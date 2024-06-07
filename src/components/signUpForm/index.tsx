@@ -4,17 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { Inputs } from './types';
 import { StyledForm, SubmitBtn, ErrorMsg } from '../signInForm/styles';
 import { useState } from 'react';
-import EyeIcon from 'src/assets/icons/iconEye';
-import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
-import { useRegistrationMutation } from 'src/redux/authApiSlice';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'src/redux/hooks.ts';
-import { setEmail } from 'src/redux/auth/authSlice.ts';
 import { useSignUpSchema } from './signUpFormHooks';
+import { useAppDispatch } from 'redux/hooks';
+import { useRegistrationMutation } from 'redux/authApiSlice';
+import { setEmail } from 'redux/auth/authSlice';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
-} from '../../helpers/errorHandler';
+} from 'helpers/errorHandler';
+import EyeIcon from 'assets/icons/iconEye';
+import EyeCloseIcon from 'assets/icons/iconEyeClose';
 
 export const SignUpForm = () => {
   const [registration, { isLoading }] = useRegistrationMutation();

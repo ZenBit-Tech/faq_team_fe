@@ -1,10 +1,10 @@
+import { apiSlice } from './apiSlice';
 import {
   RequestLogin,
   RequestRegistration,
   ResponseLogin,
   ResponseRegistration,
-} from 'src/redux/types';
-import { apiSlice } from './apiSlice';
+} from './types';
 const USERS_URL = '/api/user';
 const CARDS_URL = '/api/cards';
 const USER_URL = 'users';
