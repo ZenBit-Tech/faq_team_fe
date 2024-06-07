@@ -3,5 +3,136 @@
     "nameInput": "Enter your name",
     "emailInput": "Enter your email",
     "submitButton": "Submit"
+  },
+
+  "signUp": {
+    "title": "Create your account",
+    "subtitle": "Sign Up with social networks",
+    "name": "Name*",
+    "namePlaceholder": "Enter your name",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "password": "Password*",
+    "passwordsPlaceholder": "Min. 8 characters",
+    "repeatPassword": "Repeat Password*",
+    "submitBtn": "Sign Up",
+    "signInLink": "Do you have an account?",
+    "signin": "Sign In",
+    "policyLink": "Privacy Policy",
+    "termsLink": "Terms of Use"
+  },
+
+  "verificationEmail": {
+    "title": "Verify your email",
+    "subtitle": "We have sent an OTP verification code to your email, please enter it here",
+    "code": "Code",
+    "expired": "will expire in 00:55",
+    "resend": "Send Again",
+    "submitBtn": "Verify"
+  },
+
+  "enterPhone": {
+    "input": "Phone",
+    "button": "Next"
+  },
+
+  "selectRole": {
+    "title": "Select Role",
+    "roleFirst": "Buyer",
+    "roleSecond": "Vendor"
+  },
+
+  "addPhoto": {
+    "title": "Add Your Photo",
+    "uploadBtn": "Upload Photo"
+  },
+
+  "size": {
+    "title": "Your Size",
+    "clothes": "Clothes Size",
+    "shoes": "Shoes Size",
+    "jeans": "Jeans Size",
+    "sizeLink": "size guide.",
+    "sizeText": "All sizes in US format are indicated by default, and you can determine your US size using the "
+  },
+
+  "address": {
+    "title": "Your Address",
+    "subtittle": "Add your shipping address",
+    "lineFirst": "Address Line 1",
+    "addressPlaceholder": "Street",
+    "lineSecond": "Address Line 2 (optional)",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "post": "Post Code"
+  },
+
+  "card": {
+    "title": "Your Credit Card",
+    "subtitle": "Add your credit card",
+    "name": "Full name",
+    "card": "Credit Card Number",
+    "placeholder": "**** **** **** 5678",
+    "expired": "Expiry date",
+    "expPlaceholder": "MM// YY",
+    "cvv": "CVV Code"
+  },
+
+  "signIn": {
+    "title": "Sign In",
+    "subtitle": "Sign In with social networks",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "password": "Password*",
+    "passwordPlaceholder": "Min. 8 characters",
+    "repeatPassword": "Repeat Password*",
+    "forgotPassLink": "Forgot Password?",
+    "submitBtn": "Sign In",
+    "signUpLink": "Do you have an account?",
+    "signup": "Sign Up",
+    "policyLink": "Privacy Policy",
+    "termsLink": "Terms of Use"
+  },
+
+  "restorePassword": {
+    "title": "Restore password",
+    "subtitle": "Enter your email to restore your password",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "button": "Send Code"
+  },
+
+  "enterCode": {
+    "title": "Enter Code",
+    "subtitle": "We have sent an OTP verification code to your email. Kindly input it here",
+    "code": "Code",
+    "expired": "will expire in 00:55",
+    "resend": "Send Again",
+    "submitBtn": "Verify"
+  },
+
+  "restorePasswordSignIn": {
+    "title": "New password",
+    "subtitle": "Please enter your new password",
+    "password": "Password",
+    "passwordsPlaceholder": "Min. 8 characters",
+    "repeatPassword": "Repeat Password*",
+    "button": "Save password"
+  },
+
+  "adminSignIn": {
+    "title": "Sign In",
+    "subtitle": "Please enter your credentials to sign in",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "password": "Password*",
+    "passwordPlaceholder": "********",
+    "button": "Sign In"
+  },
+
+  "policy": {
+    "title": "Privacy Policy",
+    "terms": "Terms & Conditions"
   }
 }

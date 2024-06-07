@@ -1,16 +1,3 @@
-// const SomeName = styled.div`
-//   color: ${({theme}) => theme.colors.black};
-
-// @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
-//   color: ${({theme}) => theme.color.black};
-// }
-// @media screen and (min-width: ${({theme}) => theme.breakpoint.tablet}) {
-//   color: ${({theme}) => theme.color.black};
-// }
-//  @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-//   color: ${({theme}) => theme.color.black};
-//  }
-
 type Color = {
   greyish_red: string;
   pastel_green: string;
@@ -31,10 +18,37 @@ type Breakpoint = {
   desktop: string;
 };
 
+type FontSize = {
+  sm: string;
+  md: string;
+  lg: string;
+};
+
+type FontWeight = {
+  regular: string;
+  medium: string;
+  semibold: string;
+  bold: string;
+};
+
+type FontNames = {
+  urbanist: string;
+  spaceGrotesk: string;
+  sourceSerifPro: string;
+  quicksand: string;
+  inter: string;
+  playfairDisplaySC: string;
+  playfairDisplay: string;
+  dmSans: string;
+};
+
 export type Theme = {
   colors: Color;
   transition: { main: string };
   breakpoint: Breakpoint;
+  fontSize: FontSize;
+  fontNames: FontNames;
+  fontWeight: FontWeight;
 };
 
 export const theme: Theme = {
@@ -58,5 +72,26 @@ export const theme: Theme = {
     mobile: '375px',
     tablet: '768px',
     desktop: '1440px',
+  },
+  fontSize: {
+    sm: '14px',
+    md: '16px',
+    lg: '18px',
+  },
+  fontWeight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
+  fontNames: {
+    urbanist: 'Urbanist',
+    spaceGrotesk: 'Space Grotesk',
+    sourceSerifPro: 'Source Serif Pro',
+    quicksand: 'Quicksand',
+    inter: 'Inter',
+    playfairDisplaySC: 'Playfair Display SC',
+    playfairDisplay: 'Playfair Display',
+    dmSans: 'DM Sans',
   },
 };

@@ -1,30 +1,80 @@
-# React + TypeScript + Vite
+# FAQ Team Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend for the FAQ Team project.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Before you begin, ensure you have met the following requirements:
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js (v14 or higher) and npm installed on your machine. You can download it
+  from [Node.js official website](https://nodejs.org/).
+- Git installed on your machine. You can download it from
+  [Git official website](https://git-scm.com/).
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/ZenBit-Tech/faq_team_fe.git
+   ```
+
+2. **Navigate to the project directory:**
+
+cd faq_team_fe
+
+3. **Navigate to the project directory:**
+
+npm install
+
+## Running the Project
+
+To run the project, follow these steps:
+
+1. **Start the development server:**
+
+npm start
+
+1. **Open your browser and go to http://localhost:3000 to see the running
+   application.**
+
+## Folder Structure
+
+Here's an overview of the project folder structure:
+
+public/: Contains the HTML file and other assets that will be served publicly.
+src/: Contains the source code for the React application. assets/: Contains
+static assets like images and icons. components/: Contains reusable React
+components. pages/: Contains React components for different pages/routes.
+redux/: Contains Redux-related files like actions, reducers, and store
+configuration. styles/: Contains global styles and theming.
+
+## Contributing
+
+you are on develop git pull
+
+2. git checkout -b feature/me_branch (edited)
+
+3. make chenges (edited)
+
+4. git commit -m "my changes" (edited)
+
+5. git checkout develop (edited)
+
+6. git pull (edited)
+
+7. git checkout feature/me_branch (edited)
+
+8. git merge develop (edited)
+
+9. git push --set-upstream origin feature/me_branch (edited)
+
+make PR|MR
