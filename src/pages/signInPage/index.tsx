@@ -15,10 +15,16 @@ import bgImg from '../../assets/images/sign-in.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
 
 const SignInPage = () => {
+  const googleRoute: string = 'http://localhost:3000/google';
+  const backLink: string = '/faq_team_fe/signin';
+  const signupLink: string = '/signup';
+  const termsOfUseLink: string = '/terms-of-use';
+  const policyLink: string = '/privacy-policy';
+
   const { t } = useTranslation();
 
   const verifyGoogle = async () => {
-    window.location.href = 'http://localhost:3000/google';
+    window.location.href = googleRoute;
   };
 
   return (
@@ -31,7 +37,7 @@ const SignInPage = () => {
       <FormContainer>
         <FormHeader>
           <Title>
-            <ArrowBackLink link={'/faq_team_fe/signin'} />
+            <ArrowBackLink link={backLink} />
             {t('signIn.title')}
           </Title>
           <SubTitle>{t('signIn.subtitle')}</SubTitle>
@@ -42,18 +48,16 @@ const SignInPage = () => {
           <Text>or</Text>
         </FormHeader>
         <SignInForm />
-        <SignUpLink to="/signup">
+        <SignUpLink to={signupLink}>
           <p>{t('signIn.signUpLink')}</p>
           <span>{t('signIn.signUp')}</span>
         </SignUpLink>
         <ListContainer>
           <li>
-            <PolicyLink to="/privacy-policy">
-              {t('signIn.policyLink')}
-            </PolicyLink>
+            <PolicyLink to={policyLink}>{t('signIn.policyLink')}</PolicyLink>
           </li>
           <li>
-            <PolicyLink to="/terms-of-use">{t('signIn.termsLink')}</PolicyLink>
+            <PolicyLink to={termsOfUseLink}>{t('signIn.termsLink')}</PolicyLink>
           </li>
         </ListContainer>
       </FormContainer>

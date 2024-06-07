@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
 export const useSignUpSchema = () => {
+  const passwordLength: number = 8;
   const { t } = useTranslation();
 
   const signUpSchema = yup
@@ -14,7 +15,7 @@ export const useSignUpSchema = () => {
         .required(t('validation.credentials')),
       password: yup
         .string()
-        .min(8, t('validation.password'))
+        .min(passwordLength, t('validation.password'))
         .required(t('validation.credentials')),
       repeatedPassword: yup
         .string()
@@ -23,7 +24,7 @@ export const useSignUpSchema = () => {
           t('validation.repeatedPassword'),
           (value, { parent }) => !value || value === parent.password,
         )
-        .min(8, t('validation.password'))
+        .min(passwordLength, t('validation.password'))
         .required(t('validation.credentials')),
     })
     .required();

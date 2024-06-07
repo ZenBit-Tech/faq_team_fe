@@ -13,13 +13,16 @@ import {
 import { useAppDispatch } from 'src/redux/hooks';
 import { setToken } from 'src/redux/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { useSignInSchema } from './signInHook';
+import { useSignInSchema } from './signInFormHook';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from '../../helpers/errorHandler';
 
 export const SignInForm = () => {
+  const verifyRoute: string = '/';
+  const passwordRoute: string = '/restore-password';
+
   const [login, { isLoading }] = useLoginMutation();
   const [sendOtp] = useRestorePassMutation();
 
@@ -52,7 +55,7 @@ export const SignInForm = () => {
         navigate('');
       } else {
         dispatch(setToken(response?.access_token));
-        navigate('/');
+        navigate(verifyRoute);
       }
     } catch (err) {
       if (isFetchBaseQueryError(err)) {
@@ -101,7 +104,7 @@ export const SignInForm = () => {
             {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
-        <PasswordLink to="/restore-password">
+        <PasswordLink to={passwordRoute}>
           {t('signIn.forgotPassLink')}
         </PasswordLink>
         {errors.root && <ErrorMsg>{errors.root.message}</ErrorMsg>}

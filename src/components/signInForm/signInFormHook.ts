@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 
 export const useSignInSchema = () => {
+  const passwordLength: number = 8;
   const { t } = useTranslation();
   const signInSchema = yup
     .object()
@@ -9,11 +10,11 @@ export const useSignInSchema = () => {
       email: yup
         .string()
         .email(t('validation.email'))
-        .required('Please enter your credentials'),
+        .required(t('validation.credentials')),
       password: yup
         .string()
-        .min(8, 'Password format is incorrect')
-        .required('Please enter your credentials'),
+        .min(passwordLength, t('validation.password'))
+        .required(t('validation.credentials')),
     })
     .required();
 
