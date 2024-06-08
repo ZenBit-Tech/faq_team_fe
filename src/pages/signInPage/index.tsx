@@ -1,15 +1,20 @@
 import { useTranslation } from 'react-i18next';
-import { SignUpLink, SubTitle, Title, Google, Text, LogoWrap } from './styles';
 import bgImg from 'assets/images/sign-in.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
 import {
-  SignUpSection,
+  FormSection,
   LogoContainer,
   FormContainer,
   FormHeader,
   PolicyLink,
   ListContainer,
-} from 'pages/signUpPage/styles';
+  FormLink,
+  SubTitle,
+  Title,
+  Google,
+  Text,
+  LogoWrap,
+} from 'components/sharedUI/form/styles';
 import LogoIcon from 'assets/icons/iconLogo';
 import { SignInForm } from 'components/signInForm';
 import GoogleIcon from 'assets/icons/iconGoogle';
@@ -28,7 +33,7 @@ const SignInPage = () => {
   };
 
   return (
-    <SignUpSection>
+    <FormSection>
       <LogoContainer img={bgImg}>
         <LogoWrap>
           <LogoIcon width={203} height={56} />
@@ -48,10 +53,10 @@ const SignInPage = () => {
           <Text>or</Text>
         </FormHeader>
         <SignInForm />
-        <SignUpLink to={signupLink}>
+        <FormLink to={signupLink}>
           <p>{t('signIn.signUpLink')}</p>
           <span>{t('signIn.signUp')}</span>
-        </SignUpLink>
+        </FormLink>
         <ListContainer>
           <li>
             <PolicyLink to={policyLink}>{t('signIn.policyLink')}</PolicyLink>
@@ -61,7 +66,7 @@ const SignInPage = () => {
           </li>
         </ListContainer>
       </FormContainer>
-    </SignUpSection>
+    </FormSection>
   );
 };
 

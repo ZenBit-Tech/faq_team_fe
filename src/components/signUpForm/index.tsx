@@ -2,7 +2,11 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Inputs } from './types';
-import { StyledForm, SubmitBtn, ErrorMsg } from '../signInForm/styles';
+import {
+  StyledForm,
+  SubmitBtn,
+  ErrorMsg,
+} from 'components/sharedUI/form/styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSignUpSchema } from './signUpFormHooks';

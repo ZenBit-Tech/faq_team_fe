@@ -11,11 +11,7 @@ export const StyledButton = styled.button<{ theme: Theme } & buttonProps>`
     props.variant === ButtonVariant.Black
       ? props.theme.colors.white
       : props.theme.colors.black};
-  border: 2px solid
-    ${props =>
-      props.variant === ButtonVariant.Black
-        ? props.theme.colors.black
-        : props.theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.black};
   padding: 16px;
   font-size: ${({ theme }) => theme.fontSize.md};
   cursor: pointer;

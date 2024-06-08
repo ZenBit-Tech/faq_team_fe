@@ -2,7 +2,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Inputs } from './types';
-import { StyledForm, PasswordLink, SubmitBtn, ErrorMsg } from './styles';
+import {
+  StyledForm,
+  PasswordLink,
+  SubmitBtn,
+  ErrorMsg,
+} from 'components/sharedUI/form/styles';
 import { useState } from 'react';
 import { useSignInSchema } from './signInFormHook';
 import { useLoginMutation, useRestorePassMutation } from 'redux/authApiSlice';

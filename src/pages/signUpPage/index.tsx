@@ -1,20 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import {
-  SignUpSection,
-  PolicyLink,
+  FormSection,
   LogoContainer,
-  ListContainer,
-  FormHeader,
   FormContainer,
-} from './styles';
-import {
-  LogoWrap,
-  Title,
+  FormHeader,
+  PolicyLink,
+  ListContainer,
+  FormLink,
   SubTitle,
+  Title,
   Google,
   Text,
-  SignUpLink,
-} from '../signInPage/styles';
+  LogoWrap,
+} from 'components/sharedUI/form/styles';
 import bgImg from 'assets/images/sign-up.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
 import LogoIcon from 'assets/icons/iconLogo';
@@ -34,7 +32,7 @@ const SignUpPage = () => {
     window.location.href = googleRoute;
   };
   return (
-    <SignUpSection>
+    <FormSection>
       <LogoContainer img={bgImg}>
         <LogoWrap>
           <LogoIcon width={203} height={56} />
@@ -54,10 +52,10 @@ const SignUpPage = () => {
           <Text>or</Text>
         </FormHeader>
         <SignUpForm />
-        <SignUpLink to={signinLink}>
+        <FormLink to={signinLink}>
           <p>{t('signUp.signInLink')}</p>
           <span>{t('signUp.signIn')}</span>
-        </SignUpLink>
+        </FormLink>
         <ListContainer>
           <li>
             <PolicyLink to={policyLink}>{t('signUp.policyLink')}</PolicyLink>
@@ -67,7 +65,7 @@ const SignUpPage = () => {
           </li>
         </ListContainer>
       </FormContainer>
-    </SignUpSection>
+    </FormSection>
   );
 };
 
