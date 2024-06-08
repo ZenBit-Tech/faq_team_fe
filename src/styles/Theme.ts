@@ -1,51 +1,10 @@
-type Color = {
-  greyish_red: string;
-  pastel_green: string;
-  black: string;
-  border: string;
-  gray: string;
-  white: string;
-  for_card_bg: string;
-  for_tables: string;
-  error_red: string;
-  error_light_red: string;
-  green_success: string;
-  error_tablet: string;
-  overlay_black: string;
-};
-
-type Breakpoint = {
-  mobile: string;
-  tablet: string;
-  desktop: string;
-};
-
-type FontSize = {
-  sm: string;
-  md: string;
-  lg: string;
-  extraLg: string;
-  extraSm: string;
-  xxl: string;
-};
-
-type FontWeight = {
-  regular: string;
-  medium: string;
-  semibold: string;
-  bold: string;
-};
-
-type FontNames = {
-  urbanist: string;
-  spaceGrotesk: string;
-  sourceSerifPro: string;
-  quicksand: string;
-  inter: string;
-  playfairDisplaySC: string;
-  playfairDisplay: string;
-  dmSans: string;
-};
+import {
+  Breakpoint,
+  Color,
+  FontNames,
+  FontSize,
+  FontWeight,
+} from './themeTypes';
 
 export type Theme = {
   colors: Color;
