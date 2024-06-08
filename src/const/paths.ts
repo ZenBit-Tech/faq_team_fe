@@ -5,4 +5,5 @@ export const paths = {
   restorePassword: '/restore-password',
   privacyPolicy: '/privacy-policy',
   termsOfUse: '/terms-of-use',
+  verify: 'verify',
 };

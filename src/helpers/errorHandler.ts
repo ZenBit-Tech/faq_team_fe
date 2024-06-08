@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 export function isFetchBaseQueryError(
   error: unknown,
@@ -12,6 +11,6 @@ export function isErrorWithMessage(
     typeof error === 'object' &&
     error !== null &&
     'message' in error &&
-    typeof (error as any).message === 'string'
+    typeof error.message === 'string'
   );
 }

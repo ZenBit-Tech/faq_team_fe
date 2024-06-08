@@ -15,6 +15,7 @@ export default defineConfig({
       assets: '/src/assets',
       styles: '/src/styles',
       const: '/src/const',
+      fonts: '/src/fonts',
     },
   },
 });

@@ -20,9 +20,7 @@ import {
 } from 'helpers/errorHandler';
 import EyeIcon from 'assets/icons/iconEye';
 import EyeCloseIcon from 'assets/icons/iconEyeClose';
-
-const verifyRoute: string = '/';
-const passwordRoute: string = '/restore-password';
+import { paths } from 'const/paths';
 
 export const SignInForm = () => {
   const [login, { isLoading }] = useLoginMutation();
@@ -57,7 +55,7 @@ export const SignInForm = () => {
         navigate('');
       } else {
         dispatch(setToken(response?.access_token));
-        navigate(verifyRoute);
+        navigate(paths.verify);
       }
     } catch (err) {
       if (isFetchBaseQueryError(err)) {
@@ -106,7 +104,7 @@ export const SignInForm = () => {
             {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
-        <PasswordLink to={passwordRoute}>
+        <PasswordLink to={paths.restorePassword}>
           {t('signIn.forgotPassLink')}
         </PasswordLink>
         {errors.root && <ErrorMsg>{errors.root.message}</ErrorMsg>}

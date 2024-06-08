@@ -27,7 +27,8 @@
       "helpers/*": ["helpers/*"],
       "pages/*": ["pages/*"],
       "styles/*": ["styles/*"],
-      "const/*": ["const/*"]
+      "const/*": ["const/*"],
+      "fonts/*": ["fonts/*"]
     }
   },
   "include": ["src"]
