@@ -14,6 +14,7 @@ export default defineConfig({
       pages: '/src/pages',
       assets: '/src/assets',
       styles: '/src/styles',
+      const: '/src/const',
     },
   },
 });

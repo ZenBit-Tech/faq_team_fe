@@ -18,18 +18,14 @@ import {
 import LogoIcon from 'assets/icons/iconLogo';
 import { SignInForm } from 'components/signInForm';
 import GoogleIcon from 'assets/icons/iconGoogle';
-
-const googleRoute: string = 'http://localhost:3000/google';
-const backLink: string = '/faq_team_fe/signin';
-const signupLink: string = '/signup';
-const termsOfUseLink: string = '/terms-of-use';
-const policyLink: string = '/privacy-policy';
+import { paths } from 'const/paths';
+import { links } from 'const/links';
 
 const SignInPage = () => {
   const { t } = useTranslation();
 
   const verifyGoogle = async () => {
-    window.location.href = googleRoute;
+    window.location.href = links.googleRoute;
   };
 
   return (
@@ -42,7 +38,7 @@ const SignInPage = () => {
       <FormContainer>
         <FormHeader>
           <Title>
-            <ArrowBackLink link={backLink} />
+            <ArrowBackLink link={links.backToSignUp} />
             {t('signIn.title')}
           </Title>
           <SubTitle>{t('signIn.subtitle')}</SubTitle>
@@ -53,16 +49,20 @@ const SignInPage = () => {
           <Text>or</Text>
         </FormHeader>
         <SignInForm />
-        <FormLink to={signupLink}>
+        <FormLink to={paths.signUp}>
           <p>{t('signIn.signUpLink')}</p>
           <span>{t('signIn.signUp')}</span>
         </FormLink>
         <ListContainer>
           <li>
-            <PolicyLink to={policyLink}>{t('signIn.policyLink')}</PolicyLink>
+            <PolicyLink to={paths.privacyPolicy}>
+              {t('signIn.policyLink')}
+            </PolicyLink>
           </li>
           <li>
-            <PolicyLink to={termsOfUseLink}>{t('signIn.termsLink')}</PolicyLink>
+            <PolicyLink to={paths.termsOfUse}>
+              {t('signIn.termsLink')}
+            </PolicyLink>
           </li>
         </ListContainer>
       </FormContainer>

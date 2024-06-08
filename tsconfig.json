@@ -26,7 +26,8 @@
       "assets/*": ["assets/*"],
       "helpers/*": ["helpers/*"],
       "pages/*": ["pages/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "const/*": ["const/*"]
     }
   },
   "include": ["src"]
