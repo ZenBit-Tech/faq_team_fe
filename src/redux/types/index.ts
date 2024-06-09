@@ -33,3 +33,8 @@ export type AuthState = {
   user: User;
   access_token: string;
 };
+
+export type RequestNewPass = {
+  password: string;
+  email: string;
+};

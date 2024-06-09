@@ -4,6 +4,7 @@ import {
   RequestRegistration,
   ResponseLogin,
   ResponseRegistration,
+  RequestNewPass,
 } from './types';
 const USERS_URL = '/api/user';
 const CARDS_URL = '/api/cards';
@@ -37,6 +38,13 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    newPass: builder.mutation<void, RequestNewPass>({
+      query: data => ({
+        url: `${USER_URL}/set-new-pass`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -45,4 +53,5 @@ export const {
   useRegistrationMutation,
   useRestorePassMutation,
   useGetUserQuery,
+  useNewPassMutation,
 } = appApiSlice;

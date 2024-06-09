@@ -6,4 +6,5 @@ export const paths = {
   privacyPolicy: '/privacy-policy',
   termsOfUse: '/terms-of-use',
   verify: 'verify',
+  newPassword: 'new-password',
 };

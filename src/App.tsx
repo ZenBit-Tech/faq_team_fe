@@ -5,9 +5,10 @@ import { paths } from 'const/paths';
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
-const RestorePasswordPage = lazy(() => import('pages/restorePasswordPage'));
+const RestorePasswordPage = lazy(() => import('pages/restorePassPage'));
 const PrivacyPolicyPage = lazy(() => import('pages/privacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
+const NewPasswordPage = lazy(() => import('pages/newPassPage'));
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             path={paths.restorePassword}
             element={<RestorePasswordPage />}
           />
+          <Route path={paths.newPassword} element={<NewPasswordPage />} />
           <Route path={paths.privacyPolicy} element={<PrivacyPolicyPage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
         </Route>
