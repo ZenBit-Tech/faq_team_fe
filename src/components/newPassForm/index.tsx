@@ -12,8 +12,8 @@ import { useState } from 'react';
 import EyeIcon from 'assets/icons/iconEye';
 import EyeCloseIcon from 'assets/icons/iconEyeClose';
 import { useNewPassMutation } from 'redux/authApiSlice.ts';
+import { passLengthLim } from 'const/constants';
 
-const passLengthLim = 8;
 export const NewPassForm = ({ email }: { email: string }) => {
   const { t } = useTranslation();
 

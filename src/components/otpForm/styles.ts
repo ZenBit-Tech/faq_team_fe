@@ -39,7 +39,7 @@ export const OtpFrom = styled.form<{ theme?: Theme }>`
     border: 1px solid ${({ theme }) => theme.colors.border};
     font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
     font-size: ${({ theme }) => theme.fontSize.extraLg};
-    font-weight: 400;
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
     text-align: center;
     color: ${({ theme }) => theme.colors.gray};
     box-shadow: 0px 2px 4px ${({ theme }) => theme.colors.border};

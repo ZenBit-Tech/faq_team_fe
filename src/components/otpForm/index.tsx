@@ -17,10 +17,8 @@ import { OptFormProps, OtpFormValue } from 'components/otpForm/types';
 import { paths } from 'const/paths';
 import { useRef } from 'react';
 import { otpFormVersions } from 'const/constants';
+import { otpExpirationTime, clockPrecision, otpNumberOfDigits} from 'const/constants';
 
-const otpExpirationTime = 55;
-const numberOfDigits = 6;
-const clockPrecision = 1000;
 export const OtpForm = ({ email, action }: OptFormProps) => {
   const { t } = useTranslation();
 
@@ -44,7 +42,7 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
   });
 
   function handleChange(value: string, index: number) {
-    if (value && index < numberOfDigits - 1) {
+    if (value && index < otpNumberOfDigits - 1) {
       otpBoxReference.current[index + 1]?.focus();
     }
   }
@@ -59,7 +57,7 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
     if (
       e.key === 'Enter' &&
       e.currentTarget.value &&
-      index < numberOfDigits - 1
+      index < otpNumberOfDigits - 1
     ) {
       otpBoxReference.current[index + 1]?.focus();
     }

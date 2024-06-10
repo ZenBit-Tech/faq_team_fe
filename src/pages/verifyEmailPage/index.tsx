@@ -12,8 +12,8 @@ import bgImg from 'assets/images/verification.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
 import { useAppSelector } from 'redux/hooks.ts';
 import { links } from 'const/links';
+import { otpFormVersions } from 'const/constants';
 
-const optAction = 'register';
 export const VerifyEmailPage = () => {
   const { t } = useTranslation();
   const user = useAppSelector(state => state.auth.user);
@@ -28,7 +28,7 @@ export const VerifyEmailPage = () => {
           </Title>
           <SubTitle>{t('verificationEmail.subtitle')}</SubTitle>
         </FormHeader>
-        <OtpForm email={user.email} action={optAction} />
+        <OtpForm email={user.email} action={otpFormVersions.verifyEmail} />
       </FormContainer>
     </FormSection>
   );
