@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { useUpdateMutation } from 'redux/authApiSlice';
 import { Inputs, Props } from './types';
-import { ButtonVariant } from '../button/types';
+import { ButtonVariant } from 'components/button/types';
 import { useEffect, useState } from 'react';
 import {
   ErrorMsg,
