@@ -6,8 +6,8 @@ import { Global, ThemeProvider } from '@emotion/react';
 import './translation/i18n.ts';
 import { Provider } from 'react-redux';
 import store from './redux/store.ts';
-import { theme } from './styles/theme.ts';
-import { globalStyles } from './styles/globalStyles';
+import { theme } from 'styles/theme.ts';
+import { globalStyles } from 'styles/globalStyles.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

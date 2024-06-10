@@ -17,16 +17,17 @@
     "repeatPassword": "Repeat Password*",
     "submitBtn": "Sign Up",
     "signInLink": "Do you have an account?",
-    "signin": "Sign In",
+    "signIn": "Sign In",
     "policyLink": "Privacy Policy",
-    "termsLink": "Terms of Use"
+    "termsLink": "Terms of Use",
+    "google": "Sign Up with Google"
   },
 
   "verificationEmail": {
-    "title": "Verify your email",
+    "title": "Verification email",
     "subtitle": "We have sent an OTP verification code to your email, please enter it here",
     "code": "Code",
-    "expired": "will expire in 00:55",
+    "expired": "will expire in",
     "resend": "Send Again",
     "submitBtn": "Verify"
   },
@@ -89,10 +90,19 @@
     "repeatPassword": "Repeat Password*",
     "forgotPassLink": "Forgot Password?",
     "submitBtn": "Sign In",
-    "signUpLink": "Do you have an account?",
-    "signup": "Sign Up",
+    "signUpLink": "Do you have an account? ",
+    "signUp": "Sign Up",
+    "google": "Sign In with Google",
     "policyLink": "Privacy Policy",
     "termsLink": "Terms of Use"
+  },
+  "confirmCredentials": {
+    "title": "Confirm Your Credentials",
+    "name": "Name*",
+    "namePlaceholder": "Enter your name",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "submitBtn": "Confirm"
   },
 
   "restorePassword": {
@@ -134,5 +144,25 @@
   "policy": {
     "title": "Privacy Policy",
     "terms": "Terms & Conditions"
+  },
+
+  "validation": {
+    "email": "Email format is incorrect",
+    "password": "Password format is incorrect",
+    "passwordMatch": "Passwords entered in the \"Password\" and \"Repeat password\" fields must match",
+    "server": "Email or password incorrect",
+    "credentials": "Please enter your credentials"
+  },
+
+  "loading": {
+    "text": "Loading..."
+  },
+  "privacyPolicy": {
+    "title": "SomeTitle",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
+  },
+  "termsConditions": {
+    "title": "SomeTitle",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
   }
 }

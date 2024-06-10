@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ButtonVariant, buttonProps } from './types';
-import { Theme } from 'src/styles/theme';
+import { Theme } from 'styles/theme';
 
 export const StyledButton = styled.button<{ theme: Theme } & buttonProps>`
   background-color: ${props =>
@@ -11,11 +11,7 @@ export const StyledButton = styled.button<{ theme: Theme } & buttonProps>`
     props.variant === ButtonVariant.Black
       ? props.theme.colors.white
       : props.theme.colors.black};
-  border: 2px solid
-    ${props =>
-      props.variant === ButtonVariant.Black
-        ? props.theme.colors.black
-        : props.theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.black};
   padding: 16px;
   font-size: ${({ theme }) => theme.fontSize.md};
   cursor: pointer;
