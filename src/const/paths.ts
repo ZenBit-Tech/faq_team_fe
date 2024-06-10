@@ -7,4 +7,6 @@ export const paths = {
   termsOfUse: '/terms-of-use',
   verify: 'verify',
   newPassword: 'new-password',
+  verifyOtp: 'verify-otp',
+  verifyEmail: 'verify-email',
 };

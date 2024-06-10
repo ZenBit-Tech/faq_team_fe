@@ -33,6 +33,7 @@ export const RestorePassForm = () => {
     register,
     handleSubmit,
     formState: { errors, isDirty, isSubmitting },
+    setError,
   } = useForm<RestorePass>({
     defaultValues: {
       email: '',
@@ -41,9 +42,16 @@ export const RestorePassForm = () => {
   });
 
   const onSubmit: SubmitHandler<RestorePass> = async data => {
-    await sendOtp(data);
-    dispatch(setEmail(data.email));
-    navigate(paths.verify);
+    try {
+      await sendOtp(data).unwrap();
+      dispatch(setEmail(data.email));
+      navigate(paths.verify);
+    } catch (error) {
+      setError('root', {
+        type: 'server',
+        message: t('validation.server'),
+      });
+    }
   };
 
   return (

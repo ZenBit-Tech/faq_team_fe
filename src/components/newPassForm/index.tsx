@@ -13,16 +13,20 @@ import EyeIcon from 'assets/icons/iconEye';
 import EyeCloseIcon from 'assets/icons/iconEyeClose';
 import { useNewPassMutation } from 'redux/authApiSlice.ts';
 
+const passLengthLim = 8;
 export const NewPassForm = ({ email }: { email: string }) => {
   const { t } = useTranslation();
 
   const [newPass, { isError, isLoading }] = useNewPassMutation();
+
+  const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
+
   const signUpSchema = yup
     .object()
     .shape({
       password: yup
         .string()
-        .min(8, t('validation.password'))
+        .min(passLengthLim, t('validation.password'))
         .required(t('validation.credentials')),
       repeatedPassword: yup
         .string()
@@ -31,7 +35,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
           t('validation.passwordMatch'),
           (value, { parent }) => !value || value === parent.password,
         )
-        .min(8, t('validation.password'))
+        .min(passLengthLim, t('validation.password'))
         .required(t('validation.credentials')),
     })
     .required();
@@ -39,6 +43,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
     register,
     handleSubmit,
     formState: { errors, isDirty, isSubmitting },
+    setError,
   } = useForm<NewPass>({
     defaultValues: {
       password: '',
@@ -48,14 +53,20 @@ export const NewPassForm = ({ email }: { email: string }) => {
   });
 
   const onSubmit: SubmitHandler<NewPass> = async data => {
-    await newPass({ password: data.password, email });
+    try {
+      await newPass({ password: data.password, email }).unwrap();
+    } catch (error) {
+      setError('root', {
+        type: 'server',
+        message: t('restorePassword.server'),
+      });
+    }
   };
-
-  const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
 
   const handlePassword = () => {
     setPasswordShown(!isPasswordShown);
   };
+
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>

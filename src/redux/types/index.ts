@@ -38,3 +38,12 @@ export type RequestNewPass = {
   password: string;
   email: string;
 };
+
+export type ResponseVerifyOtp = {
+  is_verified: boolean;
+};
+
+export type RequestVerifyOtp = {
+  otp_code: string;
+  email: string;
+};

@@ -5,6 +5,8 @@ import {
   ResponseLogin,
   ResponseRegistration,
   RequestNewPass,
+  ResponseVerifyOtp,
+  RequestVerifyOtp,
 } from './types';
 const USERS_URL = '/api/user';
 const CARDS_URL = '/api/cards';
@@ -45,6 +47,13 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    verifyOtp: builder.mutation<ResponseVerifyOtp, RequestVerifyOtp>({
+      query: data => ({
+        url: `${USER_URL}/verify-otp`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -54,4 +63,5 @@ export const {
   useRestorePassMutation,
   useGetUserQuery,
   useNewPassMutation,
+  useVerifyOtpMutation,
 } = appApiSlice;
