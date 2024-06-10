@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { useUpdateMutation } from 'redux/authApiSlice';
-import { Inputs, Props } from './types';
+import { Inputs, Props } from 'components/confirmCredentialsForm/types';
 import { ButtonVariant } from 'components/button/types';
 import { useEffect, useState } from 'react';
 import {
