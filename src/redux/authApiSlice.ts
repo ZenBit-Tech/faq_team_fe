@@ -8,48 +8,46 @@ import {
   ResponseVerifyOtp,
   RequestVerifyOtp,
 } from 'redux/types';
-const USERS_URL = '/api/user';
-const CARDS_URL = '/api/cards';
-const USER_URL = 'users';
+import * as paths from 'const/paths';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation<ResponseLogin, RequestLogin>({
       query: data => ({
-        url: `${USERS_URL}/login`,
+        url: paths.signIn,
         method: 'POST',
         body: data,
       }),
     }),
     registration: builder.mutation<ResponseRegistration, RequestRegistration>({
       query: data => ({
-        url: `${USERS_URL}/register`,
+        url: paths.signUp,
         method: 'POST',
         body: data,
       }),
     }),
     getUser: builder.query({
       query: () => ({
-        url: `${CARDS_URL}`,
+        url: paths.getUser,
       }),
     }),
     restorePass: builder.mutation({
       query: data => ({
-        url: `${USER_URL}/user/send-otp`,
+        url: paths.restorePassword,
         method: 'POST',
         body: data,
       }),
     }),
     newPass: builder.mutation<void, RequestNewPass>({
       query: data => ({
-        url: `${USER_URL}/set-new-pass`,
+        url: paths.newPassword,
         method: 'POST',
         body: data,
       }),
     }),
     verifyOtp: builder.mutation<ResponseVerifyOtp, RequestVerifyOtp>({
       query: data => ({
-        url: `${USER_URL}/verify-otp`,
+        url: paths.verifyOtp,
         method: 'POST',
         body: data,
       }),
