@@ -12,12 +12,12 @@ import {
 } from 'redux/authApiSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
-import { useEffect, useState } from 'react';
 import { OptFormProps, OtpFormValue } from 'components/otpForm/types';
 import { paths } from 'const/paths';
 import { useRef } from 'react';
 import { otpFormVersions } from 'const/constants';
 import { otpExpirationTime, clockPrecision, otpNumberOfDigits} from 'const/constants';
+import { useOtpTimer } from 'components/otpForm/otpFormHooks';
 
 const otpInputMaxLength = 1;
 const otpInputPlaceholder = "1";
@@ -25,7 +25,7 @@ const otpInputPlaceholder = "1";
 export const OtpForm = ({ email, action }: OptFormProps) => {
   const { t } = useTranslation();
 
-  const [timer, setTimer] = useState<number>(otpExpirationTime);
+  const { timer, resetTimer } = useOtpTimer(otpExpirationTime, clockPrecision);
 
   const [verifyOtp] = useVerifyOtpMutation();
   const [sendOtp] = useRestorePassMutation();
@@ -97,10 +97,6 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
     }
   };
 
-  const resetTimer = () => {
-    setTimer(otpExpirationTime);
-  };
-
   const resend = async () => {
     try {
       await sendOtp(email).unwrap();
@@ -112,13 +108,6 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
       });
     }
   };
-
-  useEffect(() => {
-    if (timer > 0) {
-      const timeoutId = setTimeout(() => setTimer(timer - 1), clockPrecision);
-      return () => clearTimeout(timeoutId);
-    }
-  }, [timer]);
 
   return (
     <OtpFrom onSubmit={handleSubmit(checkOtp)}>

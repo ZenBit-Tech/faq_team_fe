@@ -17,6 +17,7 @@ import { links } from 'const/links';
 
 const RestorePassPage = () => {
   const { t } = useTranslation();
+  
   return (
     <FormSection>
       <LogoContainer img={bgImg}>

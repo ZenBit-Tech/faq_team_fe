@@ -56,6 +56,7 @@ export const InputContainer = styled.div<{ theme?: Theme }>`
   display: flex;
   gap: 13px;
 `;
+
 export const VerifyBtn = styled(Button)<{ theme?: Theme }>`
   width: 100%;
   padding: 16px 141px;

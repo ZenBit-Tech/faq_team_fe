@@ -17,6 +17,7 @@ import { otpFormVersions } from 'const/constants';
 export const VerifyEmailPage = () => {
   const { t } = useTranslation();
   const user = useAppSelector(state => state.auth.user);
+  
   return (
     <FormSection>
       <LogoContainer img={bgImg}></LogoContainer>

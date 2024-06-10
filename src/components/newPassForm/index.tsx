@@ -8,18 +8,18 @@ import {
   SubmitBtn,
   ErrorMsg,
 } from 'components/sharedUI/form/styles';
-import { useState } from 'react';
 import EyeIcon from 'assets/icons/iconEye';
 import EyeCloseIcon from 'assets/icons/iconEyeClose';
 import { useNewPassMutation } from 'redux/authApiSlice.ts';
 import { passLengthLim } from 'const/constants';
+import { useTogglePassVisibility } from 'components/newPassForm/newPassFormHooks';
 
 export const NewPassForm = ({ email }: { email: string }) => {
   const { t } = useTranslation();
 
   const [newPass, { isError, isLoading }] = useNewPassMutation();
 
-  const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
+  const { isPassShown, togglePassVisibility } = useTogglePassVisibility();
 
   const signUpSchema = yup
     .object()
@@ -39,6 +39,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
         .required(t('validation.credentials')),
     })
     .required();
+    
   const {
     register,
     handleSubmit,
@@ -63,10 +64,6 @@ export const NewPassForm = ({ email }: { email: string }) => {
     }
   };
 
-  const handlePassword = () => {
-    setPasswordShown(!isPasswordShown);
-  };
-
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -80,8 +77,8 @@ export const NewPassForm = ({ email }: { email: string }) => {
             id="user-password"
           />
           {errors.password && <ErrorMsg>{errors.password.message}</ErrorMsg>}
-          <button type="button" onClick={handlePassword}>
-            {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
+          <button type="button" onClick={togglePassVisibility}>
+            {isPassShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
         <div>
@@ -98,8 +95,8 @@ export const NewPassForm = ({ email }: { email: string }) => {
           {errors.repeatedPassword && (
             <ErrorMsg>{errors.repeatedPassword.message}</ErrorMsg>
           )}
-          <button type="button" onClick={handlePassword}>
-            {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
+          <button type="button" onClick={togglePassVisibility}>
+            {isPassShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
         {isError && <ErrorMsg>{t('validation.server')}</ErrorMsg>}

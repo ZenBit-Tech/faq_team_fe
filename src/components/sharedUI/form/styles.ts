@@ -226,6 +226,7 @@ export const PolicyLink = styled(Link)<{ theme?: Theme }>`
     color: ${({ theme }) => theme.colors.black};
   }
 `;
+
 export const Title = styled.h1<{ theme?: Theme }>`
   display: flex;
   flex-direction: row;
@@ -245,6 +246,7 @@ export const Title = styled.h1<{ theme?: Theme }>`
     color: ${({ theme }) => theme.colors.black};
   }
 `;
+
 export const SubTitle = styled.h2<{ theme?: Theme }>`
   margin-bottom: 20px;
   font-weight: ${({ theme }) => theme.fontWeight.regular};
@@ -260,6 +262,7 @@ export const SubTitle = styled.h2<{ theme?: Theme }>`
     color: ${({ theme }) => theme.colors.black};
   }
 `;
+
 export const FormLink = styled(Link)<{ theme?: Theme }>`
   display: flex;
   justify-content: center;
@@ -390,6 +393,7 @@ export const Text = styled.p<{ theme?: Theme }>`
     }
   }
 `;
+
 export const LogoWrap = styled.div<{ theme?: Theme }>`
   margin: 50px 0 0 50px;
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {

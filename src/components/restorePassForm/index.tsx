@@ -29,6 +29,7 @@ export const RestorePassForm = () => {
         .required(t('validation.creadentials')),
     })
     .required();
+    
   const {
     register,
     handleSubmit,

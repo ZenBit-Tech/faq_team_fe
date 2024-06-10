@@ -18,6 +18,7 @@ import { links } from 'const/links';
 const NewPassPage = () => {
   const { t } = useTranslation();
   const user = useAppSelector(state => state.auth.user);
+  
   return (
     <FormSection>
       <LogoContainer img={bgImg}>
