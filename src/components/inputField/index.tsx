@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import * as styles from 'src/components/inputField/styles';
-import { InputFieldInt } from 'src/components/inputField/types';
+import * as styles from './styles';
+import { InputFieldInt } from './types';
 
 const InputField = ({
   label,

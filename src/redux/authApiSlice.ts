@@ -52,6 +52,13 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    restorePass: builder.mutation({
+      query: data => ({
+        url: `${USER_URL}/user/send-otp`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
   }),
 });
 
