@@ -8,7 +8,7 @@ import {
   Title,
   FormContainer,
 } from 'components/sharedUI/form/styles';
-import bgImg from 'src/assets/images/sign-in.png';
+import bgImg from 'assets/images/sign-in.png';
 import { ArrowBackLink } from 'components/arrowBackLink';
 import { useAppSelector } from 'redux/hooks.ts';
 import { links } from 'const/links';

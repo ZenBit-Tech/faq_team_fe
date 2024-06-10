@@ -1,4 +1,4 @@
-import { apiSlice } from './apiSlice';
+import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
   RequestRegistration,
@@ -7,7 +7,7 @@ import {
   RequestNewPass,
   ResponseVerifyOtp,
   RequestVerifyOtp,
-} from './types';
+} from 'redux/types';
 const USERS_URL = '/api/user';
 const CARDS_URL = '/api/cards';
 const USER_URL = 'users';

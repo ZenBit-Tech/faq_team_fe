@@ -19,6 +19,9 @@ import { useRef } from 'react';
 import { otpFormVersions } from 'const/constants';
 import { otpExpirationTime, clockPrecision, otpNumberOfDigits} from 'const/constants';
 
+const otpInputMaxLength = 1;
+const otpInputPlaceholder = "1";
+
 export const OtpForm = ({ email, action }: OptFormProps) => {
   const { t } = useTranslation();
 
@@ -128,8 +131,8 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
             render={({ field }) => (
               <input
                 type="text"
-                placeholder="1"
-                maxLength={1}
+                placeholder={otpInputPlaceholder}
+                maxLength={otpInputMaxLength}
                 ref={reference => (otpBoxReference.current[index] = reference)}
                 value={field.value}
                 onChange={e => {
