@@ -5,12 +5,15 @@ import { paths } from 'const/paths';
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
-const RestorePasswordPage = lazy(() => import('pages/restorePasswordPage'));
+const RestorePasswordPage = lazy(() => import('pages/restorePassPage'));
 const PrivacyPolicyPage = lazy(() => import('pages/privacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
 const ConfirmCredentialsPage = lazy(
   () => import('pages/confirmCredentialsPage'),
 );
+const NewPassPage = lazy(() => import('pages/newPassPage'));
+const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
+const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             element={<RestorePasswordPage />}
           />
           <Route path={paths.privacyPolicy} element={<PrivacyPolicyPage />} />
+          <Route path={paths.newPassword} element={<NewPassPage />} />
+          <Route path={paths.verifyOtp} element={<VerifyOtpPAge />} />
+          <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
           <Route
             path={paths.confirmCredentials}

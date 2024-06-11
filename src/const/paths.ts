@@ -5,6 +5,10 @@ export const paths = {
   restorePassword: '/restore-password',
   privacyPolicy: '/privacy-policy',
   termsOfUse: '/terms-of-use',
-  verify: 'verify',
   confirmCredentials: '/confirm-credentials',
+  verify: '/verify',
+  newPassword: '/new-password',
+  verifyOtp: '/verify-otp',
+  verifyEmail: '/verify-email',
+  getUser: '/users',
 };

@@ -33,6 +33,7 @@ export type AuthState = {
   user: User;
   access_token: string;
 };
+
 export type RequestUpdateUser = {
   user_name?: string;
   email?: string;
@@ -55,4 +56,18 @@ export type ResponseGetUser = {
   role?: string;
   otp_code?: string;
   id?: string;
+
+export type RequestNewPass = {
+  password: string;
+  email: string;
+};
+
+export type ResponseVerifyOtp = {
+  is_verified: boolean;
+};
+
+export type RequestVerifyOtp = {
+  otp_code: string;
+  email: string;
+
 };
