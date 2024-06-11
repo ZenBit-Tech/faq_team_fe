@@ -39,7 +39,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
         .required(t('validation.credentials')),
     })
     .required();
-    
+
   const {
     register,
     handleSubmit,
@@ -70,7 +70,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
         <div>
           <label htmlFor="user-password">{t('signUp.password')}</label>
           <input
-            type={isPasswordShown ? 'text' : 'password'}
+            type={isPassShown ? 'text' : 'password'}
             {...register('password')}
             className={errors.password ? 'error-input' : ''}
             placeholder={t('restorePasswordSignIn.passwordsPlaceholder')}
@@ -86,7 +86,7 @@ export const NewPassForm = ({ email }: { email: string }) => {
             {t('restorePasswordSignIn.repeatPassword')}
           </label>
           <input
-            type={isPasswordShown ? 'text' : 'password'}
+            type={isPassShown ? 'text' : 'password'}
             {...register('repeatedPassword')}
             className={errors.password ? 'error-input' : ''}
             placeholder={t('restorePasswordSignIn.passwordsPlaceholder')}
