@@ -12,6 +12,10 @@ export type Color = {
   green_success: string;
   error_tablet: string;
   overlay_black: string;
+  secondary_black: string;
+  thirdary_black: string;
+  box_shadow: string;
+  light_gray: string;
 };
 
 export type Breakpoint = {
@@ -24,8 +28,10 @@ export type FontSize = {
   sm: string;
   md: string;
   lg: string;
+  semiLg: string;
   extraLg: string;
   extraSm: string;
+  xl: string;
   xxl: string;
 };
 

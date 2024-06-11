@@ -30,6 +30,10 @@ export const theme: Theme = {
     green_success: '#36b37e',
     error_tablet: '#ff4b4b',
     overlay_black: 'rgba(0, 0, 0, 0.6)',
+    secondary_black: '#1c1c1e',
+    thirdary_black: '#141519',
+    box_shadow: 'rgba(25, 25, 25, 0.06)',
+    light_gray: '#a0a8b0',
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
@@ -44,7 +48,9 @@ export const theme: Theme = {
     sm: '14px',
     md: '16px',
     lg: '18px',
+    semiLg: '20px',
     extraLg: '28px',
+    xl: '36px',
     xxl: '40px',
   },
   fontWeight: {
