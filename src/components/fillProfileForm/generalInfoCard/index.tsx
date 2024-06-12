@@ -4,8 +4,8 @@ import {
   StyledTitle,
   StyledSubtitle,
   StyledFormContainer,
-} from './styles';
-import { StyledButton } from '../styles';
+} from 'components/fillProfileForm/generalInfoCard/styles';
+import { StyledButton } from 'components/fillProfileForm/styles';
 import avatar from 'assets/images/avatar.png';
 import UploadAvatar from 'assets/icons/uploadAvatar';
 import {
@@ -14,30 +14,45 @@ import {
   parseCountry,
 } from 'react-international-phone';
 import 'react-international-phone/style.css';
+import { useTranslation } from 'react-i18next';
+import { ButtonVariant } from 'components/fillProfileForm/types';
+
+const countryCodes = ['ua', 'ca'];
+
+const countries = defaultCountries.filter(country => {
+  const { iso2 } = parseCountry(country);
+  return countryCodes.includes(iso2);
+});
 
 const GeneralInfoCard = () => {
   const [phone, setPhone] = useState('');
-  const countries = defaultCountries.filter(country => {
-    const { iso2 } = parseCountry(country);
-    return ['us', 'ua', 'gb'].includes(iso2);
-  });
+  const { t } = useTranslation();
+
   return (
     <>
       <StyledForm>
         <StyledFormContainer>
-          <StyledTitle>Title</StyledTitle>
-          <StyledSubtitle>Subtitle</StyledSubtitle>
+          <StyledTitle>
+            {t('fillProfile.generalInfoCard.photoTitle')}
+          </StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.generalInfoCard.photoSubTitle')}
+          </StyledSubtitle>
         </StyledFormContainer>
         <img src={avatar} />
-        <StyledButton variant="black">
+        <StyledButton variant={ButtonVariant.Black}>
           <UploadAvatar />
-          Upload Photo
+          {t('fillProfile.generalInfoCard.uploadPhotoButton')}
         </StyledButton>
       </StyledForm>
       <StyledForm>
         <StyledFormContainer>
-          <StyledTitle>Title</StyledTitle>
-          <StyledSubtitle>Subtitle</StyledSubtitle>
+          <StyledTitle>
+            {t('fillProfile.generalInfoCard.phoneTitle')}
+          </StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.generalInfoCard.phoneSubTitle')}
+          </StyledSubtitle>
         </StyledFormContainer>
         <div>
           <PhoneInput

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Theme } from 'styles/theme';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -8,14 +9,14 @@ export const StyledForm = styled.form`
   padding: 20px;
 `;
 
-export const StyledTitle = styled.div`
-  font-size: 1.5rem;
+export const StyledTitle = styled.div<{ theme?: Theme }>`
+  font-size: ${({ theme }) => theme.fontSize.md};
   font-weight: bold;
   margin: 0;
 `;
 
-export const StyledSubtitle = styled.div`
-  font-size: 1rem;
+export const StyledSubtitle = styled.div<{ theme?: Theme }>`
+  font-size: ${({ theme }) => theme.fontSize.sm};
   color: #666;
   margin: 0;
 `;
@@ -33,13 +34,13 @@ export const StyledFormContainer = styled.div`
   gap: 5px;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{ theme?: Theme }>`
   appearance: none;
   width: 20px;
   height: 20px;
   border: 1px solid grey;
   border-radius: 50%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   cursor: pointer;
   outline: none;
@@ -49,7 +50,7 @@ export const StyledInput = styled.input`
     content: '';
     width: 12px;
     height: 12px;
-    background-color: black;
+    background-color: ${({ theme }) => theme.colors.black};
     border-radius: 50%;
     position: absolute;
     top: 50%;

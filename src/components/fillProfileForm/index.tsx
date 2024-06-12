@@ -6,19 +6,23 @@ import {
   TabsContainer,
   StyledButton,
   ButtonsContainer,
-} from './styles';
+} from 'components/fillProfileForm/styles';
 import { TabList, Tab, TabPanel } from 'react-tabs';
-import RoleCard from './roleCard';
-import GeneralInfoCard from './generalInfoCard';
+import RoleCard from 'components/fillProfileForm/roleCard';
+import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
+import { useTranslation } from 'react-i18next';
+import { ButtonVariant } from 'components/fillProfileForm/types';
 
 const FillProfileForm = () => {
+  const { t } = useTranslation();
+
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const tabs = [<RoleCard />, <GeneralInfoCard />, 3, 4, 5];
+  const tabs = [<RoleCard />, <GeneralInfoCard />];
 
   return (
     <TabsSection>
       <TabsContainer>
-        <TabsHeader>Fill Profile</TabsHeader>
+        <TabsHeader>{t('fillProfile.header')}</TabsHeader>
         <StyledTabs selectedIndex={selectedIndex}>
           <TabList>
             {tabs.map((tab, index) => (
@@ -29,7 +33,7 @@ const FillProfileForm = () => {
                     : 'react-tabs__tab'
                 }
               >
-                Title {index + 1}
+                {t('fillProfile.tab1')}
               </Tab>
             ))}
           </TabList>
@@ -40,18 +44,18 @@ const FillProfileForm = () => {
               <ButtonsContainer>
                 {index > 0 && (
                   <StyledButton
-                    variant={'white'}
+                    variant={ButtonVariant.White}
                     onClick={() => setSelectedIndex(index - 1)}
                   >
-                    Prev
+                    {t('fillProfile.prevButton')}
                   </StyledButton>
                 )}
-                {index < 4 && (
+                {index < tabs.length - 1 && (
                   <StyledButton
-                    variant={'black'}
+                    variant={ButtonVariant.Black}
                     onClick={() => setSelectedIndex(index + 1)}
                   >
-                    Next
+                    {t('fillProfile.nextButton')}
                   </StyledButton>
                 )}
               </ButtonsContainer>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   StyledForm,
   StyledTitle,
@@ -5,23 +6,36 @@ import {
   StyledRadioGroup,
   StyledFormContainer,
   StyledInput,
-} from './styles';
+} from 'components/fillProfileForm/roleCard/styles';
+import { UserRoles } from 'components/fillProfileForm/roleCard/types';
+
+const radioFormName = 'role';
 
 const RoleCard = () => {
+  const { t } = useTranslation();
+
   return (
     <StyledForm>
       <StyledFormContainer>
-        <StyledTitle>Title</StyledTitle>
-        <StyledSubtitle>Subtitle</StyledSubtitle>
+        <StyledTitle>{t('fillProfile.roleCard.title')}</StyledTitle>
+        <StyledSubtitle>{t('fillProfile.roleCard.subTitle')}</StyledSubtitle>
       </StyledFormContainer>
       <StyledRadioGroup>
         <label>
-          <StyledInput type="radio" name="option" value="Buyer" />
-          Buyer
+          <StyledInput
+            type="radio"
+            name={radioFormName}
+            value={UserRoles.Buyer}
+          />
+          {t('fillProfile.roleCard.buyer')}
         </label>
         <label>
-          <StyledInput type="radio" name="option" value="Vendor" />
-          Vendor
+          <StyledInput
+            type="radio"
+            name={radioFormName}
+            value={UserRoles.Vendor}
+          />
+          {t('fillProfile.roleCard.vendor')}
         </label>
       </StyledRadioGroup>
     </StyledForm>

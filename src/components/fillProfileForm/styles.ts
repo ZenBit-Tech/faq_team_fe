@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { Tabs } from 'react-tabs';
+import { Theme } from 'styles/theme';
+import { ButtonVariant, buttonProps } from 'components/fillProfileForm/types';
 
-export const TabsSection = styled.div`
-  background-color: grey;
+export const TabsSection = styled.div<{ theme?: Theme }>`
+  background-color: ${({ theme }) => theme.colors.for_card_bg};
   min-height: 800px;
   height: 100vh;
   display: flex;
@@ -23,9 +25,8 @@ export const TabsContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StyledTabs = styled(Tabs)`
-  // height: 80%;
-  background-color: white;
+export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
 
   .react-tabs__tab-list {
@@ -54,7 +55,7 @@ export const StyledTabs = styled(Tabs)`
   .react-tabs__tab--before-selected {
     flex-grow: 1;
     text-align: center;
-    background-color: cyan;
+    background-color: ${({ theme }) => theme.colors.pastel_green};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,19 +67,22 @@ export const StyledTabs = styled(Tabs)`
     }
   }
 `;
-export interface buttonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: string;
-}
-export const StyledButton = styled.button<buttonProps>`
+
+export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
   min-width: 100px;
   padding: 8px;
   margin: 5px;
   border: solid;
-  border-color: black;
+  border-color: ${({ theme }) => theme.colors.black};
   border-width: 1px;
-  background-color: ${props => (props.variant === 'white' ? 'white' : 'black')};
-  color: ${props => (props.variant === 'white' ? 'black' : 'white')};
+  background-color: ${props =>
+    props.variant === ButtonVariant.White
+      ? ({ theme }) => theme.colors.white
+      : ({ theme }) => theme.colors.black};
+  color: ${props =>
+    props.variant === ButtonVariant.White
+      ? ({ theme }) => theme.colors.black
+      : ({ theme }) => theme.colors.white};
   border-radius: 8px;
   display: flex;
   gap: 5px;
