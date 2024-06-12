@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { useUpdateMutation } from 'redux/authApiSlice';
 import { Inputs, Props } from 'components/confirmCredentialsForm/types';
 import { ButtonVariant } from 'components/button/types';
-import { useEffect, useState } from 'react';
 import {
   ErrorMsg,
   StyledForm,
@@ -39,6 +39,13 @@ export const ConfirmCredentialsForm = ({
     },
     resolver: yupResolver(confirmSchema),
   });
+  useEffect(() => {
+    reset({
+      email: email_value,
+      full_name: full_name,
+    });
+  }, [email_value, full_name, reset]);
+
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
       await update({ id, data }).unwrap();
@@ -56,14 +63,6 @@ export const ConfirmCredentialsForm = ({
       }
     }
   };
-
-  useEffect(() => {
-    reset({
-      email: email_value,
-      full_name: full_name,
-    });
-  }, [email_value, full_name, reset]);
-
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
