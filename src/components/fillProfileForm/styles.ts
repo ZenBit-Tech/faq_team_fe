@@ -79,7 +79,11 @@ export const StyledButton = styled.button<buttonProps>`
   border-width: 1px;
   background-color: ${props => (props.variant === 'white' ? 'white' : 'black')};
   color: ${props => (props.variant === 'white' ? 'black' : 'white')};
-  border-radius: 15px;
+  border-radius: 8px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ButtonsContainer = styled.div`

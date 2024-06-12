@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './pages/sharedLayout';
 import { paths } from 'const/paths';
+import FillProfilePage from 'pages/fillProfilePage';
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
@@ -11,7 +12,7 @@ const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
 const NewPassPage = lazy(() => import('pages/newPassPage'));
 const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
 const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
-const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
+// const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
 
 function App() {
   return (

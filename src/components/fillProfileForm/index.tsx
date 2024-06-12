@@ -9,10 +9,11 @@ import {
 } from './styles';
 import { TabList, Tab, TabPanel } from 'react-tabs';
 import RoleCard from './roleCard';
+import GeneralInfoCard from './generalInfoCard';
 
 const FillProfileForm = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const tabs = [<RoleCard />, 2, 3, 4, 5];
+  const tabs = [<RoleCard />, <GeneralInfoCard />, 3, 4, 5];
 
   return (
     <TabsSection>
