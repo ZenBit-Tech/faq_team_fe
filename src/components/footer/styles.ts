@@ -32,8 +32,8 @@ export const FooterSocials = styled.div`
   display: flex;
   gap: 16px;
 `;
-export const FooterIcon = styled.div`
-  background-color: black;
+export const FooterIcon = styled.div<{ theme?: Theme }>`
+  background-color: ${({ theme }) => theme.colors.black};
   border-radius: 50%;
   padding: 9px;
 `;
@@ -60,7 +60,7 @@ export const FooterMenuItem = styled.li<{ theme?: Theme }>`
 `;
 export const FooterLink = styled(Link)``;
 
-export const Credentials = styled.div`
-  border-top: 1px solid gray;
+export const Credentials = styled.div<{ theme?: Theme }>`
+  border-top: 1px solid ${({ theme }) => theme.colors.gray};
   padding: 24px 0;
 `;

@@ -67,7 +67,7 @@ export const Circle = styled.div<{ theme?: Theme }>`
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 10px;
+  font-size: ${({ theme }) => theme.fontSize.sm};
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
 `;
