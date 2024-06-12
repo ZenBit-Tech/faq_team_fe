@@ -44,12 +44,6 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     border-radius: 5px 0px 0px 0px;
     &:hover {
     }
-
-    &.react-tabs__tab--selected {
-    }
-
-    &.react-tabs__tab--disabled {
-    }
   }
 
   .react-tabs__tab--before-selected {
@@ -61,10 +55,6 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     justify-content: center;
     border-radius: 5px 0px 0px 0px;
   }
-
-  .react-tabs__tab-panel {
-    &.react-tabs__tab-panel--selected {
-    }
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Theme } from 'styles/theme';
 
 export const StyledFormContainer = styled.div`
   display: flex;
@@ -6,15 +7,14 @@ export const StyledFormContainer = styled.div`
   gap: 5px;
 `;
 
-export const StyledTitle = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
+export const StyledTitle = styled.div<{ theme?: Theme }>`
+  font-size: ${({ theme }) => theme.fontSize.md};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin: 0;
 `;
 
-export const StyledSubtitle = styled.div`
-  font-size: 1rem;
-  color: #666;
+export const StyledSubtitle = styled.div<{ theme?: Theme }>`
+  font-size: ${({ theme }) => theme.fontSize.sm};
   margin: 0;
 `;
 

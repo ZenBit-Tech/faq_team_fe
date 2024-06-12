@@ -11,13 +11,12 @@ export const StyledForm = styled.form`
 
 export const StyledTitle = styled.div<{ theme?: Theme }>`
   font-size: ${({ theme }) => theme.fontSize.md};
-  font-weight: bold;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin: 0;
 `;
 
 export const StyledSubtitle = styled.div<{ theme?: Theme }>`
   font-size: ${({ theme }) => theme.fontSize.sm};
-  color: #666;
   margin: 0;
 `;
 
@@ -38,7 +37,7 @@ export const StyledInput = styled.input<{ theme?: Theme }>`
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 1px solid grey;
+  border: 1px solid ${({ theme }) => theme.colors.gray};
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.white};
   position: relative;

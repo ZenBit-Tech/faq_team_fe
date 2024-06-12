@@ -13,10 +13,12 @@ import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
 import { useTranslation } from 'react-i18next';
 import { ButtonVariant } from 'components/fillProfileForm/types';
 
+const firstTabIndex = 0;
+
 const FillProfileForm = () => {
   const { t } = useTranslation();
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(firstTabIndex);
   const tabs = [<RoleCard />, <GeneralInfoCard />];
 
   return (
@@ -42,7 +44,7 @@ const FillProfileForm = () => {
             <TabPanel>
               {tab}
               <ButtonsContainer>
-                {index > 0 && (
+                {index > firstTabIndex && (
                   <StyledButton
                     variant={ButtonVariant.White}
                     onClick={() => setSelectedIndex(index - 1)}
