@@ -183,8 +183,30 @@
   "deleteAccount": {
     "button": "Delete account",
     "title": "Are you sure want to delete your account?",
-    "subtitle": "Deleted user will lose the ability to use the application",
-    "cancel": "Cancel",
-    "delete": "Delete"
+    "subtitle": "You will lose access to the application and all your data",
+    "cancel": "No",
+    "delete": "Yes"
+  },
+
+  "editProfile": {
+    "title": "Personal Information",
+    "sizesTitle": "Sizes",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "your_email@gmail.com",
+    "phone": "Phone",
+    "phonePlaceholder": "82120142305",
+    "sizes": {
+      "clothes": "Clothes Size",
+      "shoes": "Shoes Size",
+      "jeans": "Jeans Size"
+    },
+    "sizeLink": "Size guide",
+    "address": "Address",
+    "addressPlaceholder": "South Banasree Road No: 5/2 Blog (D) Unity Aid\nToronto, Canada\nPostcode",
+    "card": "Payment Method",
+    "cardPlaceholder": "**** **** **** 4567",
+    "button": "Save"
   }
 }
