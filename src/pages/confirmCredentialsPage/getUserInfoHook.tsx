@@ -4,11 +4,11 @@ import {
 } from 'helpers/errorHandler';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useGetUserMutation } from 'redux/authApiSlice';
+import { useFindUserMutation } from 'redux/authApiSlice';
 
 const UseGetUserInfoHook = () => {
   const [searchParams] = useSearchParams();
-  const [getUser, { isError }] = useGetUserMutation();
+  const [getUser, { isError }] = useFindUserMutation();
   const [error, setError] = useState<string>();
   const [user, setUser] = useState<{
     email: string;

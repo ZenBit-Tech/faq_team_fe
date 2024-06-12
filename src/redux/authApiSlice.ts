@@ -12,8 +12,8 @@ import {
 } from 'redux/types';
 import { paths } from 'const/paths';
 const AUTH_URL = 'Authorization';
-const USER_URL = 'users';
-const AUTH_URL = '/auth';
+const USER_UPDATE_URL = 'users/update';
+const FIND_USER_URL = 'users/user';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -32,14 +32,14 @@ const appApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
-    getUser: builder.mutation<ResponseGetUser, { token: string }>({
+    findUser: builder.mutation<ResponseGetUser, { token: string }>({
       query: data => ({
-        url: `${USER_URL}/user`,
+        url: `${FIND_USER_URL}`,
         method: 'POST',
         body: data,
-         }),
+      }),
     }),
-    
+
     getUser: builder.query({
       query: () => ({
         url: paths.getUser,
@@ -68,7 +68,7 @@ const appApiSlice = apiSlice.injectEndpoints({
     }),
     update: builder.mutation<void, { id: string; data: RequestUpdateUser }>({
       query: ({ id, data }) => ({
-        url: `${USER_URL}/update/${id}`,
+        url: `${USER_UPDATE_URL}/${id}`,
         method: 'PATCH',
         body: data,
       }),
@@ -80,7 +80,7 @@ export const {
   useLoginMutation,
   useRegistrationMutation,
   useRestorePassMutation,
-  useGetUserMutation,
+  useFindUserMutation,
   useUpdateMutation,
   useGetUserQuery,
   useNewPassMutation,

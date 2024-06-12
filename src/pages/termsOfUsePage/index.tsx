@@ -12,7 +12,7 @@ export const TermsOfUsePage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <MainHeading>Terms & Conditions</MainHeading>
+      <MainHeading>{t('termsConditions.heading')}</MainHeading>
       <StyledSection>
         <Wrapper>
           <div>

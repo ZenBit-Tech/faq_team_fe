@@ -93,7 +93,7 @@ export const ConfirmCredentialsForm = ({
         <SubmitBtn type="submit" variant={ButtonVariant.Black}>
           {isLoading ? t('loading.text') : t('confirmCredentials.submitBtn')}
         </SubmitBtn>
-        {isSet ? <SubTitle>New name is set</SubTitle> : null}
+        {isSet ? <SubTitle>{t('confirmCredentials.new_name')}</SubTitle> : null}
       </StyledForm>
     </>
   );

@@ -19,9 +19,12 @@ import { Container } from 'components/section/styles';
 import { useAppSelector } from 'redux/hooks';
 import { Button } from 'components/button';
 import { ButtonVariant } from 'components/button/types';
+import { useTranslation } from 'react-i18next';
 
+const productsNum = 2;
 export const Header = () => {
   const { access_token } = useAppSelector(state => state.auth);
+  const { t } = useTranslation();
   return (
     <StyledHeader>
       <Container>
@@ -32,13 +35,13 @@ export const Header = () => {
           <Nav>
             <MenuNav>
               <MenuNavItem>
-                <NavLink to={''}>Shop</NavLink>
+                <NavLink to={'#'}>{t('header.text')}</NavLink>
               </MenuNavItem>
               <MenuNavItem>
-                <NavLink to={''}>Vendor</NavLink>
+                <NavLink to={'#'}>{t('header.vendor')}</NavLink>
               </MenuNavItem>
               <MenuNavItem>
-                <NavLink to={''}>Messages</NavLink>
+                <NavLink to={'#'}>{t('header.messages')}</NavLink>
               </MenuNavItem>
             </MenuNav>
           </Nav>
@@ -53,13 +56,17 @@ export const Header = () => {
                 </Icon>
                 <IconBag>
                   <BagIcon />
-                  <Circle>2</Circle>
+                  <Circle>{productsNum}</Circle>
                 </IconBag>
               </>
             ) : (
               <>
-                <Button variant={ButtonVariant.Black}>Sign in</Button>
-                <Button variant={ButtonVariant.White}>Sign up</Button>
+                <Button variant={ButtonVariant.Black}>
+                  {t('signIn.submitBtn')}
+                </Button>
+                <Button variant={ButtonVariant.White}>
+                  {t('signUp.submitBtn')}
+                </Button>
               </>
             )}
           </IconsContainer>

@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <MainHeading>Privacy Policy</MainHeading>
+      <MainHeading>{t('privacyPolicy.heading')}</MainHeading>
       <StyledSection>
         <Wrapper>
           <div>

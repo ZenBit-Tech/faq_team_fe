@@ -19,8 +19,10 @@ import {
   FooterIcon,
   Credentials,
 } from './styles';
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <StyledFooter>
       <Container>
@@ -29,7 +31,7 @@ export const Footer = () => {
             <FooterLogo>
               <img src={logo} />
             </FooterLogo>
-            <FooterText>Some text will be here two - three lines</FooterText>
+            <FooterText>{t('footer.text')}</FooterText>
             <FooterSocials>
               <FooterIcon>
                 <FooterLink to="#">
@@ -50,59 +52,59 @@ export const Footer = () => {
           </FooterLeft>
           <FooterRight>
             <FooterMenu>
-              <FooterTitle>Shop</FooterTitle>
+              <FooterTitle>{t('footer.shop')}</FooterTitle>
               <FooterMenuList>
                 <FooterMenuItem>
-                  <FooterLink to="#">Login</FooterLink>
+                  <FooterLink to="#">{t('footer.login')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Wishlist</FooterLink>
+                  <FooterLink to="#">{t('footer.wishlist')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Cart</FooterLink>
+                  <FooterLink to="#">{t('footer.cart')}</FooterLink>
                 </FooterMenuItem>
               </FooterMenuList>
             </FooterMenu>
             <FooterMenu>
-              <FooterTitle>Company</FooterTitle>
+              <FooterTitle>{t('footer.company')}</FooterTitle>
               <FooterMenuList>
                 <FooterMenuItem>
-                  <FooterLink to="#">About US</FooterLink>
+                  <FooterLink to="#">{t('footer.about')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Terms & Conditions</FooterLink>
+                  <FooterLink to="#">{t('footer.terms')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Privacy Policy</FooterLink>
+                  <FooterLink to="#">{t('footer.privacy')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Contact Us</FooterLink>
+                  <FooterLink to="#">{t('footer.contact')}</FooterLink>
                 </FooterMenuItem>
               </FooterMenuList>
             </FooterMenu>
             <FooterMenu>
-              <FooterTitle>Help</FooterTitle>
+              <FooterTitle>{t('footer.help')}</FooterTitle>
               <FooterMenuList>
                 <FooterMenuItem>
-                  <FooterLink to="#">FAQs</FooterLink>
+                  <FooterLink to="#">{t('footer.faq')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Wishlist</FooterLink>
+                  <FooterLink to="#">{t('footer.wishlist')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Shipping and Delivery</FooterLink>
+                  <FooterLink to="#">{t('footer.delivery')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Rent your closet</FooterLink>
+                  <FooterLink to="#">{t('footer.rent')}</FooterLink>
                 </FooterMenuItem>
                 <FooterMenuItem>
-                  <FooterLink to="#">Resell your closet</FooterLink>
+                  <FooterLink to="#">{t('footer.resell')}</FooterLink>
                 </FooterMenuItem>
               </FooterMenuList>
             </FooterMenu>
           </FooterRight>
         </FooterInner>
-        <Credentials>© 2023 Black Cycle</Credentials>
+        <Credentials>{t('footer.copyright')}</Credentials>
       </Container>
     </StyledFooter>
   );
