@@ -3,18 +3,10 @@ import { Theme } from 'styles/theme.ts';
 import { css } from '@emotion/react';
 
 export const SideBarWrapper = styled.div`
-  display: flex;
-  gap: 32px;
-
-  padding: 0 54px;
-`;
-
-export const SideBarInfo = styled.div`
   width: 31%;
 `;
-export const ProfileInfoContainer = styled.div`
-  width: 74%;
-`;
+
+export const SideBarInfo = styled.div``;
 
 export const UserInfo = styled.div<{ theme?: Theme }>`
   display: flex;
@@ -48,8 +40,11 @@ export const UserRating = styled.p<{ theme?: Theme }>`
   display: flex;
   gap: 5px;
 
+  max-height: 21px;
+
   span {
     align-self: flex-end;
+    font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   }
 `;
 
@@ -61,14 +56,14 @@ export const FollowButtonWrapper = styled.div`
   align-items: center;
 
   margin-top: 32px;
-  padding: 14px 56px;
+  padding: 14px 0;
 
   border: 1px solid #edeae9;
   border-radius: 12px;
 `;
 
 export const FollowButton = styled.div<{ theme?: Theme }>`
-  width: 100%;
+  width: 61%;
 
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   text-align: center;

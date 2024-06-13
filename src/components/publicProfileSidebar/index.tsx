@@ -2,21 +2,18 @@ import {
   FollowButton,
   FollowButtonWrapper,
   ProfileAvatar,
-  ProfileInfoContainer,
   SideBarInfo,
   SideBarWrapper,
   UserInfo,
   UserName,
   UserRating,
 } from 'components/publicProfileSidebar/styles.ts';
-import PublicProfileInfo from 'components/publicProfileInfo';
 import bgImg from 'assets/images/default_profile_img.png';
 import RatingStarIcon from 'assets/icons/iconRatingStar.tsx';
 
 const PublicProfileSidebar = () => {
   return (
     <SideBarWrapper>
-      {' '}
       {/*TEXT IN ELEMENTS IS NOT FINAL RESULT!!! Just during feature in progress*/}
       <SideBarInfo>
         <div>
@@ -34,9 +31,6 @@ const PublicProfileSidebar = () => {
           </FollowButtonWrapper>
         </UserInfo>
       </SideBarInfo>
-      <ProfileInfoContainer>
-        <PublicProfileInfo />
-      </ProfileInfoContainer>
     </SideBarWrapper>
   );
 };
