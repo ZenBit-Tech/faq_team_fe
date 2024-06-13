@@ -45,9 +45,7 @@
     "lint-staged": "^15.2.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-tsconfig-paths": "^4.3.2",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-simple-import-sort": "^12.1.0"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
     "*.{js,css,ts,tsx,jsx}": [
