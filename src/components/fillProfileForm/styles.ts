@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
 import { Tabs } from 'react-tabs';
+import styled from '@emotion/styled';
+import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
-import { ButtonVariant, buttonProps } from 'components/fillProfileForm/types';
 
 export const TabsSection = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.for_card_bg};

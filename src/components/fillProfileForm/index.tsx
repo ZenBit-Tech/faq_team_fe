@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import {
-  StyledTabs,
-  TabsSection,
-  TabsHeader,
-  TabsContainer,
-  StyledButton,
-  ButtonsContainer,
-} from 'components/fillProfileForm/styles';
-import { TabList, Tab, TabPanel } from 'react-tabs';
-import RoleCard from 'components/fillProfileForm/roleCard';
-import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
 import { useTranslation } from 'react-i18next';
+import { Tab, TabList, TabPanel } from 'react-tabs';
+import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
+import RoleCard from 'components/fillProfileForm/roleCard';
+import {
+  ButtonsContainer,
+  StyledButton,
+  StyledTabs,
+  TabsContainer,
+  TabsHeader,
+  TabsSection,
+} from 'components/fillProfileForm/styles';
 import { ButtonVariant } from 'components/fillProfileForm/types';
 
 const firstTabIndex = 0;
