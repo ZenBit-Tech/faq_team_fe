@@ -2,18 +2,27 @@ import styled from '@emotion/styled';
 import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.form<{ theme?: Theme }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
-export const StyledFormContainer = styled.div`
+export const StyledFormContainer = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 30%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const StyledSubtitle = styled.div<{ theme?: Theme }>`
@@ -27,10 +36,15 @@ export const StyledTitle = styled.div<{ theme?: Theme }>`
   margin: 0;
 `;
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: row;
   padding: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const StyledInput = styled.input<{ theme?: Theme }>`

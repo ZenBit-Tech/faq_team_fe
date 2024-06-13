@@ -17,6 +17,7 @@ export type Color = {
 export type Breakpoint = {
   mobile: string;
   tablet: string;
+  laptop: string;
   desktop: string;
 };
 

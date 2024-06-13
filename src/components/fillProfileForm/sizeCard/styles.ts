@@ -8,4 +8,12 @@ export const StyledSelect = styled.select<{ theme?: Theme }>`
   border-color: ${({ theme }) => theme.colors.gray};
   bolder-width: 1px;
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    margin-left: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-left: 0px;
+  }
 `;

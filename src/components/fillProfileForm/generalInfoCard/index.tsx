@@ -7,7 +7,11 @@ import {
 } from 'react-international-phone';
 import UploadAvatar from 'assets/icons/uploadAvatar';
 import avatar from 'assets/images/avatar.png';
-import { StyledImage } from 'components/fillProfileForm/generalInfoCard/styles';
+import {
+  PhoneWrapper,
+  StyledImage,
+  UploadPhotoWrapper,
+} from 'components/fillProfileForm/generalInfoCard/styles';
 import {
   StyledButton,
   StyledForm,
@@ -42,11 +46,13 @@ const GeneralInfoCard = () => {
             {t('fillProfile.generalInfoCard.photoSubTitle')}
           </StyledSubtitle>
         </StyledFormContainer>
-        <StyledImage src={avatar} />
-        <StyledButton variant={ButtonVariant.Black}>
-          <UploadAvatar />
-          {t('fillProfile.generalInfoCard.uploadPhotoButton')}
-        </StyledButton>
+        <UploadPhotoWrapper>
+          <StyledImage src={avatar} />
+          <StyledButton variant={ButtonVariant.Black}>
+            <UploadAvatar />
+            {t('fillProfile.generalInfoCard.uploadPhotoButton')}
+          </StyledButton>
+        </UploadPhotoWrapper>
       </StyledForm>
       <StyledForm>
         <StyledFormContainer>
@@ -57,14 +63,14 @@ const GeneralInfoCard = () => {
             {t('fillProfile.generalInfoCard.phoneSubTitle')}
           </StyledSubtitle>
         </StyledFormContainer>
-        <div>
+        <PhoneWrapper>
           <PhoneInput
             defaultCountry="ua"
             value={phone}
             onChange={phone => setPhone(phone)}
             countries={countries}
           />
-        </div>
+        </PhoneWrapper>
       </StyledForm>
     </>
   );

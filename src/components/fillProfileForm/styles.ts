@@ -4,35 +4,57 @@ import { Theme } from 'styles/theme';
 
 export const TabsSection = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.for_card_bg};
-  min-height: 800px;
   height: 100vh;
   display: flex;
   align-items: start;
   justify-content: center;
 `;
 
-export const TabsHeader = styled.div`
+export const TabsHeader = styled.div<{ theme?: Theme }>`
   min-height: 50px;
   height: 20%;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    display: none;
+  }
 `;
 
-export const TabsContainer = styled.div`
+export const TabsContainer = styled.div<{ theme?: Theme }>`
   width: 80%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: 100%;
+  }
+  
+
   .react-tabs__tab-list {
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
     height: 72px;
+  }
+
+  .react-tabs__tab-panel--selected {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
   }
 
   .react-tabs__tab {
@@ -46,6 +68,12 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
 
     p {
       margin: 10px;
+    }
+      
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      p {
+        display: none;
+      }
     }
   }
 
@@ -63,13 +91,23 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     p {
       margin: 10px;
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      p {
+        display: none;
+      }
+    }
   }
   }
 `;
 
-export const ButtonsContainer = styled.div`
+export const ButtonsContainer = styled.div<{ theme?: Theme }>`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: end;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    justify-content: space-around;
+  }
 `;

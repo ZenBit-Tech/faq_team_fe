@@ -50,7 +50,7 @@ const FillProfileForm = () => {
 
           {tabs.map((tab, index) => (
             <TabPanel key={uuidv4()}>
-              {tab}
+              <div>{tab}</div>
               <ButtonsContainer>
                 {index > firstTabIndex && (
                   <StyledButton

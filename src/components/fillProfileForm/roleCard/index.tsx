@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   StyledInput,
@@ -16,6 +17,15 @@ const radioFormName = 'role';
 const RoleCard = () => {
   const { t } = useTranslation();
 
+  const buyerRef = useRef<HTMLInputElement>(null);
+  const vendorRef = useRef<HTMLInputElement>(null);
+
+  const handleDivClick = (ref: React.RefObject<HTMLInputElement>) => {
+    if (ref.current) {
+      ref.current.click();
+    }
+  };
+
   return (
     <StyledForm>
       <StyledFormContainer>
@@ -23,22 +33,24 @@ const RoleCard = () => {
         <StyledSubtitle>{t('fillProfile.roleCard.subTitle')}</StyledSubtitle>
       </StyledFormContainer>
       <StyledRadioGroup>
-        <label>
+        <div onClick={() => handleDivClick(buyerRef)}>
           <StyledInput
             type="radio"
             name={radioFormName}
             value={UserRoles.Buyer}
+            ref={buyerRef}
           />
           {t('fillProfile.roleCard.buyer')}
-        </label>
-        <label>
+        </div>
+        <div onClick={() => handleDivClick(vendorRef)}>
           <StyledInput
             type="radio"
             name={radioFormName}
             value={UserRoles.Vendor}
+            ref={vendorRef}
           />
           {t('fillProfile.roleCard.vendor')}
-        </label>
+        </div>
       </StyledRadioGroup>
     </StyledForm>
   );
