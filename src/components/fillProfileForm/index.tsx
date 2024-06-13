@@ -16,6 +16,7 @@ import {
   TabsSection,
 } from 'components/fillProfileForm/styles';
 import { ButtonVariant } from 'components/fillProfileForm/types';
+import { v4 as uuidv4 } from 'uuid';
 
 const firstTabIndex = 0;
 
@@ -28,10 +29,11 @@ const FillProfileForm = () => {
     <TabsSection>
       <TabsContainer>
         <TabsHeader>{t('fillProfile.header')}</TabsHeader>
-        <StyledTabs selectedIndex={selectedIndex}>
+        <StyledTabs selectedIndex={selectedIndex} onSelect={() => {}}>
           <TabList>
             {tabs.map((tab, index) => (
               <Tab
+                key={uuidv4()}
                 className={
                   index < selectedIndex + 1
                     ? 'react-tabs__tab--before-selected'
@@ -47,7 +49,7 @@ const FillProfileForm = () => {
           </TabList>
 
           {tabs.map((tab, index) => (
-            <TabPanel>
+            <TabPanel key={uuidv4()}>
               {tab}
               <ButtonsContainer>
                 {index > firstTabIndex && (
@@ -60,6 +62,7 @@ const FillProfileForm = () => {
                 )}
                 {index < tabs.length - 1 && (
                   <StyledButton
+                    key={uuidv4()}
                     variant={ButtonVariant.Black}
                     onClick={() => setSelectedIndex(index + 1)}
                   >
