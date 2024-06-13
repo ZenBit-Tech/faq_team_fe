@@ -69,6 +69,27 @@
     "post": "Post Code"
   },
 
+  "fillProfile": {
+    "header": "Fill Profile",
+    "tab1": "User Role",
+    "prevButton": "Prev",
+    "nextButton": "Next",
+    "roleCard": {
+      "title": "Role card title",
+      "subTitle": "Role card subtitle",
+      "buyer": "Buyer",
+      "vendor": "Vendor"
+    },
+    "generalInfoCard": {
+      "photoTitle": "Upload photo title",
+      "photoSubTitle": "Upload photo subtitle",
+      "uploadPhotoButton": "Upload photo",
+      "phoneTitle": "Enter phone title",
+      "phoneSubTitle": "Enter phone subtitle"
+    }
+
+  },
+
   "card": {
     "title": "Your Credit Card",
     "subtitle": "Add your credit card",

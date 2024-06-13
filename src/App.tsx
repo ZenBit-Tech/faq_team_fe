@@ -11,6 +11,7 @@ const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
 const NewPassPage = lazy(() => import('pages/newPassPage'));
 const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
 const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
+const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path={paths.newPassword} element={<NewPassPage />} />
           <Route path={paths.verifyOtp} element={<VerifyOtpPAge />} />
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
+          <Route path={paths.fillProfile} element={<FillProfilePage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
         </Route>
       </Routes>

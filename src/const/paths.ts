@@ -10,4 +10,5 @@ export const paths = {
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
   getUser: '/users',
+  fillProfile: '/fill-profile',
 };

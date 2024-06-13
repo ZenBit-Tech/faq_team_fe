@@ -5,6 +5,9 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
+  optimizeDeps: {
+    exclude: ['react-international-phone'],
+  },
   base: '/faq_team_fe/',
   resolve: {
     alias: {
