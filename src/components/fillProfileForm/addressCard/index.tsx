@@ -33,6 +33,7 @@ const AddressForm = () => {
     setState(e.target.value);
     setCity('');
   };
+
   return (
     <StyledCard>
       <StyledFormContainer>
@@ -50,7 +51,6 @@ const AddressForm = () => {
           type="text"
           placeholder={t('fillProfile.addressCard.address1')}
         />
-
         <label>{t('fillProfile.addressCard.country')}</label>
         <select value={country} onChange={handleCountryChange}>
           <option disabled>{t('fillProfile.addressCard.selectCountry')}</option>
@@ -60,7 +60,6 @@ const AddressForm = () => {
             </option>
           ))}
         </select>
-
         {country && country === countries[1] && (
           <>
             <label>{t('fillProfile.addressCard.state')}</label>

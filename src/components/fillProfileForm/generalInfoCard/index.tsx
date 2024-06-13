@@ -27,8 +27,9 @@ const countries = defaultCountries.filter(country => {
 });
 
 const GeneralInfoCard = () => {
-  const [phone, setPhone] = useState<string>('');
   const { t } = useTranslation();
+
+  const [phone, setPhone] = useState<string>('');
 
   return (
     <>
