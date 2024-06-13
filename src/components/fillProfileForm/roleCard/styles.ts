@@ -1,36 +1,11 @@
 import styled from '@emotion/styled';
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 150px;
-  padding: 20px;
-`;
-
-export const StyledTitle = styled.div<{ theme?: Theme }>`
-  font-size: ${({ theme }) => theme.fontSize.md};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  margin: 0;
-`;
-
-export const StyledSubtitle = styled.div<{ theme?: Theme }>`
-  font-size: ${({ theme }) => theme.fontSize.sm};
-  margin: 0;
-`;
-
 export const StyledRadioGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 100px;
   align-items: center;
-`;
-
-export const StyledFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 `;
 
 export const StyledInput = styled.input<{ theme?: Theme }>`

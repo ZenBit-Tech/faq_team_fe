@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
 import { Tabs } from 'react-tabs';
+import styled from '@emotion/styled';
 import { Theme } from 'styles/theme';
-import { ButtonVariant, buttonProps } from 'components/fillProfileForm/types';
 
 export const TabsSection = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.for_card_bg};
@@ -42,7 +41,11 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     align-items: center;
     justify-content: center;
     border-radius: 5px 0px 0px 0px;
-    &:hover {
+    border: solid  ${({ theme }) => theme.colors.greyish_red};
+    border-width: 0px 0px 1px 1px;
+
+    p {
+      margin: 10px;
     }
   }
 
@@ -54,30 +57,14 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     align-items: center;
     justify-content: center;
     border-radius: 5px 0px 0px 0px;
-  }
-  }
-`;
+    border: solid  ${({ theme }) => theme.colors.greyish_red};
+    border-width: 0px 0px 1px 1px;
 
-export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
-  min-width: 100px;
-  padding: 8px;
-  margin: 5px;
-  border: solid;
-  border-color: ${({ theme }) => theme.colors.black};
-  border-width: 1px;
-  background-color: ${props =>
-    props.variant === ButtonVariant.White
-      ? ({ theme }) => theme.colors.white
-      : ({ theme }) => theme.colors.black};
-  color: ${props =>
-    props.variant === ButtonVariant.White
-      ? ({ theme }) => theme.colors.black
-      : ({ theme }) => theme.colors.white};
-  border-radius: 8px;
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
+    p {
+      margin: 10px;
+    }
+  }
+  }
 `;
 
 export const ButtonsContainer = styled.div`

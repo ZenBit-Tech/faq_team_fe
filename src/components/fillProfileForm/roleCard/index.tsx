@@ -1,13 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import {
-  StyledForm,
-  StyledTitle,
-  StyledSubtitle,
-  StyledRadioGroup,
-  StyledFormContainer,
   StyledInput,
+  StyledRadioGroup,
 } from 'components/fillProfileForm/roleCard/styles';
 import { UserRoles } from 'components/fillProfileForm/roleCard/types';
+import {
+  StyledForm,
+  StyledFormContainer,
+  StyledSubtitle,
+  StyledTitle,
+} from 'components/fillProfileForm/sharedStyles';
 
 const radioFormName = 'role';
 

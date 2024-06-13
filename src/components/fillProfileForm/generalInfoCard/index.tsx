@@ -1,21 +1,23 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
-  StyledForm,
-  StyledTitle,
-  StyledSubtitle,
-  StyledFormContainer,
-} from 'components/fillProfileForm/generalInfoCard/styles';
-import { StyledButton } from 'components/fillProfileForm/styles';
-import avatar from 'assets/images/avatar.png';
-import UploadAvatar from 'assets/icons/uploadAvatar';
-import {
-  PhoneInput,
   defaultCountries,
   parseCountry,
+  PhoneInput,
 } from 'react-international-phone';
-import 'react-international-phone/style.css';
-import { useTranslation } from 'react-i18next';
+import UploadAvatar from 'assets/icons/uploadAvatar';
+import avatar from 'assets/images/avatar.png';
+import { StyledImage } from 'components/fillProfileForm/generalInfoCard/styles';
+import {
+  StyledButton,
+  StyledForm,
+  StyledFormContainer,
+  StyledSubtitle,
+  StyledTitle,
+} from 'components/fillProfileForm/sharedStyles';
 import { ButtonVariant } from 'components/fillProfileForm/types';
+
+import 'react-international-phone/style.css';
 
 const countryCodes = ['ua', 'ca'];
 
@@ -39,7 +41,7 @@ const GeneralInfoCard = () => {
             {t('fillProfile.generalInfoCard.photoSubTitle')}
           </StyledSubtitle>
         </StyledFormContainer>
-        <img src={avatar} />
+        <StyledImage src={avatar} />
         <StyledButton variant={ButtonVariant.Black}>
           <UploadAvatar />
           {t('fillProfile.generalInfoCard.uploadPhotoButton')}
