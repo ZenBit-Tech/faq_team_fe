@@ -24,6 +24,7 @@ export type FontSize = {
   sm: string;
   md: string;
   lg: string;
+  midLq: string;
   extraLg: string;
   extraSm: string;
   xxl: string;
