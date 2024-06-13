@@ -11,6 +11,7 @@ import {
   shoesSizes,
 } from 'components/fillProfileForm/sizeCard/constants';
 import { StyledSelect } from 'components/fillProfileForm/sizeCard/styles';
+import { v4 as uuidv4 } from 'uuid';
 
 const SizeForm = () => {
   const { t } = useTranslation();
@@ -27,7 +28,9 @@ const SizeForm = () => {
         <StyledSelect defaultValue={clothesSizes[0]}>
           <option disabled>{t('fillProfile.sizeCard.selectClothSize')}</option>
           {clothesSizes.map(element => (
-            <option value={element}>{element}</option>
+            <option key={uuidv4()} value={element}>
+              {element}
+            </option>
           ))}
         </StyledSelect>
       </StyledForm>
@@ -41,7 +44,9 @@ const SizeForm = () => {
         <StyledSelect defaultValue={shoesSizes[0]}>
           <option disabled>{t('fillProfile.sizeCard.selectShoeSize')}</option>
           {shoesSizes.map(element => (
-            <option value={element}>{element}</option>
+            <option key={uuidv4()} value={element}>
+              {element}
+            </option>
           ))}
         </StyledSelect>
       </StyledForm>
@@ -55,7 +60,9 @@ const SizeForm = () => {
         <StyledSelect defaultValue={jeansSizes[0]}>
           <option disabled>{t('fillProfile.sizeCard.selectJeansSize')}</option>
           {jeansSizes.map(element => (
-            <option value={element}>{element}</option>
+            <option key={uuidv4()} value={element}>
+              {element}
+            </option>
           ))}
         </StyledSelect>
       </StyledForm>
