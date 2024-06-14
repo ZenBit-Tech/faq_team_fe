@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Tab, TabList, TabPanel } from 'react-tabs';
 import StepFinished from 'assets/icons/steps/step_finished';
@@ -7,15 +7,12 @@ import {
   iconsInactive,
   tabs,
 } from 'components/fillProfileForm/constants';
-import { StyledButton } from 'components/fillProfileForm/sharedStyles';
 import {
-  ButtonsContainer,
   StyledTabs,
   TabsContainer,
   TabsHeader,
   TabsSection,
 } from 'components/fillProfileForm/styles';
-import { ButtonVariant } from 'components/fillProfileForm/types';
 import { v4 as uuidv4 } from 'uuid';
 
 const firstTabIndex = 0;
@@ -48,28 +45,9 @@ const FillProfileForm = () => {
             ))}
           </TabList>
 
-          {tabs.map((tab, index) => (
+          {tabs.map((Component, index) => (
             <TabPanel key={uuidv4()}>
-              <div>{tab}</div>
-              <ButtonsContainer>
-                {index > firstTabIndex && (
-                  <StyledButton
-                    variant={ButtonVariant.White}
-                    onClick={() => setSelectedIndex(index - 1)}
-                  >
-                    {t('fillProfile.prevButton')}
-                  </StyledButton>
-                )}
-                {index < tabs.length - 1 && (
-                  <StyledButton
-                    key={uuidv4()}
-                    variant={ButtonVariant.Black}
-                    onClick={() => setSelectedIndex(index + 1)}
-                  >
-                    {t('fillProfile.nextButton')}
-                  </StyledButton>
-                )}
-              </ButtonsContainer>
+              <div>{Component({ setSelectedIndex, index })}</div>
             </TabPanel>
           ))}
         </StyledTabs>

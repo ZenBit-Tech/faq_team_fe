@@ -2,7 +2,17 @@ import styled from '@emotion/styled';
 import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form<{ theme?: Theme }>`
+export const StyledTabContainer = styled.div<{ theme?: Theme }>`
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    justify-content: space-between;
+    height: 85vh;
+  }
+`;
+
+export const StyledForm = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -73,4 +83,17 @@ export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
   gap: 5px;
   justify-content: center;
   align-items: center;
+`;
+
+export const ButtonsContainer = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    justify-content: space-around;
+    padding: 0px;
+  }
 `;

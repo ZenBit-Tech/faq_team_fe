@@ -4,26 +4,30 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from 'components/fillProfileForm/cardInfoCard/checkoutForm';
 import {
+  ButtonsContainer,
+  StyledButton,
   StyledCard,
   StyledFormContainer,
   StyledSubtitle,
+  StyledTabContainer,
   StyledTitle,
 } from 'components/fillProfileForm/sharedStyles';
+import { ButtonVariant, TabProps } from 'components/fillProfileForm/types';
 import { stripePaymentCurrency } from 'const/constants';
 import stripe from 'stripe';
+import { v4 as uuidv4 } from 'uuid';
 
 const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_PUBLIC_KEY as string,
 );
 
 // SHOULD BE MOVED TO SERVER
-const items = ['someItem1', 'someItem2'];
-const calculateOrderAmount = (items: string[]) => {
-  const testSum = items.length;
+const calculateOrderAmount = () => {
+  const testSum = 1000;
   return testSum;
 };
 
-const CreditCardForm = () => {
+const CreditCardForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
 
   const [clientSecret, setClientSecret] = useState<string | null>(null);
@@ -38,7 +42,7 @@ const CreditCardForm = () => {
     const foo = async (): Promise<void> => {
       try {
         const paymentIntent = await newStripe.paymentIntents.create({
-          amount: calculateOrderAmount(items),
+          amount: calculateOrderAmount(),
           currency: stripePaymentCurrency,
           automatic_payment_methods: {
             enabled: true,
@@ -51,7 +55,7 @@ const CreditCardForm = () => {
     };
 
     foo();
-  }, [newStripe.paymentIntents]);
+  }, []);
 
   const options = {
     clientSecret,
@@ -59,19 +63,37 @@ const CreditCardForm = () => {
   };
 
   return (
-    <StyledCard>
-      <StyledFormContainer>
-        <StyledTitle>{t('fillProfile.cardInfoCard.title')}</StyledTitle>
-        <StyledSubtitle>
-          {t('fillProfile.cardInfoCard.subTitle')}
-        </StyledSubtitle>
-      </StyledFormContainer>
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
-    </StyledCard>
+    <StyledTabContainer>
+      <StyledCard>
+        <StyledFormContainer>
+          <StyledTitle>{t('fillProfile.cardInfoCard.title')}</StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.cardInfoCard.subTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </StyledCard>
+      <ButtonsContainer>
+        <StyledButton
+          variant={ButtonVariant.White}
+          onClick={() => setSelectedIndex(index - 1)}
+          key={uuidv4()}
+        >
+          {t('fillProfile.prevButton')}
+        </StyledButton>
+        <StyledButton
+          key={uuidv4()}
+          variant={ButtonVariant.Black}
+          onClick={() => setSelectedIndex(index + 1)}
+        >
+          {t('fillProfile.nextButton')}
+        </StyledButton>
+      </ButtonsContainer>
+    </StyledTabContainer>
   );
 };
 

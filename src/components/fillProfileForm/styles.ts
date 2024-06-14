@@ -36,11 +36,6 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    height: 100%;
-  }
-  
-
   .react-tabs__tab-list {
     list-style-type: none;
     display: flex;
@@ -98,16 +93,5 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
       }
     }
   }
-  }
-`;
-
-export const ButtonsContainer = styled.div<{ theme?: Theme }>`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    justify-content: space-around;
   }
 `;

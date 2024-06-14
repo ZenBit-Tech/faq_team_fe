@@ -12,6 +12,7 @@ import CreditCardForm from 'components/fillProfileForm/cardInfoCard';
 import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
 import RoleCard from 'components/fillProfileForm/roleCard';
 import SizeForm from 'components/fillProfileForm/sizeCard';
+import { TabProps } from 'components/fillProfileForm/types';
 
 export const iconsActive = [
   <FirstStepActive />,
@@ -27,10 +28,21 @@ export const iconsInactive = [
   <FourthStepInactive />,
   <FifthStepInactive />,
 ];
+
 export const tabs = [
-  <RoleCard />,
-  <GeneralInfoCard />,
-  <AddressForm />,
-  <CreditCardForm />,
-  <SizeForm />,
+  ({ setSelectedIndex, index }: TabProps) => (
+    <RoleCard setSelectedIndex={setSelectedIndex} index={index} />
+  ),
+  ({ setSelectedIndex, index }: TabProps) => (
+    <GeneralInfoCard setSelectedIndex={setSelectedIndex} index={index} />
+  ),
+  ({ setSelectedIndex, index }: TabProps) => (
+    <AddressForm setSelectedIndex={setSelectedIndex} index={index} />
+  ),
+  ({ setSelectedIndex, index }: TabProps) => (
+    <CreditCardForm setSelectedIndex={setSelectedIndex} index={index} />
+  ),
+  ({ setSelectedIndex, index }: TabProps) => (
+    <SizeForm setSelectedIndex={setSelectedIndex} index={index} />
+  ),
 ];

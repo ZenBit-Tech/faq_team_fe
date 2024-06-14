@@ -13,13 +13,16 @@ import {
   UploadPhotoWrapper,
 } from 'components/fillProfileForm/generalInfoCard/styles';
 import {
+  ButtonsContainer,
   StyledButton,
   StyledForm,
   StyledFormContainer,
   StyledSubtitle,
+  StyledTabContainer,
   StyledTitle,
 } from 'components/fillProfileForm/sharedStyles';
-import { ButtonVariant } from 'components/fillProfileForm/types';
+import { ButtonVariant, TabProps } from 'components/fillProfileForm/types';
+import { v4 as uuidv4 } from 'uuid';
 
 import 'react-international-phone/style.css';
 
@@ -30,13 +33,13 @@ const countries = defaultCountries.filter(country => {
   return countryCodes.includes(iso2);
 });
 
-const GeneralInfoCard = () => {
+const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
 
   const [phone, setPhone] = useState<string>('');
 
   return (
-    <>
+    <StyledTabContainer>
       <StyledForm>
         <StyledFormContainer>
           <StyledTitle>
@@ -72,7 +75,22 @@ const GeneralInfoCard = () => {
           />
         </PhoneWrapper>
       </StyledForm>
-    </>
+      <ButtonsContainer>
+        <StyledButton
+          variant={ButtonVariant.White}
+          onClick={() => setSelectedIndex(index - 1)}
+        >
+          {t('fillProfile.prevButton')}
+        </StyledButton>
+        <StyledButton
+          key={uuidv4()}
+          variant={ButtonVariant.Black}
+          onClick={() => setSelectedIndex(index + 1)}
+        >
+          {t('fillProfile.nextButton')}
+        </StyledButton>
+      </ButtonsContainer>
+    </StyledTabContainer>
   );
 };
 
