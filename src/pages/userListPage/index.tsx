@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { TableComponent } from 'components/table';
 import { Container } from 'pages/superAdminLayout/styles';
-import { UserListTitle, Wrapper, Section } from './styles';
+
+import { Section, UserListTitle, Wrapper } from './styles';
 
 const UserListPage = () => {
   const { t } = useTranslation();

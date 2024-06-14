@@ -203,6 +203,7 @@
     "address": "ADDRESS",
     "date": "DATE",
     "action": "ACTIONS"
+  },
   "footer": {
     "text": "Some text will be here two - three lines",
     "shop": "Shop",

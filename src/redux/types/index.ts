@@ -70,7 +70,7 @@ export type RequestVerifyOtp = {
   otp_code: string;
   email: string;
 };
-export type ResponseGetUser = {
+export type ResponseGetUsers = {
   id: string;
   created_at: Date;
   full_name: string;
@@ -99,6 +99,6 @@ export type RequestGetUsersWithFilters = {
   search?: string;
 };
 export type ResponseGetUsersWithFilters = {
-  users: ResponseGetUser[];
+  users: ResponseGetUsers[];
   totalCount: number;
 };

@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import LogoIcon from 'assets/icons/iconLogo';
-import UsersIcon from 'assets/icons/iconUsers';
-import ProductsIcon from 'assets/icons/iconProducts';
 import ChatIcon from 'assets/icons/iconChat';
+import LogoIcon from 'assets/icons/iconLogo';
+import ProductsIcon from 'assets/icons/iconProducts';
 import UserIcon from 'assets/icons/iconUser';
+import UsersIcon from 'assets/icons/iconUsers';
+
 import { Menu, MenuItem, MenuLink, NavBar, SideBar } from './styles';
 
 const SuperAdminSidebar = () => {
@@ -15,7 +16,7 @@ const SuperAdminSidebar = () => {
         <Menu>
           <MenuItem>
             <UsersIcon />
-            <MenuLink to={''}>{t('admin.userTitle')}</MenuLink>
+            <MenuLink to={''}>{t('admin.usersTitle')}</MenuLink>
           </MenuItem>
           <MenuItem>
             <ProductsIcon />

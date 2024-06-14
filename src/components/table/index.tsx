@@ -1,13 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import checkIcon from 'assets/images/verified-check.svg';
 import TrashIcon from 'assets/icons/iconTrash';
 import ViewIcon from 'assets/icons/iconView';
-import SearchInput from 'components/searchInput';
+import checkIcon from 'assets/images/verified-check.svg';
 import Pagination from 'components/pagination';
+import SearchInput from 'components/searchInput';
 import TableSort from 'components/tableSort';
-import { useGetUsersQuery } from 'redux/superAdminApiSlice';
 import { formatDate } from 'helpers/dateHelper';
+import { useGetUsersQuery } from 'redux/superAdminApiSlice';
 
 import {
   ActionBtn,
@@ -26,7 +26,7 @@ import {
 
 export const TableComponent: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number | null>(1);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
   const [limit] = useState<number>(5);
   const [search, setSearch] = useState<string>('');
   const [order, setOrder] = useState<'ASC' | 'DESC'>('ASC');
