@@ -1,9 +1,9 @@
-import { EditprofileForm } from 'components/editProfileForm';
+import { EditProfileForm } from 'components/editProfileForm';
 
 const PersonalInfoPage = () => {
   return (
     <>
-      <EditprofileForm />
+      <EditProfileForm />
     </>
   );
 };

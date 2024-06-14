@@ -149,9 +149,11 @@
   "validation": {
     "email": "Email format is incorrect",
     "password": "Password format is incorrect",
+    "phone": "Phone format is incorrect",
     "passwordMatch": "Passwords entered in the \"Password\" and \"Repeat password\" fields must match",
     "server": "Email or password incorrect",
-    "credentials": "Please enter your credentials"
+    "credentials": "Please enter your credentials",
+    "required": "Required"
   },
 
   "loading": {
@@ -204,7 +206,12 @@
     },
     "sizeLink": "Size guide",
     "address": "Address",
-    "addressPlaceholder": "South Banasree Road No: 5/2 Blog (D) Unity Aid\nToronto, Canada\nPostcode",
+    "addressPlaceholder": "Your address",
+    "addressOne": "Address Line 1",
+    "addressTwo": "Address Line 2 (optional)",
+    "city": "City",
+    "country": "Country",
+    "state": "State",
     "card": "Payment Method",
     "cardPlaceholder": "**** **** **** 4567",
     "button": "Save"

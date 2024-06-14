@@ -1,22 +1,51 @@
 import { useState } from 'react';
 import defaultAvatar from 'assets/images/default-avatar.png';
 import EditIcon from 'assets/icons/editIcon';
-import { EditImgBtn, ImgWrap } from './styles';
+import {
+  EditImgBtn,
+  ImgWrap,
+  EditForm,
+  InfoWrap,
+  SizesWrap,
+  InfoField,
+  SizeField,
+  StyledSelectWrapper,
+  AddressWrap,
+  DesktopWrap,
+  SaveBtn,
+  LocationField,
+  CardWrap,
+} from './styles';
 import { useTranslation } from 'react-i18next';
 import { ErrorMsg } from 'components/sharedUI/form/styles';
-import { clothesSizes, jeansSizes, shoesSizes } from './data/sizes';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  cities,
+  clothesSizes,
+  jeansSizes,
+  shoesSizes,
+  states,
+} from './data/sizes';
+import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Inputs } from './types';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import Select from 'react-select';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useEditProfileSchema } from './editProfileFormHooks';
+import CreditCardForm from 'components/cardInfoCard';
 
-export const EditprofileForm = () => {
+export const EditProfileForm = () => {
   const [avatar, setAvatar] = useState<string>('');
   const { t } = useTranslation();
+  const editProfileSchema = useEditProfileSchema();
   const {
+    reset,
     register,
     setValue,
     handleSubmit,
     formState: { errors, isDirty, isSubmitting },
+    control,
   } = useForm<Inputs>({
     defaultValues: {
       avatar: null,
@@ -26,18 +55,23 @@ export const EditprofileForm = () => {
       clothes: clothesSizes[0],
       shoes: shoesSizes[0],
       jeans: jeansSizes[0],
-      address: '',
-      card: '',
+      addressOne: '',
+      addressTwo: '',
+      country: 'Canada',
+      states: states[0],
+      cities: cities[0],
     },
+    resolver: yupResolver(editProfileSchema),
   });
 
   const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data);
+    JSON.stringify(data);
+    reset();
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <EditForm onSubmit={handleSubmit(onSubmit)}>
         <ImgWrap>
           <img
             src={avatar ? avatar : defaultAvatar}
@@ -66,104 +100,221 @@ export const EditprofileForm = () => {
             <EditIcon />
           </EditImgBtn>
         </ImgWrap>
-        <h2>{t('editProfile.title')}</h2>
-        <div>
-          <label htmlFor="user-name">{t('editProfile.name')}</label>
+        <DesktopWrap>
+          <InfoWrap>
+            <h2>{t('editProfile.title')}</h2>
+            <InfoField>
+              <label htmlFor="user-name">{t('editProfile.name')}</label>
+              <input
+                type="text"
+                {...register('name')}
+                className={errors.name ? 'error-input' : ''}
+                placeholder={t('editProfile.namePlaceholder')}
+                id="user-name"
+              />
+              {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
+            </InfoField>
+            <InfoField>
+              <label htmlFor="user-email">{t('editProfile.email')}</label>
+              <input
+                type="text"
+                {...register('email')}
+                className={errors.email ? 'error-input' : ''}
+                placeholder={t('editProfile.emailPlaceholder')}
+                id="user-email"
+              />
+              {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
+            </InfoField>
+            <InfoField>
+              <label htmlFor="user-phone">{t('editProfile.phone')}</label>
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field }) => (
+                  <PhoneInput
+                    {...field}
+                    international
+                    defaultCountry="US"
+                    countries={['US']}
+                    className={errors.phone ? 'error-input' : ''}
+                    placeholder={t('editProfile.phonePlaceholder')}
+                    id="user-phone"
+                    onChange={phone => {
+                      setValue('phone', String(phone).trim());
+                    }}
+                  />
+                )}
+              />
+              {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
+            </InfoField>
+          </InfoWrap>
+          <SizesWrap>
+            <h2>{t('editProfile.sizesTitle')}</h2>
+            <SizeField>
+              <label htmlFor="user-clothes">
+                {t('editProfile.sizes.clothes')}
+              </label>
+              <StyledSelectWrapper>
+                <Select
+                  defaultValue={{
+                    label: clothesSizes[0],
+                    value: clothesSizes[0],
+                  }}
+                  placeholder={clothesSizes[0]}
+                  options={clothesSizes.map(size => ({
+                    label: size,
+                    value: size,
+                  }))}
+                  classNamePrefix="react-select"
+                  onChange={selectedOption =>
+                    setValue(
+                      'clothes',
+                      selectedOption?.value ?? clothesSizes[0],
+                    )
+                  }
+                />
+              </StyledSelectWrapper>
+              {errors.clothes && <ErrorMsg>{errors.clothes.message}</ErrorMsg>}
+            </SizeField>
+            <SizeField>
+              <label htmlFor="user-shoes">{t('editProfile.sizes.shoes')}</label>
+              <StyledSelectWrapper>
+                <Select
+                  defaultValue={{
+                    label: shoesSizes[0],
+                    value: shoesSizes[0],
+                  }}
+                  options={shoesSizes.map(size => ({
+                    label: size,
+                    value: size,
+                  }))}
+                  classNamePrefix="react-select"
+                  onChange={selectedOption =>
+                    setValue('shoes', selectedOption?.value ?? shoesSizes[0])
+                  }
+                />
+              </StyledSelectWrapper>
+              {errors.shoes && <ErrorMsg>{errors.shoes.message}</ErrorMsg>}
+            </SizeField>
+            <SizeField>
+              <label htmlFor="user-jeans">{t('editProfile.sizes.jeans')}</label>
+              <StyledSelectWrapper>
+                <Select
+                  defaultValue={{
+                    label: jeansSizes[0],
+                    value: jeansSizes[0],
+                  }}
+                  {...register('jeans')}
+                  id="user-jeans"
+                  options={jeansSizes.map(size => ({
+                    label: size,
+                    value: size,
+                  }))}
+                  classNamePrefix="react-select"
+                  onChange={selectedOption =>
+                    setValue('jeans', selectedOption?.value ?? jeansSizes[0])
+                  }
+                />
+              </StyledSelectWrapper>
+              {errors.jeans && <ErrorMsg>{errors.jeans.message}</ErrorMsg>}
+            </SizeField>
+            <Link to="">{t('editProfile.sizeLink')}</Link>
+          </SizesWrap>
+        </DesktopWrap>
+        <AddressWrap>
+          <label htmlFor="user-address-one">
+            {t('editProfile.addressOne')}
+          </label>
           <input
             type="text"
-            {...register('name')}
-            className={errors.name ? 'error-input' : ''}
-            placeholder={t('editProfile.namePlaceholder')}
-            id="user-name"
-          />
-          {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
-        </div>
-        <div>
-          <label htmlFor="user-email">{t('editProfile.email')}</label>
-          <input
-            type="text"
-            {...register('email')}
-            className={errors.email ? 'error-input' : ''}
-            placeholder={t('editProfile.emailPlaceholder')}
-            id="user-email"
-          />
-          {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
-        </div>
-        <div>
-          <label htmlFor="user-phone">{t('editProfile.phone')}</label>
-          <input
-            type="text"
-            {...register('phone')}
-            className={errors.email ? 'error-input' : ''}
-            placeholder={t('editProfile.phonePlaceholder')}
-            id="user-phone"
-          />
-          {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
-        </div>
-        <h2>{t('editProfile.sizesTitle')}</h2>
-        <div>
-          <label htmlFor="user-clothes">{t('editProfile.sizes.clothes')}</label>
-          <select {...register('clothes')} id="user-clothes">
-            {clothesSizes.map((size, index) => {
-              return (
-                <option value={size} key={index}>
-                  {size}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="user-shoes">{t('editProfile.sizes.shoes')}</label>
-          <select {...register('shoes')} id="user-shoes">
-            {shoesSizes.map((size, index) => {
-              return (
-                <option value={size} key={index}>
-                  {size}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="user-jeans">{t('editProfile.sizes.jeans')}</label>
-          <select {...register('jeans')} id="user-jeans">
-            {jeansSizes.map((size, index) => {
-              return (
-                <option value={size} key={index}>
-                  {size}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <Link to="">{t('editProfile.sizeLink')}</Link>
-        <div>
-          <label htmlFor="user-address">{t('editProfile.address')}</label>
-          <input
-            type="text"
-            {...register('address')}
-            className={errors.name ? 'error-input' : ''}
+            {...register('addressOne')}
             placeholder={t('editProfile.addressPlaceholder')}
-            id="user-address"
+            className={errors.addressOne ? 'error-input' : ''}
+            id="user-address-one"
           />
-          {errors.address && <ErrorMsg>{errors.address.message}</ErrorMsg>}
-        </div>
-        <div>
-          <label htmlFor="user-card">{t('editProfile.card')}</label>
+          {errors.addressOne && (
+            <ErrorMsg>{errors.addressOne.message}</ErrorMsg>
+          )}
+        </AddressWrap>
+        <AddressWrap>
+          <label htmlFor="user-address-two">
+            {t('editProfile.addressTwo')}
+          </label>
           <input
             type="text"
-            {...register('card')}
-            className={errors.name ? 'error-input' : ''}
-            placeholder={t('editProfile.cardPlaceholder')}
-            id="user-card"
+            {...register('addressTwo')}
+            placeholder={t('editProfile.addressPlaceholder')}
+            className={errors.addressTwo ? 'error-input' : ''}
+            id="user-address-two"
           />
-          {errors.card && <ErrorMsg>{errors.card.message}</ErrorMsg>}
-        </div>
-        <button type="submit" disabled={!isDirty || isSubmitting}>
+          {errors.addressTwo && (
+            <ErrorMsg>{errors.addressTwo.message}</ErrorMsg>
+          )}
+        </AddressWrap>
+        <AddressWrap>
+          <label htmlFor="user-country">{t('editProfile.country')}</label>
+          <input
+            type="text"
+            {...register('country')}
+            placeholder={t('editProfile.country')}
+            className={errors.country ? 'error-input' : ''}
+            id="user-country"
+          />
+          {errors.country && <ErrorMsg>{errors.country.message}</ErrorMsg>}
+        </AddressWrap>
+        <LocationField>
+          <label htmlFor="user-state">{t('editProfile.state')}</label>
+          <StyledSelectWrapper>
+            <Select
+              defaultValue={{
+                label: states[0],
+                value: states[0],
+              }}
+              {...register('states')}
+              id="user-state"
+              options={states.map(state => ({
+                label: state,
+                value: state,
+              }))}
+              classNamePrefix="react-select"
+              onChange={selectedOption =>
+                setValue('states', selectedOption?.value ?? states[0])
+              }
+            />
+          </StyledSelectWrapper>
+        </LocationField>
+        <LocationField>
+          <label htmlFor="user-city">{t('editProfile.city')}</label>
+          <StyledSelectWrapper>
+            <Select
+              defaultValue={{
+                label: cities[0],
+                value: cities[0],
+              }}
+              {...register('cities')}
+              id="user-state"
+              options={cities.map(city => ({
+                label: city,
+                value: city,
+              }))}
+              classNamePrefix="react-select"
+              onChange={selectedOption =>
+                setValue('cities', selectedOption?.value ?? cities[0])
+              }
+            />
+          </StyledSelectWrapper>
+        </LocationField>
+        <CardWrap>
+          <CreditCardForm />
+        </CardWrap>
+        <SaveBtn
+          type="submit"
+          variant="black"
+          disabled={!isDirty || isSubmitting}
+        >
           {t('editProfile.button')}
-        </button>
-      </form>
+        </SaveBtn>
+      </EditForm>
     </>
   );
 };

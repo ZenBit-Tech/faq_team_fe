@@ -6,6 +6,9 @@ export type Inputs = {
   clothes: string;
   shoes: number;
   jeans: string;
-  address: string;
-  card: string;
+  addressOne: string;
+  addressTwo: string;
+  country: string;
+  states: string;
+  cities: string;
 };
