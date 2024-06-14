@@ -24,12 +24,8 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
 
   const [country, setCountry] = useState(countriesOptions[0]);
-  const [state, setState] = useState(
-    statesOptions[country as keyof typeof statesOptions][0],
-  );
-  const [city, setCity] = useState(
-    statesOptions[country as keyof typeof statesOptions][0],
-  );
+  const [state, setState] = useState('');
+  const [city, setCity] = useState('');
 
   const handleCountryChange = (
     e: React.ChangeEvent<HTMLSelectElement>,

@@ -51,7 +51,7 @@ const CreditCardForm = ({ setSelectedIndex, index }: TabProps) => {
         });
         setClientSecret(paymentIntent.client_secret);
       } catch (error) {
-        console.error('Error creating payment intent:', error);
+        console.error(error);
       }
     };
 
