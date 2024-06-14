@@ -4,7 +4,7 @@ import { RootState } from './store';
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: import.meta.env.VITE_API_URL,
     credentials: 'omit',
     prepareHeaders: (headers, { getState }) => {
       const state = getState() as RootState;

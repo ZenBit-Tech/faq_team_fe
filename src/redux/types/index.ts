@@ -34,6 +34,29 @@ export type AuthState = {
   access_token: string;
 };
 
+export type RequestUpdateUser = {
+  user_name?: string;
+  email?: string;
+  password?: string;
+  avatar?: string;
+  phone?: string;
+  address?: string;
+  address_2?: string;
+  country?: string;
+  city?: string;
+  cloth_size?: string;
+  jeans_size?: string;
+  shoes_size?: number;
+};
+
+export type ResponseGetUser = {
+  full_name?: string;
+  email?: string;
+  password?: string;
+  role?: string;
+  otp_code?: string;
+  id?: string;
+};
 export type RequestNewPass = {
   password: string;
   email: string;
