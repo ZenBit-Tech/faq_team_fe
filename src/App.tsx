@@ -8,6 +8,9 @@ const SignInPage = lazy(() => import('pages/signInPage'));
 const RestorePasswordPage = lazy(() => import('pages/restorePassPage'));
 const PrivacyPolicyPage = lazy(() => import('pages/privacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
+const ConfirmCredentialsPage = lazy(
+  () => import('pages/confirmCredentialsPage'),
+);
 const NewPassPage = lazy(() => import('pages/newPassPage'));
 const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
 const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
@@ -31,6 +34,10 @@ function App() {
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
           <Route path={paths.fillProfile} element={<FillProfilePage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
+          <Route
+            path={paths.confirmCredentials}
+            element={<ConfirmCredentialsPage />}
+          />
         </Route>
       </Routes>
     </>
