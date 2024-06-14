@@ -5,6 +5,7 @@ export const paths = {
   restorePassword: '/restore-password',
   privacyPolicy: '/privacy-policy',
   termsOfUse: '/terms-of-use',
+  confirmCredentials: '/confirm-credentials',
   verify: '/verify',
   newPassword: '/new-password',
   verifyOtp: '/verify-otp',
@@ -12,4 +13,5 @@ export const paths = {
   getUser: '/users',
   profile: '/profile',
   personalInfo: '/profile',
+  fillProfile: '/fill-profile',
 };

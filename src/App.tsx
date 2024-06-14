@@ -1,18 +1,24 @@
-import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import { SharedLayout } from './pages/sharedLayout';
+import { Route, Routes } from 'react-router-dom';
 import { paths } from 'const/paths';
+
+import { SharedLayout } from './pages/sharedLayout';
+
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
 const RestorePasswordPage = lazy(() => import('pages/restorePassPage'));
 const PrivacyPolicyPage = lazy(() => import('pages/privacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('pages/termsOfUsePage'));
+const ConfirmCredentialsPage = lazy(
+  () => import('pages/confirmCredentialsPage'),
+);
 const NewPassPage = lazy(() => import('pages/newPassPage'));
 const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
 const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
 const ProfilePage = lazy(() => import('pages/profilePage'));
 const PersonalInfoPage = lazy(() => import('pages/personalInfoPage'));
+const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
 
 function App() {
   return (
@@ -30,10 +36,15 @@ function App() {
           <Route path={paths.newPassword} element={<NewPassPage />} />
           <Route path={paths.verifyOtp} element={<VerifyOtpPAge />} />
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
+          <Route path={paths.fillProfile} element={<FillProfilePage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
           <Route path={paths.profile} element={<ProfilePage />}>
             <Route index element={<PersonalInfoPage />} />
           </Route>
+          <Route
+            path={paths.confirmCredentials}
+            element={<ConfirmCredentialsPage />}
+          />
         </Route>
       </Routes>
     </>

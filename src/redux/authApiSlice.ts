@@ -1,16 +1,20 @@
+import { paths } from 'const/paths';
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
+  RequestNewPass,
   RequestRegistration,
+  RequestUpdateUser,
+  RequestVerifyOtp,
+  ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
-  RequestNewPass,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
 } from 'redux/types';
-import { paths } from 'const/paths';
 
-const AUTH_URL = '/auth';
+const AUTH_URL = 'authorization';
+const USER_UPDATE_URL = 'users/update';
+const FIND_USER_URL = 'users/user';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -28,6 +32,15 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+
+    findUser: builder.mutation<ResponseGetUser, { token: string }>({
+      query: data => ({
+        url: `${FIND_USER_URL}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     getUser: builder.query({
       query: () => ({
         url: paths.getUser,
@@ -54,6 +67,13 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    update: builder.mutation<void, { id: string; data: RequestUpdateUser }>({
+      query: ({ id, data }) => ({
+        url: `${USER_UPDATE_URL}/${id}`,
+        method: 'PATCH',
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -61,6 +81,8 @@ export const {
   useLoginMutation,
   useRegistrationMutation,
   useRestorePassMutation,
+  useFindUserMutation,
+  useUpdateMutation,
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
