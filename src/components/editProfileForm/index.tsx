@@ -1,23 +1,17 @@
 import { useState } from 'react';
-import defaultAvatar from 'assets/images/default-avatar.png';
-import EditIcon from 'assets/icons/editIcon';
-import {
-  EditImgBtn,
-  ImgWrap,
-  EditForm,
-  InfoWrap,
-  SizesWrap,
-  InfoField,
-  SizeField,
-  StyledSelectWrapper,
-  AddressWrap,
-  DesktopWrap,
-  SaveBtn,
-  LocationField,
-  CardWrap,
-} from './styles';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import PhoneInput from 'react-phone-number-input';
+import { Link } from 'react-router-dom';
+import Select from 'react-select';
+import { yupResolver } from '@hookform/resolvers/yup';
+import EditIcon from 'assets/icons/editIcon';
+import defaultAvatar from 'assets/images/default-avatar.png';
+import CreditCardForm from 'components/cardInfoCard';
 import { ErrorMsg } from 'components/sharedUI/form/styles';
+
+import 'react-phone-number-input/style.css';
+
 import {
   cities,
   clothesSizes,
@@ -25,15 +19,26 @@ import {
   shoesSizes,
   states,
 } from './data/sizes';
-import { SubmitHandler, useForm, Controller } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { Inputs } from './types';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
-import Select from 'react-select';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useEditProfileSchema } from './editProfileFormHooks';
-import CreditCardForm from 'components/cardInfoCard';
+import {
+  AddressWrap,
+  CardWrap,
+  DesktopWrap,
+  EditForm,
+  EditImgBtn,
+  ImgWrap,
+  InfoField,
+  InfoWrap,
+  LocationField,
+  SaveBtn,
+  SizeField,
+  SizesWrap,
+  StyledSelectWrapper,
+} from './styles';
+import { Inputs } from './types';
+
+const avatarSize: number = 120;
+const phoneCountry = 'US';
 
 export const EditProfileForm = () => {
   const [avatar, setAvatar] = useState<string>('');
@@ -76,8 +81,8 @@ export const EditProfileForm = () => {
           <img
             src={avatar ? avatar : defaultAvatar}
             alt="user-avatar"
-            width={120}
-            height={120}
+            width={avatarSize}
+            height={avatarSize}
           />
           <EditImgBtn htmlFor="user-avatar">
             <input
@@ -135,7 +140,7 @@ export const EditProfileForm = () => {
                     {...field}
                     international
                     defaultCountry="US"
-                    countries={['US']}
+                    countries={[phoneCountry]}
                     className={errors.phone ? 'error-input' : ''}
                     placeholder={t('editProfile.phonePlaceholder')}
                     id="user-phone"

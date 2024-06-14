@@ -1,5 +1,9 @@
-import { ProfileNavBar } from 'components/profileNavBar';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
+import { DeleteAccountModal } from 'components/deleteAccountModal';
+import { ProfileNavBar } from 'components/profileNavBar';
+
 import {
   OutletWrap,
   ProfileNavBarWrap,
@@ -7,9 +11,6 @@ import {
   ProfileSectionWrap,
   TitleSection,
 } from './styles';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-import { DeleteAccountModal } from 'components/deleteAccountModal';
 
 const ProfilePage = () => {
   const { t } = useTranslation();

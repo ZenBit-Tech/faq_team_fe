@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import CheckoutForm from './checkoutForm';
 import stripe from 'stripe';
+
+import CheckoutForm from './checkoutForm';
 
 const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_PUBLIC_KEY as string,
 );
-console.log(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 // SHOULD BE MOVED TO SERVER
 const calculateOrderAmount = () => {

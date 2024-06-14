@@ -1,12 +1,17 @@
 import { MouseEvent, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { DeleteAccountModalProps } from './types';
 import { useTranslation } from 'react-i18next';
-import { Backdrop, Modal, CancelBtn, DeleteBtn, CloseBtn } from './styles';
-import DeleteIcon from 'assets/icons/iconDelete';
 import CloseIcon from 'assets/icons/iconClose';
+import DeleteIcon from 'assets/icons/iconDelete';
+
+import { Backdrop, CancelBtn, CloseBtn, DeleteBtn, Modal } from './styles';
+import { DeleteAccountModalProps } from './types';
 
 const modalRoot = document.querySelector('#modal-root');
+const escapeBtn: string = 'Escape';
+const hiddenOverflow: string = 'hidden';
+const autoOverflow: string = 'auto';
+const deleteIconSize: number = 94;
 
 export const DeleteAccountModal = ({
   isModalOpen,
@@ -15,18 +20,18 @@ export const DeleteAccountModal = ({
   const { t } = useTranslation();
   useEffect(() => {
     const handleModalCloseByEsc = (evt: KeyboardEvent) => {
-      if (evt.code === 'Escape') {
+      if (evt.code === escapeBtn) {
         onClose();
       }
     };
     window.addEventListener('keydown', handleModalCloseByEsc);
 
     if (isModalOpen || modalRoot?.children.length) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = hiddenOverflow;
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = autoOverflow;
       window.removeEventListener('keydown', handleModalCloseByEsc);
     };
   }, [onClose, isModalOpen]);
@@ -48,7 +53,7 @@ export const DeleteAccountModal = ({
           <CloseBtn type="button" onClick={onClose}>
             <CloseIcon />
           </CloseBtn>
-          <DeleteIcon width={94} height={94} />
+          <DeleteIcon width={deleteIconSize} height={deleteIconSize} />
           <h1>{t('deleteAccount.title')}</h1>
           <p>{t('deleteAccount.subtitle')}</p>
           <ul>

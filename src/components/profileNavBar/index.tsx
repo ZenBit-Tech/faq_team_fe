@@ -1,23 +1,27 @@
-import UserIcon from 'assets/icons/userIcon';
-import { useTranslation } from 'react-i18next';
-import defaultAvatar from 'assets/images/default-avatar.png';
-import OrdersIcon from 'assets/icons/ordersIcon';
-import WishListIcon from 'assets/icons/wishListIcon';
-import SupportIcon from 'assets/icons/supportIcon';
-import LogoutIcon from 'assets/icons/logoutIcon';
-import { paths } from 'const/paths';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import LogoutIcon from 'assets/icons/logoutIcon';
+import OrdersIcon from 'assets/icons/ordersIcon';
+import SupportIcon from 'assets/icons/supportIcon';
+import UserIcon from 'assets/icons/userIcon';
+import WishListIcon from 'assets/icons/wishListIcon';
+import defaultAvatar from 'assets/images/default-avatar.png';
+import { paths } from 'const/paths';
+
 import {
   Avatar,
+  DeleteAccBtn,
+  EvenNavLink,
   MobTitle,
-  UserName,
   ModeList,
   NavList,
   OddNavLink,
-  EvenNavLink,
-  DeleteAccBtn,
+  UserName,
 } from './styles';
 import { ProfileNavBarProps } from './types';
+
+const avatarSize: number = 120;
+const iconsSize: number = 32;
 
 export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
   const { t } = useTranslation();
@@ -29,7 +33,12 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
   return (
     <>
       <MobTitle>{t('profileNav.mobTitle')}</MobTitle>
-      <Avatar src={defaultAvatar} alt="user-avatar" width={120} height={120} />
+      <Avatar
+        src={defaultAvatar}
+        alt="user-avatar"
+        width={avatarSize}
+        height={avatarSize}
+      />
       <UserName>{t('profileNav.username')}</UserName>
       <ModeList>
         <li>
@@ -50,14 +59,14 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
       <NavList>
         <li>
           <OddNavLink to={paths.personalInfo}>
-            <UserIcon width={32} height={32} />
+            <UserIcon width={iconsSize} height={iconsSize} />
             <span>{t('profileNav.navLinks.info')}</span>
           </OddNavLink>
         </li>
         {isVendor ? null : (
           <li>
             <EvenNavLink to="">
-              <OrdersIcon width={32} height={32} />
+              <OrdersIcon width={iconsSize} height={iconsSize} />
               <span>{t('profileNav.navLinks.orders')}</span>
             </EvenNavLink>
           </li>
@@ -65,20 +74,20 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
         {isVendor ? null : (
           <li>
             <OddNavLink to="">
-              <WishListIcon width={32} height={32} />
+              <WishListIcon width={iconsSize} height={iconsSize} />
               <span>{t('profileNav.navLinks.wishlist')}</span>
             </OddNavLink>
           </li>
         )}
         <li>
           <EvenNavLink to="">
-            <SupportIcon width={32} height={32} />
+            <SupportIcon width={iconsSize} height={iconsSize} />
             <span>{t('profileNav.navLinks.support')}</span>
           </EvenNavLink>
         </li>
         <li>
           <OddNavLink to="">
-            <LogoutIcon width={32} height={32} />
+            <LogoutIcon width={iconsSize} height={iconsSize} />
             <span>{t('profileNav.navLinks.logout')}</span>
           </OddNavLink>
         </li>
