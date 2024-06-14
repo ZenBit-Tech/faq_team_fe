@@ -1,6 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { v4 as uuidv4 } from 'uuid';
+
 import {
   ButtonsContainer,
   StyledButton,
@@ -22,7 +24,6 @@ import {
   TabProps,
 } from 'components/fillProfileForm/types';
 import { sizeSchema } from 'components/fillProfileForm/validation';
-import { v4 as uuidv4 } from 'uuid';
 
 const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();

@@ -1,5 +1,6 @@
 import { Tabs } from 'react-tabs';
 import styled from '@emotion/styled';
+
 import { Theme } from 'styles/theme';
 
 export const TabsSection = styled.div<{ theme?: Theme }>`

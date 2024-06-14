@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
 

@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { v4 as uuidv4 } from 'uuid';
+
 import {
   StyledInput,
   StyledRadioGroup,
@@ -22,7 +24,6 @@ import {
   UserRoles,
 } from 'components/fillProfileForm/types';
 import { roleSchema } from 'components/fillProfileForm/validation';
-import { v4 as uuidv4 } from 'uuid';
 
 const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();

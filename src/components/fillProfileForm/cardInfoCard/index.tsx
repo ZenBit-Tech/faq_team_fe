@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import stripe from 'stripe';
+import { v4 as uuidv4 } from 'uuid';
+
 import CheckoutForm from 'components/fillProfileForm/cardInfoCard/checkoutForm';
 import {
   ButtonsContainer,
@@ -14,8 +17,6 @@ import {
 } from 'components/fillProfileForm/sharedStyles';
 import { ButtonVariant, TabProps } from 'components/fillProfileForm/types';
 import { stripePaymentCurrency } from 'const/constants';
-import stripe from 'stripe';
-import { v4 as uuidv4 } from 'uuid';
 
 const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_PUBLIC_KEY as string,

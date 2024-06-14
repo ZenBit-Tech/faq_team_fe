@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Tab, TabList, TabPanel } from 'react-tabs';
+import { v4 as uuidv4 } from 'uuid';
+
 import StepFinished from 'assets/icons/steps/step_finished';
 import {
   iconsActive,
@@ -13,7 +15,6 @@ import {
   TabsHeader,
   TabsSection,
 } from 'components/fillProfileForm/styles';
-import { v4 as uuidv4 } from 'uuid';
 
 const firstTabIndex = 0;
 

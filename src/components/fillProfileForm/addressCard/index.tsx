@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { v4 as uuidv4 } from 'uuid';
+
 import { StyledForm } from 'components/fillProfileForm/addressCard/styles';
 import {
   ButtonsContainer,
@@ -17,7 +19,6 @@ import {
   countriesOptions,
   statesOptions,
 } from 'const/constants';
-import { v4 as uuidv4 } from 'uuid';
 
 const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();

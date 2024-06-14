@@ -5,6 +5,8 @@ import {
   parseCountry,
   PhoneInput,
 } from 'react-international-phone';
+import { v4 as uuidv4 } from 'uuid';
+
 import UploadAvatar from 'assets/icons/uploadAvatar';
 import avatar from 'assets/images/avatar.png';
 import {
@@ -22,7 +24,6 @@ import {
   StyledTitle,
 } from 'components/fillProfileForm/sharedStyles';
 import { ButtonVariant, TabProps } from 'components/fillProfileForm/types';
-import { v4 as uuidv4 } from 'uuid';
 
 import 'react-international-phone/style.css';
 
