@@ -69,7 +69,7 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
         </StyledFormContainer>
         <PhoneWrapper>
           <PhoneInput
-            defaultCountry="ua"
+            defaultCountry="ca"
             value={phone}
             onChange={phone => setPhone(phone)}
             countries={countries}

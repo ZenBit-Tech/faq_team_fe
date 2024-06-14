@@ -24,8 +24,8 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
 
   const [country, setCountry] = useState(countriesOptions[0]);
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
+  const [state, setState] = useState(statesOptions[country][0]);
+  const [city, setCity] = useState(citiesOptions[country][0]);
 
   const handleCountryChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
@@ -75,13 +75,11 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
                 <option disabled>
                   {t('fillProfile.addressCard.selectState')}
                 </option>
-                {statesOptions[country as keyof typeof statesOptions].map(
-                  state => (
-                    <option key={uuidv4()} value={state}>
-                      {state}
-                    </option>
-                  ),
-                )}
+                {statesOptions[country].map(state => (
+                  <option key={uuidv4()} value={state}>
+                    {state}
+                  </option>
+                ))}
               </select>
             </>
           )}
@@ -92,13 +90,11 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
                 <option disabled>
                   {t('fillProfile.addressCard.selectCity')}
                 </option>
-                {citiesOptions[country as keyof typeof citiesOptions].map(
-                  city => (
-                    <option key={uuidv4()} value={city}>
-                      {city}
-                    </option>
-                  ),
-                )}
+                {citiesOptions[country].map(city => (
+                  <option key={uuidv4()} value={city}>
+                    {city}
+                  </option>
+                ))}
               </select>
             </>
           )}

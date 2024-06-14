@@ -11,10 +11,10 @@ export const clockPrecision = 1000;
 
 export const stripePaymentCurrency = 'usd';
 
-export const countriesOptions = ['Canada'];
+export const countriesOptions = ['Canada'] as const;
 export const statesOptions = {
   Canada: ['Ontario', 'Quebec', 'British Columbia'],
-};
+} as const;
 export const citiesOptions = {
   Canada: ['Toronto', 'Montreal', 'Vancouver'],
-};
+} as const;
