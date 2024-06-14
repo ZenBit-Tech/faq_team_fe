@@ -56,7 +56,7 @@ export type ResponseGetUser = {
   role?: string;
   otp_code?: string;
   id?: string;
-
+};
 export type RequestNewPass = {
   password: string;
   email: string;
@@ -69,5 +69,4 @@ export type ResponseVerifyOtp = {
 export type RequestVerifyOtp = {
   otp_code: string;
   email: string;
-
 };

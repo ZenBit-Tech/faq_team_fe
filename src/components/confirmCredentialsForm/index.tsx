@@ -39,6 +39,7 @@ export const ConfirmCredentialsForm = ({
     },
     resolver: yupResolver(confirmSchema),
   });
+
   useEffect(() => {
     reset({
       email: email_value,
@@ -63,6 +64,7 @@ export const ConfirmCredentialsForm = ({
       }
     }
   };
+
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>

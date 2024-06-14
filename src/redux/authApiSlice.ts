@@ -11,7 +11,7 @@ import {
   RequestVerifyOtp,
 } from 'redux/types';
 import { paths } from 'const/paths';
-const AUTH_URL = 'Authorization';
+const AUTH_URL = 'authorization';
 const USER_UPDATE_URL = 'users/update';
 const FIND_USER_URL = 'users/user';
 
