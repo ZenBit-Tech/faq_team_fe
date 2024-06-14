@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './pages/sharedLayout';
 import { paths } from 'const/paths';
+import { SuperAdminLayout } from 'pages/superAdminLayout';
+const UserListPage = lazy(() => import('pages/userListPage'));
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
@@ -29,6 +31,9 @@ function App() {
           <Route path={paths.verifyOtp} element={<VerifyOtpPAge />} />
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
+        </Route>
+        <Route path={paths.superAdminRoot} element={<SuperAdminLayout />}>
+          <Route path={paths.userList} element={<UserListPage />} />
         </Route>
       </Routes>
     </>
