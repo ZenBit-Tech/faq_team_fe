@@ -1,6 +1,8 @@
 import DownArrowIcon from 'assets/icons/iconDownArrow';
-import { AdminAvatar, AdminName, AdminProfile, Header } from './styles';
 import { Container } from 'pages/superAdminLayout/styles';
+
+import { AdminAvatar, AdminName, AdminProfile, Header } from './styles';
+
 const name = 'Anna Asol';
 const title = 'Admin';
 const initials = 'AA';
