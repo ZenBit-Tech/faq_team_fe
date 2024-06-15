@@ -20,6 +20,8 @@ export const ProductsTab = styled.div`
   border-radius: 8px;
   text-align: center;
   color: #2e2e46;
+
+  cursor: pointer;
 `;
 export const ReviewsTab = styled.div`
   width: 50%;

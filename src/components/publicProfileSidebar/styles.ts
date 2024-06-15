@@ -75,4 +75,9 @@ export const FollowButton = styled.div<{ theme?: Theme }>`
 
   background-color: #333333;
   border-radius: 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #464646;
+  }
 `;
