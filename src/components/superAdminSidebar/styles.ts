@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
 import { Theme } from 'styles/theme';
 
 export const SideBar = styled.aside<{ theme?: Theme }>`
@@ -10,8 +10,8 @@ export const SideBar = styled.aside<{ theme?: Theme }>`
   right: 0;
   width: 240px;
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 15px 24px;
-  flex: 20%;
+  padding: 15px;
+  border-right: 2px solid ${({ theme }) => theme.colors.for_tables};
 `;
 export const NavBar = styled.nav`
   margin-top: 28px;
