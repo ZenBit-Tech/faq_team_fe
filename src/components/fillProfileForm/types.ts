@@ -26,3 +26,8 @@ export const enum UserRoles {
 export interface RoleFormData {
   role: string;
 }
+
+export interface GeneralInfoSchema {
+  image: FileList;
+  phone: string;
+}

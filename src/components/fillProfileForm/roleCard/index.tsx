@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -41,13 +40,8 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
     setSelectedIndex(index + 1);
   };
 
-  const buyerRef = useRef<HTMLInputElement>(null);
-  const vendorRef = useRef<HTMLInputElement>(null);
-
-  const handleDivClick = (ref: React.RefObject<HTMLInputElement>) => {
-    if (ref.current) {
-      ref.current.click();
-    }
+  const handleDivClick = e => {
+    e.currentTarget.children[0].click();
   };
 
   return (
@@ -61,7 +55,7 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
             </StyledSubtitle>
           </StyledFormContainer>
           <StyledRadioGroup>
-            <div onClick={() => handleDivClick(buyerRef)}>
+            <div onClick={e => handleDivClick(e)}>
               <StyledInput
                 type="radio"
                 value={UserRoles.Buyer}
@@ -69,7 +63,7 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
               />
               {t('fillProfile.roleCard.buyer')}
             </div>
-            <div onClick={() => handleDivClick(vendorRef)}>
+            <div onClick={e => handleDivClick(e)}>
               <StyledInput
                 type="radio"
                 {...register('role')}

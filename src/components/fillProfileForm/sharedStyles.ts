@@ -67,7 +67,8 @@ export const StyledInput = styled.input<{ theme?: Theme }>`
 `;
 
 export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
-  min-width: 100px;
+  min-width: 150px;
+  max-height: 50px;
   padding: 8px;
   margin: 5px;
   border: solid 1px ${({ theme }) => theme.colors.black};
@@ -84,6 +85,10 @@ export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
   gap: 5px;
   justify-content: center;
   align-items: center;
+
+  input {
+    display: none;
+  }
 `;
 
 export const ButtonsContainer = styled.div<{ theme?: Theme }>`

@@ -1,6 +1,9 @@
 import { PaymentElement } from '@stripe/react-stripe-js';
 
-import { StyledForm, StyledFormWrapper } from './styles';
+import {
+  StyledForm,
+  StyledFormWrapper,
+} from 'components/fillProfileForm/cardInfoCard/styles';
 
 const CheckoutForm = () => {
   const paymentElementOptions = {
