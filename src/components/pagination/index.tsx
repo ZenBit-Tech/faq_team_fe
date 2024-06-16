@@ -1,7 +1,8 @@
 import React from 'react';
-import PaginationRightIcon from 'assets/icons/iconPaginationRight';
 import PaginationLeftIcon from 'assets/icons/iconPaginationLeft';
-import { PaginationContainer, Arrow, PageNumber } from './styles';
+import PaginationRightIcon from 'assets/icons/iconPaginationRight';
+
+import { Arrow, PageNumber, PaginationContainer } from './styles';
 import { PaginationProps } from './types';
 
 const Pagination: React.FC<PaginationProps> = ({

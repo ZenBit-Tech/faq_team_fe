@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
+import { Theme } from 'styles/theme';
 
-export const Main = styled.main`
+export const Main = styled.main<{ theme?: Theme }>`
   section {
     padding-left: 240px;
+    min-height: 92.4vh;
+    background-color: ${({ theme }) => theme.colors.for_tables};
   }
 `;
 export const Container = styled.div`
