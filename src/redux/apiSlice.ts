@@ -1,4 +1,5 @@
-import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { RootState } from './store';
 
 export const apiSlice = createApi({
@@ -15,5 +16,6 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
+  tagTypes: ['USERS'],
   endpoints: () => ({}),
 });

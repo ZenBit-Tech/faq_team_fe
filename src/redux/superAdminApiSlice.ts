@@ -15,8 +15,16 @@ const adminApiSlice = apiSlice.injectEndpoints({
       query: ({ page, limit, search, order }) => ({
         url: `${apiEndpoints.getAllUsers}?page=${page}&limit=${limit}&search=${search}&order=${order}`,
       }),
+      providesTags: ['USERS'],
+    }),
+    deleteUser: builder.mutation<void, string>({
+      query: id => ({
+        url: `${apiEndpoints.deleteUser}/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['USERS'],
     }),
   }),
 });
 
-export const { useGetUsersQuery } = adminApiSlice;
+export const { useGetUsersQuery, useDeleteUserMutation } = adminApiSlice;

@@ -49,14 +49,6 @@ export type RequestUpdateUser = {
   shoes_size?: number;
 };
 
-export type ResponseGetUser = {
-  full_name?: string;
-  email?: string;
-  password?: string;
-  role?: string;
-  otp_code?: string;
-  id?: string;
-};
 export type RequestNewPass = {
   password: string;
   email: string;
@@ -70,7 +62,7 @@ export type RequestVerifyOtp = {
   otp_code: string;
   email: string;
 };
-export type ResponseGetUsers = {
+export type ResponseGetUser = {
   id: string;
   created_at: Date;
   full_name: string;
@@ -99,6 +91,6 @@ export type RequestGetUsersWithFilters = {
   search?: string;
 };
 export type ResponseGetUsersWithFilters = {
-  users: ResponseGetUsers[];
+  users: ResponseGetUser[];
   totalCount: number;
 };
