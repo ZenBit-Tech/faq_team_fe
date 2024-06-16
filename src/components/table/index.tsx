@@ -2,7 +2,6 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import TrashIcon from 'assets/icons/iconTrash';
 import ViewIcon from 'assets/icons/iconView';
-import checkIcon from 'assets/images/verified-check.svg';
 import Pagination from 'components/pagination';
 import SearchInput from 'components/searchInput';
 import TableSort from 'components/tableSort';
@@ -29,11 +28,12 @@ export const TableComponent: React.FC = () => {
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [limit] = useState<number>(5);
   const [search, setSearch] = useState<string>('');
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [order, setOrder] = useState<'ASC' | 'DESC'>('ASC');
   const { data } = useGetUsersQuery({
     page: currentPage,
     limit,
-    search,
+    search: debouncedSearch,
     order,
   });
   const { t } = useTranslation();
@@ -49,12 +49,22 @@ export const TableComponent: React.FC = () => {
   }, [data, limit]);
 
   const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > totalPages!) return;
     setCurrentPage(newPage);
   };
 
   const handleSortChange = () => {
     setOrder(order === 'ASC' ? 'DESC' : 'ASC');
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [search]);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -83,14 +93,7 @@ export const TableComponent: React.FC = () => {
             {data?.users?.map(row => (
               <tr key={row.id}>
                 <Td>
-                  <TdInner>
-                    {row.full_name}{' '}
-                    {row.is_verified ? (
-                      <span>
-                        <img src={checkIcon} />
-                      </span>
-                    ) : null}
-                  </TdInner>
+                  <TdInner>{row.full_name}</TdInner>
                 </Td>
                 <Td>
                   <TdInner>{row.email}</TdInner>
