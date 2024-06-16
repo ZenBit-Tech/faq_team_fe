@@ -105,8 +105,15 @@ const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
           {errors.jeansSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
         </StyledForm>
         <ButtonsContainer>
-          <StyledButton variant={ButtonVariant.White} type="submit">
+          <StyledButton key={uuidv4()} variant={ButtonVariant.White}>
             {t('fillProfile.prevButton')}
+          </StyledButton>
+          <StyledButton
+            key={uuidv4()}
+            variant={ButtonVariant.Black}
+            type="submit"
+          >
+            {t('fillProfile.nextButton')}
           </StyledButton>
         </ButtonsContainer>
       </form>

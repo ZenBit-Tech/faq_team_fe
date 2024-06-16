@@ -12,7 +12,6 @@ export const StyledRadioGroup = styled.div<{ theme?: Theme }>`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     width: 100%;
-    margin: 20px;
     gap: 10px;
     flex-direction: column;
 
@@ -25,10 +24,9 @@ export const StyledRadioGroup = styled.div<{ theme?: Theme }>`
     }
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    width: 100%;
-    margin: 50px;
     gap: 30px;
     flex-direction: column;
+    margin: 0px;
   }
 `;
 

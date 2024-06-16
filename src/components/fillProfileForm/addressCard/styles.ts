@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form<{ theme?: Theme }>`
+export const StyledForm = styled.div<{ theme?: Theme }>`
   width: 100%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
 
@@ -12,7 +13,7 @@ export const StyledForm = styled.form<{ theme?: Theme }>`
   }
 
   input {
-    margin-bottom: 15px;
+    height: 45px;
     padding: 10px;
     font-size: ${({ theme }) => theme.fontSize.md};
     border-color: ${({ theme }) => theme.colors.gray};

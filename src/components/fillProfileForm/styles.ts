@@ -9,6 +9,10 @@ export const TabsSection = styled.div<{ theme?: Theme }>`
   display: flex;
   align-items: start;
   justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: 100%;
+  }
 `;
 
 export const TabsHeader = styled.div<{ theme?: Theme }>`
@@ -46,7 +50,7 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
 
   .react-tabs__tab-panel--selected {
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-      height: 90vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;

@@ -11,6 +11,7 @@ import {
   ButtonsContainer,
   StyledButton,
   StyledForm,
+  StyledFormBlock,
   StyledFormContainer,
   StyledSubtitle,
   StyledTabContainer,
@@ -40,20 +41,19 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
     setSelectedIndex(index + 1);
   };
 
-  const handleDivClick = e => {
-    e.currentTarget.children[0].click();
+  const handleDivClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const inputElement = e.currentTarget.children[0] as HTMLInputElement;
+    inputElement.click();
   };
 
   return (
-    <StyledTabContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>{t('fillProfile.roleCard.title')}</StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.roleCard.subTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
+    <StyledTabContainer onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>{t('fillProfile.roleCard.title')}</StyledTitle>
+          <StyledSubtitle>{t('fillProfile.roleCard.subTitle')}</StyledSubtitle>
+        </StyledFormContainer>
+        <StyledFormBlock>
           <StyledRadioGroup>
             <div onClick={e => handleDivClick(e)}>
               <StyledInput
@@ -72,18 +72,18 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
               {t('fillProfile.roleCard.vendor')}
             </div>
           </StyledRadioGroup>
-          {errors.role && <p>{errors.role.message}</p>}
-        </StyledForm>
-        <ButtonsContainer>
-          <StyledButton
-            type="submit"
-            variant={ButtonVariant.Black}
-            key={uuidv4()}
-          >
-            {t('fillProfile.nextButton')}
-          </StyledButton>
-        </ButtonsContainer>
-      </form>
+          <p>{errors.role && errors.role.message}</p>
+        </StyledFormBlock>
+      </StyledForm>
+      <ButtonsContainer>
+        <StyledButton
+          type="submit"
+          variant={ButtonVariant.Black}
+          key={uuidv4()}
+        >
+          {t('fillProfile.nextButton')}
+        </StyledButton>
+      </ButtonsContainer>
     </StyledTabContainer>
   );
 };

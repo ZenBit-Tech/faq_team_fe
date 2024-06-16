@@ -21,3 +21,5 @@ export const citiesOptions = {
 
 export const countryCodes = ['ca'];
 export const phoneLength = 10;
+
+export const imageFormat = '.png,.heic,.jpeg';

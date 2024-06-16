@@ -90,6 +90,7 @@ const CreditCardForm = ({ setSelectedIndex, index }: TabProps) => {
           key={uuidv4()}
           variant={ButtonVariant.Black}
           onClick={() => setSelectedIndex(index + 1)}
+          type="submit"
         >
           {t('fillProfile.nextButton')}
         </StyledButton>

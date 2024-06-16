@@ -103,7 +103,16 @@
       "state": "State",
       "selectState": "Select state",
       "city": "City",
-      "selectCity": "Select city"
+      "selectCity": "Select city",
+      "address1Invalid": "",
+      "address1Required": "",
+      "address1Short": "",
+      "address1Long": "",
+      "address2Invalid": "",
+      "address2Long": "",
+      "countryRequired": "",
+      "stateRequired": "",
+      "cityRequired": ""
     },
     "cardInfoCard": {
       "title": "Card info title",

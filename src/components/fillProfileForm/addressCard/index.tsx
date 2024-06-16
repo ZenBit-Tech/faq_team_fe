@@ -9,6 +9,7 @@ import {
   ButtonsContainer,
   StyledButton,
   StyledCard,
+  StyledFormBlock,
   StyledFormContainer,
   StyledInput,
   StyledSubtitle,
@@ -29,32 +30,37 @@ import {
 
 const addressValidationRegex = /^[a-zA-Z0-9\s,-]*$/;
 
-const schema = yup.object().shape({
-  address1: yup
-    .string()
-    .required('Address 1 is required')
-    .matches(addressValidationRegex, 'Address 1 contains invalid characters')
-    .min(5, 'Address 1 must be at least 5 characters long')
-    .max(100, 'Address 1 must be at most 100 characters long'),
-  address2: yup
-    .string()
-    .optional()
-    .matches(addressValidationRegex, 'Address 2 contains invalid characters')
-    .max(100, 'Address 2 must be at most 100 characters long'),
-  country: yup
-    .mixed<Country>()
-    .oneOf(countriesOptions, 'Country is required')
-    .required('Country is required'),
-  state: yup
-    .mixed<(typeof statesOptions)[Country][number]>()
-    .required('State is required'),
-  city: yup
-    .mixed<(typeof citiesOptions)[Country][number]>()
-    .required('City is required'),
-});
-
 const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
+
+  const schema = yup.object().shape({
+    address1: yup
+      .string()
+      .required(t('fillProfile.addressCard.address1Required'))
+      .matches(
+        addressValidationRegex,
+        t('fillProfile.addressCard.address1Invalid'),
+      )
+      .min(5, t('fillProfile.addressCard.address1Short'))
+      .max(100, t('fillProfile.addressCard.address1Long')),
+    address2: yup
+      .string()
+      .optional()
+      .matches(
+        addressValidationRegex,
+        t('fillProfile.addressCard.address2Invalid'),
+      )
+      .max(100, t('fillProfile.addressCard.address2Long')),
+    country: yup
+      .mixed<Country>()
+      .required(t('fillProfile.addressCard.countryRequired')),
+    state: yup
+      .mixed<(typeof statesOptions)[Country][number]>()
+      .required(t('fillProfile.addressCard.stateRequired')),
+    city: yup
+      .mixed<(typeof citiesOptions)[Country][number]>()
+      .required(t('fillProfile.addressCard.cityRequired')),
+  });
 
   const {
     control,
@@ -77,7 +83,7 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
   };
 
   return (
-    <StyledTabContainer>
+    <StyledTabContainer onSubmit={handleSubmit(onSubmit)}>
       <StyledCard>
         <StyledFormContainer>
           <StyledTitle>{t('fillProfile.addressCard.title')}</StyledTitle>
@@ -85,53 +91,58 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
             {t('fillProfile.addressCard.subTitle')}
           </StyledSubtitle>
         </StyledFormContainer>
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <label>{t('fillProfile.addressCard.address1')}</label>
-          <Controller
-            name="address1"
-            control={control}
-            render={({ field }) => (
-              <StyledInput
-                type="text"
-                placeholder={t('fillProfile.addressCard.address1')}
-                {...field}
-              />
-            )}
-          />
-          {errors.address1 && <span>{errors.address1.message}</span>}
-
-          <label>{t('fillProfile.addressCard.address2')}</label>
-          <Controller
-            name="address2"
-            control={control}
-            render={({ field }) => (
-              <StyledInput
-                type="text"
-                placeholder={t('fillProfile.addressCard.address2')}
-                {...field}
-              />
-            )}
-          />
-          {errors.address2 && <span>{errors.address2.message}</span>}
-          <label>{t('fillProfile.addressCard.country')}</label>
-          <Controller
-            name="country"
-            control={control}
-            render={({ field }) => (
-              <select {...field}>
-                <option disabled>
-                  {t('fillProfile.addressCard.selectCountry')}
-                </option>
-                {countriesOptions.map(country => (
-                  <option key={uuidv4()} value={country}>
-                    {country}
+        <StyledForm>
+          <StyledFormBlock>
+            <label>{t('fillProfile.addressCard.address1')}</label>
+            <Controller
+              name="address1"
+              control={control}
+              render={({ field }) => (
+                <StyledInput
+                  type="text"
+                  placeholder={t('fillProfile.addressCard.address1')}
+                  {...field}
+                />
+              )}
+            />
+            <p>{errors.address1 && errors.address1.message}</p>
+          </StyledFormBlock>
+          <StyledFormBlock>
+            <label>{t('fillProfile.addressCard.address2')}</label>
+            <Controller
+              name="address2"
+              control={control}
+              render={({ field }) => (
+                <StyledInput
+                  type="text"
+                  placeholder={t('fillProfile.addressCard.address2')}
+                  {...field}
+                />
+              )}
+            />
+            <p>{errors.address2 && errors.address2.message}</p>
+          </StyledFormBlock>
+          <StyledFormBlock>
+            <label>{t('fillProfile.addressCard.country')}</label>
+            <Controller
+              name="country"
+              control={control}
+              render={({ field }) => (
+                <select {...field}>
+                  <option disabled>
+                    {t('fillProfile.addressCard.selectCountry')}
                   </option>
-                ))}
-              </select>
-            )}
-          />
-          {errors.country && <span>{errors.country.message}</span>}
-          <>
+                  {countriesOptions.map(country => (
+                    <option key={uuidv4()} value={country}>
+                      {country}
+                    </option>
+                  ))}
+                </select>
+              )}
+            />
+            <p>{errors.country && errors.country.message}</p>
+          </StyledFormBlock>
+          <StyledFormBlock>
             <label>{t('fillProfile.addressCard.state')}</label>
             <Controller
               name="state"
@@ -149,9 +160,9 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
                 </select>
               )}
             />
-            {errors.state && <span>{errors.state.message}</span>}
-          </>
-          <>
+            <p>{errors.state && errors.state.message}</p>
+          </StyledFormBlock>
+          <StyledFormBlock>
             <label>{t('fillProfile.addressCard.city')}</label>
             <Controller
               name="city"
@@ -169,8 +180,8 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
                 </select>
               )}
             />
-            {errors.city && <span>{errors.city.message}</span>}
-          </>
+            <p>{errors.city && errors.city.message}</p>
+          </StyledFormBlock>
 
           <ButtonsContainer>
             <StyledButton

@@ -12,9 +12,7 @@ export const StyledImage = styled.img`
 `;
 
 export const PhoneWrapper = styled.div<{ theme?: Theme }>`
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    margin: 20px;
-  }
+  margin-bottom: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin: 0px;
@@ -25,9 +23,6 @@ export const PhoneWrapper = styled.div<{ theme?: Theme }>`
 `;
 
 export const UploadPhotoWrapper = styled.div<{ theme?: Theme }>`
-  margin-left: 20px;
-  margin-right: 20px;
-
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     gap: 10px;
     align-items: start;

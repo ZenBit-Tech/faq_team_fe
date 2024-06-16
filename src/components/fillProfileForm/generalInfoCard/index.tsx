@@ -22,6 +22,7 @@ import {
   ButtonsContainer,
   StyledButton,
   StyledForm,
+  StyledFormBlock,
   StyledFormContainer,
   StyledSubtitle,
   StyledTabContainer,
@@ -32,7 +33,7 @@ import {
   GeneralInfoSchema,
   TabProps,
 } from 'components/fillProfileForm/types';
-import { phoneLength } from 'const/constants';
+import { imageFormat, phoneLength } from 'const/constants';
 
 import 'react-international-phone/style.css';
 
@@ -89,17 +90,17 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
   };
 
   return (
-    <StyledTabContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>
-              {t('fillProfile.generalInfoCard.photoTitle')}
-            </StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.generalInfoCard.photoSubTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
+    <StyledTabContainer onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>
+            {t('fillProfile.generalInfoCard.photoTitle')}
+          </StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.generalInfoCard.photoSubTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        <StyledFormBlock>
           <UploadPhotoWrapper>
             {selectedImage ? (
               <StyledImage src={selectedImage} />
@@ -112,9 +113,8 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
               type="button"
             >
               <input
-                // defaultValue={''}
                 type="file"
-                accept=".png,.heic,.jpeg"
+                accept={imageFormat}
                 {...rest}
                 ref={e => {
                   registerRef(e);
@@ -124,18 +124,20 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
               <UploadAvatar />
               {t('fillProfile.generalInfoCard.uploadPhotoButton')}
             </StyledButton>
-            {errors.image && <p>{errors.image.message}</p>}
           </UploadPhotoWrapper>
-        </StyledForm>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>
-              {t('fillProfile.generalInfoCard.phoneTitle')}
-            </StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.generalInfoCard.phoneSubTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
+          <p>{errors.image && errors.image.message}</p>
+        </StyledFormBlock>
+      </StyledForm>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>
+            {t('fillProfile.generalInfoCard.phoneTitle')}
+          </StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.generalInfoCard.phoneSubTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        <StyledFormBlock>
           <PhoneWrapper>
             <Controller
               name="phone"
@@ -149,25 +151,25 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
                 />
               )}
             />
-            {errors.phone && <p>{errors.phone.message}</p>}
           </PhoneWrapper>
-        </StyledForm>
-        <ButtonsContainer>
-          <StyledButton
-            variant={ButtonVariant.White}
-            onClick={() => setSelectedIndex(index - 1)}
-          >
-            {t('fillProfile.prevButton')}
-          </StyledButton>
-          <StyledButton
-            key={uuidv4()}
-            variant={ButtonVariant.Black}
-            type="submit"
-          >
-            {t('fillProfile.nextButton')}
-          </StyledButton>
-        </ButtonsContainer>
-      </form>
+          <p>{errors.phone && errors.phone.message}</p>
+        </StyledFormBlock>
+      </StyledForm>
+      <ButtonsContainer>
+        <StyledButton
+          variant={ButtonVariant.White}
+          onClick={() => setSelectedIndex(index - 1)}
+        >
+          {t('fillProfile.prevButton')}
+        </StyledButton>
+        <StyledButton
+          key={uuidv4()}
+          variant={ButtonVariant.Black}
+          type="submit"
+        >
+          {t('fillProfile.nextButton')}
+        </StyledButton>
+      </ButtonsContainer>
     </StyledTabContainer>
   );
 };

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
 
-export const StyledTabContainer = styled.div<{ theme?: Theme }>`
+export const StyledTabContainer = styled.form<{ theme?: Theme }>`
   display: flex;
   flex-direction: column;
 
@@ -28,11 +28,14 @@ export const StyledForm = styled.div<{ theme?: Theme }>`
 export const StyledFormContainer = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 5px;
   width: 30%;
+  min-height: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 100%;
+    min-height: 0px;
   }
 `;
 
@@ -48,9 +51,10 @@ export const StyledTitle = styled.div<{ theme?: Theme }>`
 `;
 
 export const StyledCard = styled.div<{ theme?: Theme }>`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     flex-direction: column;
@@ -59,11 +63,14 @@ export const StyledCard = styled.div<{ theme?: Theme }>`
 `;
 
 export const StyledInput = styled.input<{ theme?: Theme }>`
-  margin-bottom: 15px;
-  padding: 10px;
+  margin-bottom: 5px;
   font-size: ${({ theme }) => theme.fontSize.md};
   border: 1px solid ${({ theme }) => theme.colors.gray};
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    margin-bottom: 0px;
+  }
 `;
 
 export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
@@ -101,5 +108,32 @@ export const ButtonsContainer = styled.div<{ theme?: Theme }>`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     justify-content: space-around;
     padding: 0px;
+  }
+`;
+
+export const StyledFormBlock = styled.div<{ theme?: Theme }>`
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    width: 100%;
+    padding-left: 20px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+    padding-left: 0px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.error_red};
+    min-height: 20px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      margin-top: 10px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+      margin-top: 10px;
+    }
   }
 `;
