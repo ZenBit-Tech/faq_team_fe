@@ -1,3 +1,9 @@
+import {
+  citiesOptions,
+  countriesOptions,
+  statesOptions,
+} from 'const/constants';
+
 export interface buttonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: string;
@@ -30,4 +36,14 @@ export interface RoleFormData {
 export interface GeneralInfoSchema {
   image: FileList;
   phone: string;
+}
+
+export type Country = (typeof countriesOptions)[number];
+
+export interface AddressSchema {
+  address1: string;
+  address2?: string;
+  country: Country;
+  state: (typeof statesOptions)[Country][number];
+  city: (typeof citiesOptions)[Country][number];
 }

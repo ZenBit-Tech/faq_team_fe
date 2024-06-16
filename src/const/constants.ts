@@ -18,3 +18,6 @@ export const statesOptions = {
 export const citiesOptions = {
   Canada: ['Toronto', 'Montreal', 'Vancouver'],
 } as const;
+
+export const countryCodes = ['ca'];
+export const phoneLength = 10;

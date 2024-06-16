@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import {
-  defaultCountries,
-  parseCountry,
-  PhoneInput,
-} from 'react-international-phone';
+import { defaultCountries, PhoneInput } from 'react-international-phone';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
@@ -19,6 +15,7 @@ import {
 } from 'components/fillProfileForm/generalInfoCard/styles';
 import {
   convertToBase64,
+  countries,
   isValidFileList,
 } from 'components/fillProfileForm/generalInfoCard/utils';
 import {
@@ -35,15 +32,9 @@ import {
   GeneralInfoSchema,
   TabProps,
 } from 'components/fillProfileForm/types';
+import { phoneLength } from 'const/constants';
 
 import 'react-international-phone/style.css';
-
-const countryCodes = ['ca'];
-
-const countries = defaultCountries.filter(country => {
-  const { iso2 } = parseCountry(country);
-  return countryCodes.includes(iso2);
-});
 
 const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
   const { t } = useTranslation();
@@ -54,7 +45,9 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
       .test('fileType', t('fillProfile.generalInfoCard.imageRequired'), value =>
         isValidFileList(value as FileList),
       ),
-    phone: yup.string().min(10, t('fillProfile.generalInfoCard.phoneRequired')),
+    phone: yup
+      .string()
+      .min(phoneLength, t('fillProfile.generalInfoCard.phoneRequired')),
   });
 
   const {
@@ -66,7 +59,7 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
     resolver: yupResolver(schema),
   });
 
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { ref: registerRef, onChange, ...rest } = register('image');
 
   const handleButtonClick = (
@@ -79,10 +72,12 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
   const handleFileChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    if (event.target.files) {
+    if (event.target.files && event.target.files.length) {
       const file = event.target.files[0];
       const fileURL = URL.createObjectURL(file);
       setSelectedImage(fileURL);
+    } else {
+      setSelectedImage(null);
     }
   };
 
@@ -114,9 +109,12 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
             <StyledButton
               variant={ButtonVariant.Black}
               onClick={e => handleButtonClick(e)}
+              type="button"
             >
               <input
+                // defaultValue={''}
                 type="file"
+                accept=".png,.heic,.jpeg"
                 {...rest}
                 ref={e => {
                   registerRef(e);
@@ -147,7 +145,7 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
                 <PhoneInput
                   {...field}
                   defaultCountry="ca"
-                  countries={countries}
+                  countries={countries(defaultCountries)}
                 />
               )}
             />

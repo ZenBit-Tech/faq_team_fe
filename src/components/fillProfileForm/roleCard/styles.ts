@@ -6,6 +6,10 @@ export const StyledRadioGroup = styled.div<{ theme?: Theme }>`
   display: flex;
   gap: 100px;
 
+  div {
+    cursor: pointer;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     width: 100%;
     margin: 20px;

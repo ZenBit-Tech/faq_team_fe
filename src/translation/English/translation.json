@@ -89,7 +89,9 @@
       "photoSubTitle": "Upload photo subtitle",
       "uploadPhotoButton": "Upload photo",
       "phoneTitle": "Enter phone title",
-      "phoneSubTitle": "Enter phone subtitle"
+      "phoneSubTitle": "Enter phone subtitle",
+      "imageRequired": "Profile photo is required",
+      "phoneRequired": "Phone number is required"
     },
     "addressCard": {
       "title": "Address title",
@@ -107,6 +109,7 @@
       "title": "Card info title",
       "subTitle": "Card info subtitle",
       "cardNumber": "Card number"
+      
     },
     "sizeCard": {
       "clothTitle": "Cloth size card title",
