@@ -13,9 +13,9 @@ const PaginationLeftIcon = (props: SVGProps<SVGSVGElement>) => {
       <path
         d="M10 13L5 8L10 3"
         stroke="#6D6B6B"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -13,9 +13,9 @@ const DownArrowIcon = (props: SVGProps<SVGSVGElement>) => {
       <path
         d="M19.5 9.09521L12 16.5952L4.5 9.09521"
         stroke="#333333"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -17,14 +17,14 @@ const ChatIcon = (props: SVGProps<SVGSVGElement>) => {
       <path
         d="M8 9.09521H16"
         stroke="#6D6B6B"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M8 12.5952H13.5"
         stroke="#6D6B6B"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
