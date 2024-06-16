@@ -226,5 +226,13 @@
     "shop": "Shop",
     "vendor": "Vendor",
     "messages": "Messages"
+  },
+  "viewProfile": {
+    "title": "Profile",
+    "name":"Name",
+    "email":"Email",
+    "status": "Status",
+    "phone": "Phone",
+    "address": "Complete address"
   }
 }
