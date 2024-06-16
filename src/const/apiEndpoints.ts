@@ -4,8 +4,9 @@ export const apiEndpoints = {
   signIn: '/authorization/sign-in',
   updateUser: '/users/update',
   findUser: '/users/user',
-  getUser: '/users',
+  getUser: '/users/user',
   restorePassword: '/authorization/restore-password',
   newPassword: '/authorization/new-password',
   verifyOtp: '/authorization/verify-otp',
+  deleteUser: '/users/user-delete',
 };

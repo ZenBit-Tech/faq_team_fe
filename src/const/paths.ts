@@ -12,6 +12,6 @@ export const paths = {
   verifyEmail: '/verify-email',
   userList: '/admin/user-list',
   superAdminRoot: '/admin',
-  viewUserProfile: '/admin/view-profile',
+  viewUserProfile: '/admin/view-profile/',
   fillProfile: '/fill-profile',
 };
