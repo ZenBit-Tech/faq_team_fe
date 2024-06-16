@@ -10,9 +10,8 @@ export const paths = {
   newPassword: '/new-password',
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
-  getUser: '/users',
-  getAllUsers: '/users/get-all',
   userList: '/admin/user-list',
   superAdminRoot: '/admin',
+  viewUserProfile: '/admin/view-profile',
   fillProfile: '/fill-profile',
 };

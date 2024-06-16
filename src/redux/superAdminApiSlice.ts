@@ -1,4 +1,4 @@
-import { paths } from 'const/paths';
+import { apiEndpoints } from 'const/apiEndpoints';
 import { apiSlice } from 'redux/apiSlice';
 
 import {
@@ -13,7 +13,7 @@ const adminApiSlice = apiSlice.injectEndpoints({
       RequestGetUsersWithFilters
     >({
       query: ({ page, limit, search, order }) => ({
-        url: `${paths.getAllUsers}?page=${page}&limit=${limit}&search=${search}&order=${order}`,
+        url: `${apiEndpoints.getAllUsers}?page=${page}&limit=${limit}&search=${search}&order=${order}`,
       }),
     }),
   }),
