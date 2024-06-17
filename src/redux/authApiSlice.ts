@@ -1,13 +1,14 @@
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
+  RequestNewPass,
   RequestRegistration,
+  RequestVerifyOtp,
   ResponseLogin,
   ResponseRegistration,
-  RequestNewPass,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
 } from 'redux/types';
+
 import { paths } from 'const/paths';
 
 const AUTH_URL = '/auth';

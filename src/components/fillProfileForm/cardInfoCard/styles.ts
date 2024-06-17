@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form<{ theme?: Theme }>`
+export const StyledForm = styled.div<{ theme?: Theme }>`
   width: 30vw;
   min-width: 200px;
   width: 100%;
