@@ -28,7 +28,7 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    getUser: builder.query<ResponseGetUser[], string>({
+    getUser: builder.query<ResponseGetUser, string>({
       query: id => ({
         url: `${apiEndpoints.getUser}/${id}`,
       }),
