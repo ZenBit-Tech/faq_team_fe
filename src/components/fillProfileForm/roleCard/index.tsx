@@ -61,7 +61,7 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
                 value={UserRoles.Buyer}
                 {...register('role')}
               />
-              {t('fillProfile.roleCard.buyer')}
+              <span>{t('fillProfile.roleCard.buyer')}</span>
             </div>
             <div onClick={e => handleDivClick(e)}>
               <StyledInput
@@ -69,7 +69,7 @@ const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
                 {...register('role')}
                 value={UserRoles.Vendor}
               />
-              {t('fillProfile.roleCard.vendor')}
+              <span>{t('fillProfile.roleCard.vendor')}</span>
             </div>
           </StyledRadioGroup>
           <p>{errors.role && errors.role.message}</p>

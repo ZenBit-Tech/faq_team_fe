@@ -16,7 +16,7 @@ export const StyledTabContainer = styled.form<{ theme?: Theme }>`
 export const StyledForm = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
@@ -29,7 +29,7 @@ export const StyledFormContainer = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 5px;
+  gap: 15px;
   width: 30%;
   min-height: 80px;
 
@@ -41,10 +41,13 @@ export const StyledFormContainer = styled.div<{ theme?: Theme }>`
 
 export const StyledSubtitle = styled.div<{ theme?: Theme }>`
   font-size: ${({ theme }) => theme.fontSize.sm};
+  font-family: ${({ theme }) => theme.fontNames.dmSans};
+  color: ${({ theme }) => theme.colors.gray};
   margin: 0;
 `;
 
 export const StyledTitle = styled.div<{ theme?: Theme }>`
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   font-size: ${({ theme }) => theme.fontSize.md};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin: 0;
@@ -74,6 +77,9 @@ export const StyledInput = styled.input<{ theme?: Theme }>`
 `;
 
 export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
+  font-family: ${({ theme }) => theme.fontNames.dmSans};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+
   min-width: 150px;
   max-height: 50px;
   padding: 8px;

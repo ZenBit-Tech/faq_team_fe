@@ -10,21 +10,25 @@ export const StyledForm = styled.div<{ theme?: Theme }>`
 
   label {
     margin-bottom: 5px;
+    font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
   input {
     height: 45px;
     padding: 10px;
     font-size: ${({ theme }) => theme.fontSize.md};
+    font-family: ${({ theme }) => theme.fontNames.dmSans};
     border-color: ${({ theme }) => theme.colors.gray};
     bolder-width: 1px;
     border-radius: 5px;
   }
 
   select {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     padding: 10px;
     font-size: ${({ theme }) => theme.fontSize.md};
+    font-family: ${({ theme }) => theme.fontNames.dmSans};
     border-color: ${({ theme }) => theme.colors.gray};
     bolder-width: 1px;
     border-radius: 5px;

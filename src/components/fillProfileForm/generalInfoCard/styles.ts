@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
 import { Theme } from 'styles/theme';
 
 export const StyledImage = styled.img`
@@ -34,5 +35,35 @@ export const UploadPhotoWrapper = styled.div<{ theme?: Theme }>`
     width: 100%;
     display: flex;
     align-items: start;
+  }
+`;
+
+export const StyledUploadButton = styled.button<
+  { theme?: Theme } & buttonProps
+>`
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+
+  min-width: 150px;
+  max-height: 50px;
+  padding: 8px;
+  margin: 5px;
+  border: solid 1px ${({ theme }) => theme.colors.black};
+  background-color: ${props =>
+    props.variant === ButtonVariant.White
+      ? ({ theme }) => theme.colors.white
+      : ({ theme }) => theme.colors.black};
+  color: ${props =>
+    props.variant === ButtonVariant.White
+      ? ({ theme }) => theme.colors.black
+      : ({ theme }) => theme.colors.white};
+  border-radius: 8px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    display: none;
   }
 `;

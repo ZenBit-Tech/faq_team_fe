@@ -43,80 +43,77 @@ const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
 
   const onSubmit: SubmitHandler<Sizes> = data => {
     JSON.stringify(data);
-    setSelectedIndex(index - 1);
   };
 
   return (
-    <StyledTabContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>{t('fillProfile.sizeCard.clothTitle')}</StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.sizeCard.clothSubTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
-          <StyledSelect {...register('clothSize')}>
-            <option disabled>
-              {t('fillProfile.sizeCard.selectClothSize')}
+    <StyledTabContainer onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>{t('fillProfile.sizeCard.clothTitle')}</StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.sizeCard.clothSubTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        <StyledSelect {...register('clothSize')}>
+          <option disabled>{t('fillProfile.sizeCard.selectClothSize')}</option>
+          {clothesSizes.map(element => (
+            <option key={uuidv4()} value={element}>
+              {element}
             </option>
-            {clothesSizes.map(element => (
-              <option key={uuidv4()} value={element}>
-                {element}
-              </option>
-            ))}
-          </StyledSelect>
-          {errors.clothSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
-        </StyledForm>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>{t('fillProfile.sizeCard.shoeTitle')}</StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.sizeCard.shoeSubTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
-          <StyledSelect {...register('shoeSize')}>
-            <option disabled>{t('fillProfile.sizeCard.selectShoeSize')}</option>
-            {shoesSizes.map(element => (
-              <option key={uuidv4()} value={element}>
-                {element}
-              </option>
-            ))}
-          </StyledSelect>
-          {errors.shoeSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
-        </StyledForm>
-        <StyledForm>
-          <StyledFormContainer>
-            <StyledTitle>{t('fillProfile.sizeCard.jeansTitle')}</StyledTitle>
-            <StyledSubtitle>
-              {t('fillProfile.sizeCard.jeansSubTitle')}
-            </StyledSubtitle>
-          </StyledFormContainer>
-          <StyledSelect {...register('jeansSize')}>
-            <option disabled>
-              {t('fillProfile.sizeCard.selectJeansSize')}
+          ))}
+        </StyledSelect>
+        {errors.clothSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
+      </StyledForm>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>{t('fillProfile.sizeCard.shoeTitle')}</StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.sizeCard.shoeSubTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        <StyledSelect {...register('shoeSize')}>
+          <option disabled>{t('fillProfile.sizeCard.selectShoeSize')}</option>
+          {shoesSizes.map(element => (
+            <option key={uuidv4()} value={element}>
+              {element}
             </option>
-            {jeansSizes.map(element => (
-              <option key={uuidv4()} value={element}>
-                {element}
-              </option>
-            ))}
-          </StyledSelect>
-          {errors.jeansSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
-        </StyledForm>
-        <ButtonsContainer>
-          <StyledButton key={uuidv4()} variant={ButtonVariant.White}>
-            {t('fillProfile.prevButton')}
-          </StyledButton>
-          <StyledButton
-            key={uuidv4()}
-            variant={ButtonVariant.Black}
-            type="submit"
-          >
-            {t('fillProfile.nextButton')}
-          </StyledButton>
-        </ButtonsContainer>
-      </form>
+          ))}
+        </StyledSelect>
+        {errors.shoeSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
+      </StyledForm>
+      <StyledForm>
+        <StyledFormContainer>
+          <StyledTitle>{t('fillProfile.sizeCard.jeansTitle')}</StyledTitle>
+          <StyledSubtitle>
+            {t('fillProfile.sizeCard.jeansSubTitle')}
+          </StyledSubtitle>
+        </StyledFormContainer>
+        <StyledSelect {...register('jeansSize')}>
+          <option disabled>{t('fillProfile.sizeCard.selectJeansSize')}</option>
+          {jeansSizes.map(element => (
+            <option key={uuidv4()} value={element}>
+              {element}
+            </option>
+          ))}
+        </StyledSelect>
+        {errors.jeansSize && <p>{t('fillProfile.sizeCard.requiredError')}</p>}
+      </StyledForm>
+      <ButtonsContainer>
+        <StyledButton
+          key={uuidv4()}
+          variant={ButtonVariant.White}
+          onClick={() => setSelectedIndex(index - 1)}
+        >
+          {t('fillProfile.prevButton')}
+        </StyledButton>
+        <StyledButton
+          key={uuidv4()}
+          variant={ButtonVariant.Black}
+          type="submit"
+        >
+          {t('fillProfile.nextButton')}
+        </StyledButton>
+      </ButtonsContainer>
     </StyledTabContainer>
   );
 };

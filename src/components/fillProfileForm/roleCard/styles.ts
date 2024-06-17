@@ -8,6 +8,10 @@ export const StyledRadioGroup = styled.div<{ theme?: Theme }>`
 
   div {
     cursor: pointer;
+    display: flex;
+    align-items: end;
+    font-family: ${({ theme }) => theme.fontNames.dmSans};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {

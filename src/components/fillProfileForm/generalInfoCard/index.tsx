@@ -11,6 +11,7 @@ import avatar from 'assets/images/avatar.png';
 import {
   PhoneWrapper,
   StyledImage,
+  StyledUploadButton,
   UploadPhotoWrapper,
 } from 'components/fillProfileForm/generalInfoCard/styles';
 import {
@@ -107,7 +108,7 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
             ) : (
               <StyledImage src={avatar} />
             )}
-            <StyledButton
+            <StyledUploadButton
               variant={ButtonVariant.Black}
               onClick={e => handleButtonClick(e)}
               type="button"
@@ -123,7 +124,7 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
               />
               <UploadAvatar />
               {t('fillProfile.generalInfoCard.uploadPhotoButton')}
-            </StyledButton>
+            </StyledUploadButton>
           </UploadPhotoWrapper>
           <p>{errors.image && errors.image.message}</p>
         </StyledFormBlock>

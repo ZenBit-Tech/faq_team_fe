@@ -15,11 +15,12 @@ export const TabsSection = styled.div<{ theme?: Theme }>`
   }
 `;
 
-export const TabsHeader = styled.div<{ theme?: Theme }>`
+export const TabsHeader = styled.h2<{ theme?: Theme }>`
   min-height: 50px;
   height: 20%;
   display: flex;
   align-items: center;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: none;
@@ -40,6 +41,8 @@ export const TabsContainer = styled.div<{ theme?: Theme }>`
 export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  font-family: ${({ theme }) => theme.fontNames.dmSans};
+
 
   .react-tabs__tab-list {
     list-style-type: none;
