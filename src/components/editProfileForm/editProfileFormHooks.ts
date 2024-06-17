@@ -1,5 +1,6 @@
-import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import * as yup from 'yup';
+
 const maxCharactersLength: number = 100;
 const maxPhoneLength: number = 11;
 

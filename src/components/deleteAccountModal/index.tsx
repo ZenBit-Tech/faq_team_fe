@@ -18,6 +18,7 @@ export const DeleteAccountModal = ({
   onClose,
 }: DeleteAccountModalProps) => {
   const { t } = useTranslation();
+
   useEffect(() => {
     const handleModalCloseByEsc = (evt: KeyboardEvent) => {
       if (evt.code === escapeBtn) {

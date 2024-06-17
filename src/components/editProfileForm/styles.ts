@@ -101,7 +101,7 @@ export const InfoField = styled.div`
 
 export const SizesWrap = styled.div<{ theme?: Theme }>`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-    width: 100%;
+    width: 80%;
   }
   margin-bottom: 13px;
 

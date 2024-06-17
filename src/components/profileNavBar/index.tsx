@@ -30,6 +30,7 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
   const handleUserMode = () => {
     setIsVendor(!isVendor);
   };
+
   return (
     <>
       <MobTitle>{t('profileNav.mobTitle')}</MobTitle>
