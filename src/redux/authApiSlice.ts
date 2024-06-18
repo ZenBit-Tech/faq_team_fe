@@ -4,6 +4,7 @@ import {
   RequestNewPass,
   RequestRegistration,
   RequestVerifyOtp,
+  ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
@@ -13,6 +14,7 @@ import { paths } from 'const/paths';
 
 const AUTH_URL = '/auth';
 const USERS_URL = '/users';
+const FIND_USER_URL = 'users/user';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -30,6 +32,15 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+
+    findUser: builder.mutation<ResponseGetUser, { token: string }>({
+      query: data => ({
+        url: `${FIND_USER_URL}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     getUser: builder.query({
       query: id => ({
         url: `${USERS_URL}${paths.getUser}/${id}`,
@@ -84,6 +95,7 @@ export const {
   useLoginMutation,
   useRegistrationMutation,
   useRestorePassMutation,
+  useFindUserMutation,
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
