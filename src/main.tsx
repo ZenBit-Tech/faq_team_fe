@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Global, ThemeProvider } from '@emotion/react';
-import './translation/i18n.ts';
-import { Provider } from 'react-redux';
-import store from './redux/store.ts';
-import { theme } from 'styles/theme.ts';
+import App from 'App.tsx';
+import store from 'redux/store.ts';
 import { globalStyles } from 'styles/globalStyles.ts';
+import { theme } from 'styles/theme.ts';
+
+import 'translation/i18n.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,36 +1,37 @@
 import styled from '@emotion/styled';
+
 import { Theme } from 'styles/theme';
 
-export const StyledForm = styled.form`
+export const StyledRadioGroup = styled.div<{ theme?: Theme }>`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 150px;
-  padding: 20px;
-`;
-
-export const StyledTitle = styled.div<{ theme?: Theme }>`
-  font-size: ${({ theme }) => theme.fontSize.md};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  margin: 0;
-`;
-
-export const StyledSubtitle = styled.div<{ theme?: Theme }>`
-  font-size: ${({ theme }) => theme.fontSize.sm};
-  margin: 0;
-`;
-
-export const StyledRadioGroup = styled.div`
-  display: flex;
-  flex-direction: row;
   gap: 100px;
-  align-items: center;
-`;
 
-export const StyledFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  div {
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    font-family: ${({ theme }) => theme.fontNames.dmSans};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+
+    div {
+      background-color: ${({ theme }) => theme.colors.pastel_green};
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    gap: 30px;
+    flex-direction: column;
+    margin: 0px;
+  }
 `;
 
 export const StyledInput = styled.input<{ theme?: Theme }>`
@@ -44,7 +45,7 @@ export const StyledInput = styled.input<{ theme?: Theme }>`
   cursor: pointer;
   outline: none;
   margin-right: 10px;
-   
+
   :checked::before {
     content: '';
     width: 12px;
@@ -55,4 +56,5 @@ export const StyledInput = styled.input<{ theme?: Theme }>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
 `;

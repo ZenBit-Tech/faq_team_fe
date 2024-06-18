@@ -1,33 +1,48 @@
 import { Tabs } from 'react-tabs';
 import styled from '@emotion/styled';
-import { buttonProps, ButtonVariant } from 'components/fillProfileForm/types';
+
 import { Theme } from 'styles/theme';
 
 export const TabsSection = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.for_card_bg};
-  min-height: 800px;
   height: 100vh;
   display: flex;
   align-items: start;
   justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: 100%;
+  }
 `;
 
-export const TabsHeader = styled.div`
+export const TabsHeader = styled.h2<{ theme?: Theme }>`
   min-height: 50px;
   height: 20%;
   display: flex;
   align-items: center;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    display: none;
+  }
 `;
 
-export const TabsContainer = styled.div`
+export const TabsContainer = styled.div<{ theme?: Theme }>`
   width: 80%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  font-family: ${({ theme }) => theme.fontNames.dmSans};
+
 
   .react-tabs__tab-list {
     list-style-type: none;
@@ -36,13 +51,32 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     height: 72px;
   }
 
+  .react-tabs__tab-panel--selected {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  }
+
   .react-tabs__tab {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px 0px 0px 0px;
-    &:hover {
+    border: solid  ${({ theme }) => theme.colors.greyish_red};
+    border-width: 0px 0px 1px 1px;
+
+    p {
+      margin: 10px;
+    }
+      
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      p {
+        display: none;
+      }
     }
   }
 
@@ -54,35 +88,18 @@ export const StyledTabs = styled(Tabs)<{ theme?: Theme }>`
     align-items: center;
     justify-content: center;
     border-radius: 5px 0px 0px 0px;
+    border: solid  ${({ theme }) => theme.colors.greyish_red};
+    border-width: 0px 0px 1px 1px;
+
+    p {
+      margin: 10px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      p {
+        display: none;
+      }
+    }
   }
   }
-`;
-
-export const StyledButton = styled.button<{ theme?: Theme } & buttonProps>`
-  min-width: 100px;
-  padding: 8px;
-  margin: 5px;
-  border: solid;
-  border-color: ${({ theme }) => theme.colors.black};
-  border-width: 1px;
-  background-color: ${props =>
-    props.variant === ButtonVariant.White
-      ? ({ theme }) => theme.colors.white
-      : ({ theme }) => theme.colors.black};
-  color: ${props =>
-    props.variant === ButtonVariant.White
-      ? ({ theme }) => theme.colors.black
-      : ({ theme }) => theme.colors.white};
-  border-radius: 8px;
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ButtonsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
 `;

@@ -1,15 +1,16 @@
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
+  RequestNewPass,
   RequestRegistration,
+  RequestVerifyOtp,
   RequestUpdateUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
-  RequestNewPass,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
 } from 'redux/types';
+
 import { paths } from 'const/paths';
 const AUTH_URL = 'authorization';
 const USER_UPDATE_URL = 'users/update';
