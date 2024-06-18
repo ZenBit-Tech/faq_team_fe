@@ -5,12 +5,17 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
+import { useSaveCardInfoMutation } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 import {
   StyledForm,
   StyledFormWrapper,
 } from 'components/fillProfileForm/cardInfoCard/styles';
+import {
+  billingDetails,
+  paymentElementOptions,
+} from 'components/fillProfileForm/constants';
 import {
   ButtonsContainer,
   StyledButton,
@@ -22,8 +27,10 @@ import {
 } from 'components/fillProfileForm/sharedStyles';
 import { ButtonVariant, TabProps } from 'components/fillProfileForm/types';
 
-const CheckoutForm = ({ setSelectedIndex, index }: TabProps) => {
+const CheckoutForm = ({ setSelectedIndex, index, data }: TabProps) => {
   const { t } = useTranslation();
+
+  const [registrationSaveCardInfo] = useSaveCardInfoMutation();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -42,31 +49,12 @@ const CheckoutForm = ({ setSelectedIndex, index }: TabProps) => {
     const { paymentMethod } = await stripe.createPaymentMethod({
       elements,
       params: {
-        // TODO: pull this data from redux state
-        billing_details: {
-          name: 'misha',
-          email: 'misha@gmail.com',
-          phone: '+1234567890',
-          address: {
-            country: 'US',
-            postal_code: '30033',
-            state: 'Kyiv',
-            city: 'Kyiv',
-            line1: 'address 1',
-            line2: 'address 2',
-          },
-        },
+        billing_details: billingDetails(data),
       },
     });
 
-    JSON.stringify(paymentMethod);
-  };
-
-  const paymentElementOptions = {
-    layout: 'tabs',
-    fields: {
-      billingDetails: 'never',
-    },
+    await registrationSaveCardInfo({ paymentMethod, id: data.id });
+    setSelectedIndex(index + 1);
   };
 
   return (
@@ -98,7 +86,6 @@ const CheckoutForm = ({ setSelectedIndex, index }: TabProps) => {
         <StyledButton
           key={uuidv4()}
           variant={ButtonVariant.Black}
-          onClick={() => setSelectedIndex(index + 1)}
           type="submit"
         >
           {t('fillProfile.nextButton')}

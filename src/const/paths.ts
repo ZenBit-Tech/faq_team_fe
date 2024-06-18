@@ -9,6 +9,9 @@ export const paths = {
   newPassword: '/new-password',
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
-  getUser: '/users',
+  getUser: '/user',
+  updateUser: '/update',
   fillProfile: '/fill-profile',
+  saveGeneralInfo: '/save-general-info',
+  saveCardInfo: '/save-card-info',
 };

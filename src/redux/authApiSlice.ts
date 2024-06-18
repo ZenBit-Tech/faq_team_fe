@@ -12,6 +12,7 @@ import {
 import { paths } from 'const/paths';
 
 const AUTH_URL = '/auth';
+const USERS_URL = '/users';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -30,8 +31,8 @@ const appApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     getUser: builder.query({
-      query: () => ({
-        url: paths.getUser,
+      query: id => ({
+        url: `${USERS_URL}${paths.getUser}/${id}`,
       }),
     }),
     restorePass: builder.mutation({
@@ -55,6 +56,27 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    updateUser: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `${USERS_URL}${paths.updateUser}/${id}`,
+        method: 'PATCH',
+        body: data,
+      }),
+    }),
+    saveGeneralInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveGeneralInfo}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    saveCardInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveCardInfo}`,
+        method: 'POST',
+        body: { paymentMethod: data.paymentMethod, id: data.id },
+      }),
+    }),
   }),
 });
 
@@ -65,4 +87,7 @@ export const {
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
+  useUpdateUserMutation,
+  useSaveGeneralInfoMutation,
+  useSaveCardInfoMutation,
 } = appApiSlice;

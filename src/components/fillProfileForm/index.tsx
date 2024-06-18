@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Tab, TabList, TabPanel } from 'react-tabs';
+import { useGetUserQuery } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 import StepFinished from 'assets/icons/steps/step_finished';
@@ -16,12 +17,19 @@ import {
   TabsSection,
 } from 'components/fillProfileForm/styles';
 
-const firstTabIndex = 3;
+// TODO: PULL THIS ID FROM THE DB
+const testingUserId = '8a6e0804-2bd0-4672-b79d-d97027f9071a';
 
 const FillProfileForm = () => {
   const { t } = useTranslation();
 
-  const [selectedIndex, setSelectedIndex] = useState(firstTabIndex);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const { data, refetch } = useGetUserQuery(testingUserId);
+
+  useEffect(() => {
+    refetch();
+  }, [selectedIndex, refetch]);
 
   return (
     <TabsSection>
@@ -48,7 +56,7 @@ const FillProfileForm = () => {
 
           {tabs.map((Component, index) => (
             <TabPanel key={uuidv4()}>
-              <div>{Component({ setSelectedIndex, index })}</div>
+              <div>{Component({ setSelectedIndex, index, data })}</div>
             </TabPanel>
           ))}
         </StyledTabs>
