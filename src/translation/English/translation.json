@@ -72,6 +72,10 @@
   "fillProfile": {
     "header": "Fill Profile",
     "tab1": "User Role",
+    "tab2": "General Information",
+    "tab3": "Shipping Address",
+    "tab4": "Credit Card",
+    "tab5": "Size",
     "prevButton": "Prev",
     "nextButton": "Next",
     "roleCard": {
@@ -85,7 +89,47 @@
       "photoSubTitle": "Upload photo subtitle",
       "uploadPhotoButton": "Upload photo",
       "phoneTitle": "Enter phone title",
-      "phoneSubTitle": "Enter phone subtitle"
+      "phoneSubTitle": "Enter phone subtitle",
+      "imageRequired": "Profile photo is required",
+      "phoneRequired": "Phone number is required"
+    },
+    "addressCard": {
+      "title": "Address title",
+      "subTitle": "Address subtitle",
+      "address1": "Address line 1",
+      "address2": "Address line 2 (optional)",
+      "country": "Country",
+      "selectCountry": "Select country",
+      "state": "State",
+      "selectState": "Select state",
+      "city": "City",
+      "selectCity": "Select city",
+      "address1Invalid": "",
+      "address1Required": "",
+      "address1Short": "",
+      "address1Long": "",
+      "address2Invalid": "",
+      "address2Long": "",
+      "countryRequired": "",
+      "stateRequired": "",
+      "cityRequired": ""
+    },
+    "cardInfoCard": {
+      "title": "Card info title",
+      "subTitle": "Card info subtitle",
+      "cardNumber": "Card number"
+      
+    },
+    "sizeCard": {
+      "clothTitle": "Cloth size card title",
+      "clothSubTitle": "Cloth size card subtitle",
+      "selectClothSize": "Select clothes size",
+      "shoeTitle": "Shoe size title",
+      "shoeSubTitle": "Shoe size subtitle",
+      "selectShoeSize": "Select shoe size",
+      "jeansTitle": "Jeans title",
+      "jeansSubTitle": "Jeans subtitle",
+      "selectJeansSize": "Select jeans size"
     }
 
   },

@@ -1,9 +1,8 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { paths } from 'const/paths';
 import { SuperAdminLayout } from 'pages/superAdminLayout';
-
-import { SharedLayout } from './pages/sharedLayout';
+import { paths } from 'const/paths';
+import { SharedLayout } from 'pages/sharedLayout';
 
 const UserListPage = lazy(() => import('pages/userListPage'));
 const ViewUserProfilePage = lazy(() => import('pages/viewUserProfilePage'));
