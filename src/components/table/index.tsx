@@ -7,6 +7,7 @@ import Pagination from 'components/pagination';
 import SearchInput from 'components/searchInput';
 import TableSort from 'components/tableSort';
 import { paths } from 'const/paths';
+import { ESort } from 'enums/sortEnum';
 import { formatDate } from 'helpers/dateHelper';
 import {
   isErrorWithMessage,
@@ -29,6 +30,7 @@ import {
   Thead,
 } from './styles';
 
+const delay = 500;
 // TODO add delete modal
 
 export const TableComponent: React.FC = () => {
@@ -40,7 +42,7 @@ export const TableComponent: React.FC = () => {
   const [limit] = useState<number>(5);
   const [search, setSearch] = useState<string>('');
   const [debouncedSearch, setDebouncedSearch] = useState(search);
-  const [order, setOrder] = useState<'ASC' | 'DESC'>('ASC');
+  const [order, setOrder] = useState<ESort.ASC | ESort.DESC>(ESort.ASC);
   const [deleteUser] = useDeleteUserMutation();
   const { data, isLoading } = useGetUsersQuery({
     page: currentPage,
@@ -62,7 +64,7 @@ export const TableComponent: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
-    }, 1000);
+    }, delay);
 
     return () => {
       clearTimeout(timer);
@@ -75,7 +77,7 @@ export const TableComponent: React.FC = () => {
   };
 
   const handleSortChange = () => {
-    setOrder(order === 'ASC' ? 'DESC' : 'ASC');
+    setOrder(order === ESort.ASC ? ESort.DESC : ESort.ASC);
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {

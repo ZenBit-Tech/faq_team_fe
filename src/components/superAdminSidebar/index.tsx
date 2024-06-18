@@ -4,6 +4,7 @@ import LogoIcon from 'assets/icons/iconLogo';
 import ProductsIcon from 'assets/icons/iconProducts';
 import UserIcon from 'assets/icons/iconUser';
 import UsersIcon from 'assets/icons/iconUsers';
+import { paths } from 'const/paths';
 
 import { Menu, MenuItem, MenuLink, NavBar, SideBar } from './styles';
 
@@ -16,19 +17,19 @@ const SuperAdminSidebar = () => {
         <Menu>
           <MenuItem>
             <UsersIcon />
-            <MenuLink to={''}>{t('admin.usersTitle')}</MenuLink>
+            <MenuLink to={paths.defaultPath}>{t('admin.usersTitle')}</MenuLink>
           </MenuItem>
           <MenuItem>
             <ProductsIcon />
-            <MenuLink to={''}>{t('admin.products')}</MenuLink>
+            <MenuLink to={paths.defaultPath}>{t('admin.products')}</MenuLink>
           </MenuItem>
           <MenuItem>
             <ChatIcon />
-            <MenuLink to={''}>{t('admin.chat')}</MenuLink>
+            <MenuLink to={paths.defaultPath}>{t('admin.chat')}</MenuLink>
           </MenuItem>
           <MenuItem>
             <UserIcon />
-            <MenuLink to={''}>{t('admin.roles')}</MenuLink>
+            <MenuLink to={paths.defaultPath}>{t('admin.roles')}</MenuLink>
           </MenuItem>
         </Menu>
       </NavBar>

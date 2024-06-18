@@ -1,4 +1,5 @@
 export const paths = {
+  defaultPath: '#',
   root: '/',
   signIn: '/sign-in',
   signUp: '/sign-up',
