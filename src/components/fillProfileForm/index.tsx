@@ -23,9 +23,10 @@ const testingUserId = '8a6e0804-2bd0-4672-b79d-d97027f9071a';
 const FillProfileForm = () => {
   const { t } = useTranslation();
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
   const { data, refetch } = useGetUserQuery(testingUserId);
+  const initialTab = data.step ? data.step : 0;
+
+  const [selectedIndex, setSelectedIndex] = useState(initialTab);
 
   useEffect(() => {
     refetch();
