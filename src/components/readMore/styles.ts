@@ -5,7 +5,7 @@ export const ReadMoreContainer = styled.p<{ theme?: Theme }>`
   font-family: ${({ theme }) => theme.fontNames.dmSans};
   font-size: ${({ theme }) => theme.fontSize.extraSm};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  color: #807e7e;
+  color: ${({ theme }) => theme.colors.review_text};
   line-height: 20px;
 
   span {

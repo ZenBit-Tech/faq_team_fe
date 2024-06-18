@@ -67,17 +67,17 @@ export const FollowButton = styled.div<{ theme?: Theme }>`
 
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   line-height: 21.33px;
 
   padding: 16px 0;
 
-  background-color: #333333;
+  background-color: ${({ theme }) => theme.colors.black};
   border-radius: 12px;
   cursor: pointer;
 
   &:hover {
-    background-color: #464646;
+    background-color: ${({ theme }) => theme.colors.black_hover};
   }
 `;

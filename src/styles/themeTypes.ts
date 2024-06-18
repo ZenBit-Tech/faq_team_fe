@@ -2,6 +2,7 @@ export type Color = {
   greyish_red: string;
   pastel_green: string;
   black: string;
+  black_hover: string;
   border: string;
   gray: string;
   white: string;
@@ -12,6 +13,8 @@ export type Color = {
   green_success: string;
   error_tablet: string;
   overlay_black: string;
+  primary_text: string;
+  review_text: string;
 };
 
 export type Breakpoint = {

@@ -65,6 +65,12 @@ export const globalStyles = css`
     cursor: pointer;
     border: none;
     padding: 0;
+    outline: none;
+    background-color: inherit;
+  }
+
+  li {
+    outline: none;
   }
 
   img {

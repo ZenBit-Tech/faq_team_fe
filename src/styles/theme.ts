@@ -20,6 +20,7 @@ export const theme: Theme = {
     greyish_red: '#edeae9',
     pastel_green: '#e3eee2',
     black: '#333',
+    black_hover: '#464646',
     border: 'rgba(0, 0, 0, 0.24)',
     gray: '#6d6b6b',
     white: '#fff',
@@ -30,6 +31,8 @@ export const theme: Theme = {
     green_success: '#36b37e',
     error_tablet: '#ff4b4b',
     overlay_black: 'rgba(0, 0, 0, 0.6)',
+    primary_text: '#282344',
+    review_text: '#807e7e',
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
