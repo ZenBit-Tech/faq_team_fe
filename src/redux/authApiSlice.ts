@@ -39,6 +39,7 @@ const appApiSlice = apiSlice.injectEndpoints({
         url: `${paths.getUser}/user/${id}`,
       }),
     }),
+
     restorePass: builder.mutation({
       query: data => ({
         url: `${AUTH_URL}${paths.restorePassword}`,

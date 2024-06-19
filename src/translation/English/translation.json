@@ -164,12 +164,17 @@
   },
 
   "buttonText": {
-    "follow": "Follow"
+    "follow": "Follow",
+    "followed": "Followed"
   },
 
   "titleText": {
     "reviews": "Reviews",
     "products": "Products",
     "vendorCloset": "Vendor's Closet"
+  },
+
+  "userInfo": {
+    "noRate": "No rate"
   }
 }

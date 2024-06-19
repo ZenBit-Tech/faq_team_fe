@@ -62,7 +62,7 @@ export const FollowButtonWrapper = styled.div`
   border-radius: 12px;
 `;
 
-export const FollowButton = styled.div<{ theme?: Theme }>`
+export const FollowButton = styled.button<{ theme?: Theme }>`
   width: 61%;
 
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
@@ -79,5 +79,10 @@ export const FollowButton = styled.div<{ theme?: Theme }>`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.black_hover};
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.black_hover};
+    cursor: default;
   }
 `;

@@ -10,7 +10,13 @@ const PublicProfilePage = () => {
 
   return (
     <PublicProfileContainer>
-      <PublicProfileSidebar fullName={data?.full_name} rate={data?.rates} />
+      {data?.id && (
+        <PublicProfileSidebar
+          fullName={data?.full_name}
+          rate={data?.rates}
+          userId={data?.id}
+        />
+      )}
       <PublicProfileInfo
         userReviews={data?.user_reviews}
         userRole={data?.user_role}
