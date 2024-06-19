@@ -13,7 +13,7 @@ const PublicProfilePage = () => {
       {data?.id && (
         <PublicProfileSidebar
           fullName={data?.full_name}
-          rate={data?.rates}
+          avgRate={data?.avgRate}
           userId={data?.id}
         />
       )}

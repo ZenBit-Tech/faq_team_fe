@@ -1,5 +1,5 @@
 export type PublicProfileSidebarType = {
   fullName?: string;
-  rate?: number;
+  avgRate?: number;
   userId?: string;
 };

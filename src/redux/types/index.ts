@@ -41,6 +41,7 @@ export type ResponseGetUser = {
   cloth_size?: string;
   jeans_size?: string;
   shoes_size?: number;
+  avgRate?: number;
   user_reviews?: UserReview[];
   rates?: number;
   products?: ResponseGetProduct[];

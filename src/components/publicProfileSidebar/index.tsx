@@ -25,7 +25,7 @@ import { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PublicProfileSidebar = ({
   fullName,
-  rate,
+  avgRate,
   userId,
 }: PublicProfileSidebarType) => {
   const { t } = useTranslation();
@@ -59,7 +59,7 @@ const PublicProfileSidebar = ({
           <UserName>{fullName}</UserName>
           <UserRating>
             <RatingStarIcon />
-            <span>{rate ? rate : t('userInfo.noRate')}</span>{' '}
+            <span>{avgRate ? avgRate : t('userInfo.noRate')}</span>{' '}
             {/*TODO change to rate from db*/}
           </UserRating>
           <FollowButtonWrapper>
