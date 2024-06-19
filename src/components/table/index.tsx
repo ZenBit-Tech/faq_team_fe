@@ -1,15 +1,16 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { ESort } from 'enums/sortEnum';
+import { useGetUsersQuery } from 'redux/superAdminApiSlice';
+
 import TrashIcon from 'assets/icons/iconTrash';
 import ViewIcon from 'assets/icons/iconView';
 import Pagination from 'components/pagination';
 import SearchInput from 'components/searchInput';
 import TableSort from 'components/tableSort';
 import { paths } from 'const/paths';
-import { ESort } from 'enums/sortEnum';
 import { formatDate } from 'helpers/dateHelper';
-import { useGetUsersQuery } from 'redux/superAdminApiSlice';
 
 import {
   ActionBtn,

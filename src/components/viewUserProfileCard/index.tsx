@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { useGetUserQuery } from 'redux/authApiSlice';
+
 import TrashIcon from 'assets/icons/iconTrash';
 import { useDeleteUser } from 'components/table/useDeleteUserHook';
-import { useGetUserQuery } from 'redux/authApiSlice';
 
 import {
   ActionBtn,

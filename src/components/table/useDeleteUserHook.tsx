@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDeleteUserMutation } from 'redux/superAdminApiSlice';
+
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
-import { useDeleteUserMutation } from 'redux/superAdminApiSlice';
 
 export const useDeleteUser = () => {
   const [error, setError] = useState<string>();

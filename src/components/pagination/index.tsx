@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PaginationLeftIcon from 'assets/icons/iconPaginationLeft';
 import PaginationRightIcon from 'assets/icons/iconPaginationRight';
 
