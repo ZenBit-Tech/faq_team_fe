@@ -1,9 +1,11 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
+import { SuperAdminLayout } from 'pages/superAdminLayout';
 import { paths } from 'const/paths';
 import { SharedLayout } from 'pages/sharedLayout';
 
+const UserListPage = lazy(() => import('pages/userListPage'));
+const ViewUserProfilePage = lazy(() => import('pages/viewUserProfilePage'));
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
@@ -39,6 +41,13 @@ function App() {
           <Route
             path={paths.confirmCredentials}
             element={<ConfirmCredentialsPage />}
+          />
+        </Route>
+        <Route path={paths.superAdminRoot} element={<SuperAdminLayout />}>
+          <Route path={paths.userList} element={<UserListPage />} />
+          <Route
+            path={`${paths.viewUserProfile}:id`}
+            element={<ViewUserProfilePage />}
           />
         </Route>
       </Routes>

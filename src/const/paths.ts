@@ -1,4 +1,5 @@
 export const paths = {
+  defaultPath: '#',
   root: '/',
   signIn: '/sign-in',
   signUp: '/sign-up',
@@ -10,6 +11,8 @@ export const paths = {
   newPassword: '/new-password',
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
-  getUser: '/users',
+  userList: '/admin/user-list',
+  superAdminRoot: '/admin',
+  viewUserProfile: '/admin/view-profile/',
   fillProfile: '/fill-profile',
 };
