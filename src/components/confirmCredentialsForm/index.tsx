@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useUpdateMutation } from 'redux/authApiSlice';
-import { Inputs, Props } from 'components/confirmCredentialsForm/types';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { ButtonVariant } from 'components/button/types';
+import { Inputs, Props } from 'components/confirmCredentialsForm/types';
 import {
   ErrorMsg,
   StyledForm,
-  SubTitle,
   SubmitBtn,
+  SubTitle,
 } from 'components/sharedUI/form/styles';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
+import { useUpdateMutation } from 'redux/authApiSlice';
+
 import { useConfirmCredentialsSchema } from './confirmCredentialsFormHook';
 
 export const ConfirmCredentialsForm = ({

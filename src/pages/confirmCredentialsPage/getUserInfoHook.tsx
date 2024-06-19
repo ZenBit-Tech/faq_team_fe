@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { useFindUserMutation } from 'redux/authApiSlice';
 
 const UseGetUserInfoHook = () => {

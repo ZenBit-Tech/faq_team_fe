@@ -1,25 +1,26 @@
-import { Container } from 'components/section/styles';
-import logo from 'src/assets/images/logo.png';
+import { useTranslation } from 'react-i18next';
+import EmailIcon from 'assets/icons/iconEmail';
 import FacebookIcon from 'assets/icons/iconFacebook';
 import InstagramIcon from 'assets/icons/iconInstagram';
-import EmailIcon from 'assets/icons/iconEmail';
+import { Container } from 'components/section/styles';
+import logo from 'src/assets/images/logo.png';
+
 import {
+  Credentials,
+  FooterIcon,
   FooterInner,
-  StyledFooter,
   FooterLeft,
-  FooterRight,
   FooterLink,
   FooterLogo,
   FooterMenu,
   FooterMenuItem,
+  FooterMenuList,
+  FooterRight,
   FooterSocials,
   FooterText,
   FooterTitle,
-  FooterMenuList,
-  FooterIcon,
-  Credentials,
+  StyledFooter,
 } from './styles';
-import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
   const { t } = useTranslation();

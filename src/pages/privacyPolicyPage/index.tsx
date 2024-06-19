@@ -1,12 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { MainHeading } from 'components/mainHeading';
 import {
+  MainTitle,
   StyledSection,
+  Text,
   Title,
   Wrapper,
-  Text,
-  MainTitle,
 } from 'components/sharedUI/text/styles';
-import { useTranslation } from 'react-i18next';
 
 const PrivacyPolicyPage = () => {
   const { t } = useTranslation();

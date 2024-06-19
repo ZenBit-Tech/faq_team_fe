@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { MainHeading } from 'components/mainHeading';
 import {
   MainTitle,
@@ -6,7 +7,6 @@ import {
   Title,
   Wrapper,
 } from 'components/sharedUI/text/styles';
-import { useTranslation } from 'react-i18next';
 
 export const TermsOfUsePage = () => {
   const { t } = useTranslation();
