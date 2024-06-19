@@ -4,6 +4,7 @@ import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
+  RequestVerifyOtp,
   RequestUpdateUser,
   RequestVerifyOtp,
   ResponseGetUser,

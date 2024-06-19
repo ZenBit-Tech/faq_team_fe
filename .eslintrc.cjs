@@ -21,9 +21,11 @@ module.exports = {
       'warn',
       {
         groups: [
-          ['^react', '^@?\\w'],
-          ['^[^.]'],
-          ['^\\.'],
+          ["^node:"],
+          ["^react", "^@?\\w"],
+          ["^\\u0000"],
+          ["^(components|assets|const|styles|translation|fonts|helpers|pages)(/.*|$)"],
+          ["^.+\\.s?css$"]
         ],
       },
     ],    
