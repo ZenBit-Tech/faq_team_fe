@@ -72,6 +72,10 @@
   "fillProfile": {
     "header": "Fill Profile",
     "tab1": "User Role",
+    "tab2": "General Information",
+    "tab3": "Shipping Address",
+    "tab4": "Credit Card",
+    "tab5": "Size",
     "prevButton": "Prev",
     "nextButton": "Next",
     "roleCard": {
@@ -85,7 +89,47 @@
       "photoSubTitle": "Upload photo subtitle",
       "uploadPhotoButton": "Upload photo",
       "phoneTitle": "Enter phone title",
-      "phoneSubTitle": "Enter phone subtitle"
+      "phoneSubTitle": "Enter phone subtitle",
+      "imageRequired": "Profile photo is required",
+      "phoneRequired": "Phone number is required"
+    },
+    "addressCard": {
+      "title": "Address title",
+      "subTitle": "Address subtitle",
+      "address1": "Address line 1",
+      "address2": "Address line 2 (optional)",
+      "country": "Country",
+      "selectCountry": "Select country",
+      "state": "State",
+      "selectState": "Select state",
+      "city": "City",
+      "selectCity": "Select city",
+      "address1Invalid": "",
+      "address1Required": "",
+      "address1Short": "",
+      "address1Long": "",
+      "address2Invalid": "",
+      "address2Long": "",
+      "countryRequired": "",
+      "stateRequired": "",
+      "cityRequired": ""
+    },
+    "cardInfoCard": {
+      "title": "Card info title",
+      "subTitle": "Card info subtitle",
+      "cardNumber": "Card number"
+      
+    },
+    "sizeCard": {
+      "clothTitle": "Cloth size card title",
+      "clothSubTitle": "Cloth size card subtitle",
+      "selectClothSize": "Select clothes size",
+      "shoeTitle": "Shoe size title",
+      "shoeSubTitle": "Shoe size subtitle",
+      "selectShoeSize": "Select shoe size",
+      "jeansTitle": "Jeans title",
+      "jeansSubTitle": "Jeans subtitle",
+      "selectJeansSize": "Select jeans size"
     }
   },
 
@@ -190,6 +234,7 @@
     "title": "SomeTitle",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
   },
+
   "profileNav": {
     "title": "My Profile",
     "mobTitle": "Your Profile",
@@ -261,5 +306,51 @@
       "vendor": "Vendor",
       "messages": "Messages"
     }
+
+  "admin": {
+    "usersTitle": "Users",
+    "usersSubTitle": "User List",
+    "sort": "Sort",
+    "products": "Products",
+    "chat": "Chat",
+    "roles": "User Roles"
+  },
+  "table": {
+    "name":"NAME",
+    "email": "EMAIL",
+    "address": "ADDRESS",
+    "date": "DATE",
+    "action": "ACTIONS"
+  },
+  "footer": {
+    "text": "Some text will be here two - three lines",
+    "shop": "Shop",
+    "login": "Login",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "company": "Company",
+    "about": "About us",
+    "terms":"Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us",
+    "help": "Help",
+    "faq": "FAQs",
+    "delivery": "Shipping and Delivery",
+    "rent": "Rent your closet",
+    "resell": "Resell your closet",
+    "copyright": "© 2023 Black Cycle"
+  },
+  "header": {
+    "shop": "Shop",
+    "vendor": "Vendor",
+    "messages": "Messages"
+  },
+  "viewProfile": {
+    "title": "Profile",
+    "name":"Name",
+    "email":"Email",
+    "status": "Status",
+    "phone": "Phone",
+    "address": "Complete address"
   }
 }

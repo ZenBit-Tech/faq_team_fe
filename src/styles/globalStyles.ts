@@ -37,6 +37,18 @@ export const globalStyles = css`
     font-family: ${theme.fontNames.dmSans}, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: clip;
+  }
+
+  main {
+    flex: 1 1 auto;
   }
 
   h1,
