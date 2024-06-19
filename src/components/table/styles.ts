@@ -8,8 +8,6 @@ export const Inner = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-direction: column;
   padding: 20px;
-
-  
 }
 `;
 export const Table = styled.table`

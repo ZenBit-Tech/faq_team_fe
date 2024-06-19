@@ -8,11 +8,13 @@ import { paths } from 'const/paths';
 
 import { Menu, MenuItem, MenuLink, NavBar, SideBar } from './styles';
 
+const imgWidth = 140;
 const SuperAdminSidebar = () => {
   const { t } = useTranslation();
+
   return (
     <SideBar>
-      <LogoIcon width={140} />
+      <LogoIcon width={imgWidth} />
       <NavBar>
         <Menu>
           <MenuItem>

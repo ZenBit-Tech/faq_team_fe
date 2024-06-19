@@ -1,13 +1,8 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import TrashIcon from 'assets/icons/iconTrash';
-import {
-  isErrorWithMessage,
-  isFetchBaseQueryError,
-} from 'helpers/errorHandler';
+import { useDeleteUser } from 'components/table/useDeleteUserHook';
 import { useGetUserQuery } from 'redux/authApiSlice';
-import { useDeleteUserMutation } from 'redux/superAdminApiSlice';
 
 import {
   ActionBtn,
@@ -20,23 +15,10 @@ import {
 
 export const UserProfileCard = () => {
   const { t } = useTranslation();
-  const [error, setError] = useState<string>();
   const { id } = useParams();
   const { data: user } = useGetUserQuery(id!);
-  const [deleteUser] = useDeleteUserMutation();
+  const { deleteHandler, error } = useDeleteUser();
 
-  const deleteHandler = async (id: string) => {
-    try {
-      await deleteUser(id);
-    } catch (err) {
-      if (isFetchBaseQueryError(err)) {
-        const errMsg = 'error' in err ? err.error : JSON.stringify(err.data);
-        setError(errMsg);
-      } else if (isErrorWithMessage(err)) {
-        setError(err.message);
-      }
-    }
-  };
   return (
     <Card>
       <CardInner key={user?.id}>
@@ -44,7 +26,7 @@ export const UserProfileCard = () => {
           <Title>
             {user?.full_name} {t('viewProfile.title')}
           </Title>
-          <ActionBtn onClick={() => deleteHandler(id!)}>
+          <ActionBtn onClick={() => deleteHandler(id!, true)}>
             <TrashIcon />
           </ActionBtn>
         </HeaderContainer>

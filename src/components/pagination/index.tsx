@@ -11,6 +11,7 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
 }) => {
   const pageNumbers = [...Array(totalPages).keys()].map(num => num + 1);
+
   return (
     <PaginationContainer>
       <Arrow onClick={() => onPageChange(currentPage - 1)}>

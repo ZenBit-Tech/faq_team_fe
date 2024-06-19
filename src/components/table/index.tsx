@@ -9,14 +9,7 @@ import TableSort from 'components/tableSort';
 import { paths } from 'const/paths';
 import { ESort } from 'enums/sortEnum';
 import { formatDate } from 'helpers/dateHelper';
-import {
-  isErrorWithMessage,
-  isFetchBaseQueryError,
-} from 'helpers/errorHandler';
-import {
-  useDeleteUserMutation,
-  useGetUsersQuery,
-} from 'redux/superAdminApiSlice';
+import { useGetUsersQuery } from 'redux/superAdminApiSlice';
 
 import {
   ActionBtn,
@@ -29,6 +22,7 @@ import {
   Th,
   Thead,
 } from './styles';
+import { useDeleteUser } from './useDeleteUserHook';
 
 const delay = 500;
 // TODO add delete modal
@@ -36,14 +30,13 @@ const delay = 500;
 export const TableComponent: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [error, setError] = useState<string>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [limit] = useState<number>(5);
   const [search, setSearch] = useState<string>('');
   const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [order, setOrder] = useState<ESort.ASC | ESort.DESC>(ESort.ASC);
-  const [deleteUser] = useDeleteUserMutation();
+  const { deleteHandler, error } = useDeleteUser();
   const { data, isLoading } = useGetUsersQuery({
     page: currentPage,
     limit,
@@ -84,18 +77,6 @@ export const TableComponent: React.FC = () => {
     setSearch(e.target.value);
   };
 
-  const deleteHandler = async (id: string) => {
-    try {
-      await deleteUser(id);
-    } catch (err) {
-      if (isFetchBaseQueryError(err)) {
-        const errMsg = 'error' in err ? err.error : JSON.stringify(err.data);
-        setError(errMsg);
-      } else if (isErrorWithMessage(err)) {
-        setError(err.message);
-      }
-    }
-  };
   return (
     <Inner>
       <TableSort onClickHandler={handleSortChange} />
