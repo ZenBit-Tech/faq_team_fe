@@ -23,7 +23,8 @@ const ReviewCard = () => {
         <div>
           <ReviewerAvatar img={bgImg} />
           <div>
-            <ReviewerName>Reviewer Name</ReviewerName>
+            <ReviewerName>Reviewer Name</ReviewerName>{' '}
+            {/*TODO change to fetched data*/}
             <ReviewDate>Sep 22, 2023</ReviewDate>
           </div>
         </div>

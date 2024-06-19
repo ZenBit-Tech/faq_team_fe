@@ -20,7 +20,7 @@ const ProductCard = ({ imageUrl }) => {
       <ProductImageWrapper>
         <Carousel />
       </ProductImageWrapper>
-      <ProductName>Product Name</ProductName>
+      <ProductName>Product Name</ProductName> {/*TODO change to fetched data*/}
       <ProductInfo>
         <div>
           <ProductPrice>$ 213,99</ProductPrice>
