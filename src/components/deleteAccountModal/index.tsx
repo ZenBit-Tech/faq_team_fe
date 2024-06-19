@@ -20,7 +20,7 @@ export const DeleteAccountModal = ({
   const { t } = useTranslation();
 
   useEffect(() => {
-    const handleModalCloseByEsc = (evt: KeyboardEvent) => {
+    const handleModalCloseByEsc = (evt: KeyboardEvent): void => {
       if (evt.code === escapeBtn) {
         onClose();
       }
@@ -37,7 +37,9 @@ export const DeleteAccountModal = ({
     };
   }, [onClose, isModalOpen]);
 
-  const handleModalCloseByClickOnBackdrop = (evt: MouseEvent<HTMLElement>) => {
+  const handleModalCloseByClickOnBackdrop = (
+    evt: MouseEvent<HTMLElement>,
+  ): void => {
     if (evt.target === evt.currentTarget) {
       onClose();
     }

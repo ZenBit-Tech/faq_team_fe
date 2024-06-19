@@ -66,7 +66,7 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
         </li>
         {isVendor ? null : (
           <li>
-            <EvenNavLink to="">
+            <EvenNavLink to={paths.orders}>
               <OrdersIcon width={iconsSize} height={iconsSize} />
               <span>{t('profileNav.navLinks.orders')}</span>
             </EvenNavLink>
@@ -74,20 +74,20 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
         )}
         {isVendor ? null : (
           <li>
-            <OddNavLink to="">
+            <OddNavLink to={paths.wishlist}>
               <WishListIcon width={iconsSize} height={iconsSize} />
               <span>{t('profileNav.navLinks.wishlist')}</span>
             </OddNavLink>
           </li>
         )}
         <li>
-          <EvenNavLink to="">
+          <EvenNavLink to={paths.support}>
             <SupportIcon width={iconsSize} height={iconsSize} />
             <span>{t('profileNav.navLinks.support')}</span>
           </EvenNavLink>
         </li>
         <li>
-          <OddNavLink to="">
+          <OddNavLink to={paths.logout}>
             <LogoutIcon width={iconsSize} height={iconsSize} />
             <span>{t('profileNav.navLinks.logout')}</span>
           </OddNavLink>

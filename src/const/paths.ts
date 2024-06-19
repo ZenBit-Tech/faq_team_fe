@@ -14,4 +14,8 @@ export const paths = {
   profile: '/profile',
   personalInfo: '/profile',
   fillProfile: '/fill-profile',
+  orders: '#',
+  wishlist: '#',
+  support: '#',
+  logout: '#',
 };

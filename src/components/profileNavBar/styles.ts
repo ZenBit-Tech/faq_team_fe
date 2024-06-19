@@ -1,6 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Theme } from 'styles/theme';
-import { NavLink } from 'react-router-dom';
 
 export const MobTitle = styled.p<{ theme?: Theme }>`
   margin-bottom: 16px;
@@ -79,7 +79,7 @@ export const StyledNavLink = styled(NavLink)<{ theme?: Theme }>`
   gap: 8px;
   border-radius: 8px;
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSize.md};
   line-height: 2.31;
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.thirdary_black};
