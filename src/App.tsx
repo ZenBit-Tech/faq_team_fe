@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { SuperAdminLayout } from 'pages/superAdminLayout';
 import { paths } from 'const/paths';
+import PublicProfilePage from 'pages/publicProfilePage';
 import { SharedLayout } from 'pages/sharedLayout';
 
 const UserListPage = lazy(() => import('pages/userListPage'));
@@ -41,6 +42,7 @@ function App() {
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
           <Route path={paths.fillProfile} element={<FillProfilePage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
+          <Route path={paths.publicProfile} element={<PublicProfilePage />} />
           <Route path={paths.profile} element={<ProfilePage />}>
             <Route index element={<PersonalInfoPage />} />
           </Route>

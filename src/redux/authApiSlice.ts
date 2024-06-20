@@ -12,6 +12,8 @@ import {
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
+  RequestVerifyOtp,
+  ResponseGetUser,
 } from 'redux/types';
 
 const appApiSlice = apiSlice.injectEndpoints({
@@ -42,6 +44,12 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getPublicInfo: builder.query<ResponseGetUser, string | undefined>({
+      query: id => ({
+        url: `${paths.getUser}/user/${id}`,
+      }),
+    }),
+
     restorePass: builder.mutation({
       query: data => ({
         url: `${apiEndpoints.restorePassword}`,
@@ -82,4 +90,5 @@ export const {
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
+  useGetPublicInfoQuery,
 } = appApiSlice;

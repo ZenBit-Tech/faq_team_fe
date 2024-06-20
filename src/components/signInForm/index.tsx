@@ -55,7 +55,8 @@ export const SignInForm = () => {
         navigate('');
       } else {
         dispatch(setToken(response?.access_token));
-        navigate(paths.verify);
+        console.log(response.access_token);
+        navigate(paths.root);
       }
     } catch (err) {
       if (isFetchBaseQueryError(err)) {
