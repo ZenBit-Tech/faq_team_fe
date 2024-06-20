@@ -48,7 +48,7 @@ export const UserRating = styled.p<{ theme?: Theme }>`
   }
 `;
 
-export const FollowButtonWrapper = styled.div`
+export const FollowButtonWrapper = styled.div<{ theme?: Theme }>`
   width: 100%;
 
   display: flex;
@@ -58,7 +58,7 @@ export const FollowButtonWrapper = styled.div`
   margin-top: 32px;
   padding: 14px 0;
 
-  border: 1px solid #edeae9;
+  border: 1px solid ${({ theme }) => theme.colors.greyish_red};
   border-radius: 12px;
 `;
 
