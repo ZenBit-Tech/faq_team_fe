@@ -1,4 +1,4 @@
-import { ResponseGetProduct, UserReview } from '../../redux/types';
+import { ResponseGetProduct, UserReview } from 'redux/types';
 
 export type PublicProfileInfoType = {
   userRole?: string;

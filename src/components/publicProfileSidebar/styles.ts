@@ -68,7 +68,7 @@ export const FollowButton = styled.button<{ theme?: Theme }>`
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 21.33px;
 
   padding: 16px 0;

@@ -23,7 +23,7 @@ export const PublicProfileInfoWrapper = styled.div<{ theme?: Theme }>`
   .react-tabs__tab--selected {
     width: 50%;
     padding: 10px 0;
-    background-color: #333333;
+    background-color: ${({ theme }) => theme.colors.black};
     border-radius: 8px;
     text-align: center;
     color: ${({ theme }) => theme.colors.white};
