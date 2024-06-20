@@ -33,6 +33,10 @@ export const theme: Theme = {
     overlay_black: 'rgba(0, 0, 0, 0.6)',
     primary_text: '#282344',
     review_text: '#807e7e',
+    secondary_black: '#1c1c1e',
+    thirdary_black: '#141519',
+    box_shadow: 'rgba(25, 25, 25, 0.06)',
+    light_gray: '#a0a8b0',
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
@@ -40,6 +44,7 @@ export const theme: Theme = {
   breakpoint: {
     mobile: '450px',
     tablet: '880px',
+    laptop: '1048px',
     desktop: '1440px',
   },
   fontSize: {
@@ -48,7 +53,9 @@ export const theme: Theme = {
     md: '16px',
     lg: '18px',
     midLq: '20px',
+    semiLg: '20px',
     extraLg: '28px',
+    xl: '36px',
     xxl: '40px',
   },
   fontWeight: {

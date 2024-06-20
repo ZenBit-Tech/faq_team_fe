@@ -15,11 +15,16 @@ export type Color = {
   overlay_black: string;
   primary_text: string;
   review_text: string;
+  secondary_black: string;
+  thirdary_black: string;
+  box_shadow: string;
+  light_gray: string;
 };
 
 export type Breakpoint = {
   mobile: string;
   tablet: string;
+  laptop: string;
   desktop: string;
 };
 
@@ -28,8 +33,10 @@ export type FontSize = {
   md: string;
   lg: string;
   midLq: string;
+  semiLg: string;
   extraLg: string;
   extraSm: string;
+  xl: string;
   xxl: string;
 };
 

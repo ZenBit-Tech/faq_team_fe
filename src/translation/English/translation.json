@@ -63,6 +63,70 @@
     "post": "Post Code"
   },
 
+  "fillProfile": {
+    "header": "Fill Profile",
+    "tab1": "User Role",
+    "tab2": "General Information",
+    "tab3": "Shipping Address",
+    "tab4": "Credit Card",
+    "tab5": "Size",
+    "prevButton": "Prev",
+    "nextButton": "Next",
+    "roleCard": {
+      "title": "Role card title",
+      "subTitle": "Role card subtitle",
+      "buyer": "Buyer",
+      "vendor": "Vendor"
+    },
+    "generalInfoCard": {
+      "photoTitle": "Upload photo title",
+      "photoSubTitle": "Upload photo subtitle",
+      "uploadPhotoButton": "Upload photo",
+      "phoneTitle": "Enter phone title",
+      "phoneSubTitle": "Enter phone subtitle",
+      "imageRequired": "Profile photo is required",
+      "phoneRequired": "Phone number is required"
+    },
+    "addressCard": {
+      "title": "Address title",
+      "subTitle": "Address subtitle",
+      "address1": "Address line 1",
+      "address2": "Address line 2 (optional)",
+      "country": "Country",
+      "selectCountry": "Select country",
+      "state": "State",
+      "selectState": "Select state",
+      "city": "City",
+      "selectCity": "Select city",
+      "address1Invalid": "",
+      "address1Required": "",
+      "address1Short": "",
+      "address1Long": "",
+      "address2Invalid": "",
+      "address2Long": "",
+      "countryRequired": "",
+      "stateRequired": "",
+      "cityRequired": ""
+    },
+    "cardInfoCard": {
+      "title": "Card info title",
+      "subTitle": "Card info subtitle",
+      "cardNumber": "Card number"
+      
+    },
+    "sizeCard": {
+      "clothTitle": "Cloth size card title",
+      "clothSubTitle": "Cloth size card subtitle",
+      "selectClothSize": "Select clothes size",
+      "shoeTitle": "Shoe size title",
+      "shoeSubTitle": "Shoe size subtitle",
+      "selectShoeSize": "Select shoe size",
+      "jeansTitle": "Jeans title",
+      "jeansSubTitle": "Jeans subtitle",
+      "selectJeansSize": "Select jeans size"
+    }
+  },
+
   "card": {
     "title": "Your Credit Card",
     "subtitle": "Add your credit card",
@@ -97,7 +161,8 @@
     "namePlaceholder": "Enter your name",
     "email": "Email*",
     "emailPlaceholder": "your_email@gmail.com",
-    "submitBtn": "Confirm"
+    "submitBtn": "Confirm",
+    "new_name": "New name is set"
   },
 
   "restorePassword": {
@@ -144,9 +209,11 @@
   "validation": {
     "email": "Email format is incorrect",
     "password": "Password format is incorrect",
+    "phone": "Phone format is incorrect",
     "passwordMatch": "Passwords entered in the \"Password\" and \"Repeat password\" fields must match",
     "server": "Email or password incorrect",
-    "credentials": "Please enter your credentials"
+    "credentials": "Please enter your credentials",
+    "required": "Required"
   },
 
   "loading": {
@@ -154,11 +221,13 @@
   },
 
   "privacyPolicy": {
+    "heading": "Privacy Policy",
     "title": "SomeTitle",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
   },
 
   "termsConditions": {
+    "heading": "Terms & Conditions",
     "title": "SomeTitle",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
   },
@@ -176,5 +245,123 @@
 
   "userInfo": {
     "noRate": "No rate"
+  }
+
+  "profileNav": {
+    "title": "My Profile",
+    "mobTitle": "Your Profile",
+    "username": "Your name",
+    "mode": { "buyer": "Buyer Mode", "vendor": "Vendor Mode" },
+    "button": { "buyer": "Go to Vendor", "vendor": "Go to Buyer" },
+    "navLinks": {
+      "info": "Personal Information",
+      "orders": "My Orders",
+      "wishlist": "Wishlist",
+      "support": "Support",
+      "logout": "Log Out"
+  },
+
+  "deleteAccount": {
+    "button": "Delete account",
+    "title": "Are you sure want to delete your account?",
+    "subtitle": "You will lose access to the application and all your data",
+    "cancel": "No",
+    "delete": "Yes"
+  },
+
+  "editProfile": {
+    "title": "Personal Information",
+    "sizesTitle": "Sizes",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "your_email@gmail.com",
+    "phone": "Phone",
+    "phonePlaceholder": "82120142305",
+    "sizes": {
+      "clothes": "Clothes Size",
+      "shoes": "Shoes Size",
+      "jeans": "Jeans Size"
+    },
+    "sizeLink": "Size guide",
+    "address": "Address",
+    "addressPlaceholder": "Your address",
+    "addressOne": "Address Line 1",
+    "addressTwo": "Address Line 2 (optional)",
+    "city": "City",
+    "country": "Country",
+    "state": "State",
+    "card": "Payment Method",
+    "cardPlaceholder": "**** **** **** 4567",
+    "button": "Save",
+    "footer": {
+      "text": "Some text will be here two - three lines",
+      "shop": "Shop",
+      "login": "Login",
+      "wishlist": "Wishlist",
+      "cart": "Cart",
+      "company": "Company",
+      "about": "About us",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "contact": "Contact Us",
+      "help": "Help",
+      "faq": "FAQs",
+      "delivery": "Shipping and Delivery",
+      "rent": "Rent your closet",
+      "resell": "Resell your closet",
+      "copyright": "© 2023 Black Cycle"
+    },
+    "header": {
+      "shop": "Shop",
+      "vendor": "Vendor",
+      "messages": "Messages"
+    }
+
+  "admin": {
+    "usersTitle": "Users",
+    "usersSubTitle": "User List",
+    "sort": "Sort",
+    "products": "Products",
+    "chat": "Chat",
+    "roles": "User Roles"
+  },
+  "table": {
+    "name":"NAME",
+    "email": "EMAIL",
+    "address": "ADDRESS",
+    "date": "DATE",
+    "action": "ACTIONS"
+  },
+  "footer": {
+    "text": "Some text will be here two - three lines",
+    "shop": "Shop",
+    "login": "Login",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "company": "Company",
+    "about": "About us",
+    "terms":"Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us",
+    "help": "Help",
+    "faq": "FAQs",
+    "delivery": "Shipping and Delivery",
+    "rent": "Rent your closet",
+    "resell": "Resell your closet",
+    "copyright": "© 2023 Black Cycle"
+  },
+  "header": {
+    "shop": "Shop",
+    "vendor": "Vendor",
+    "messages": "Messages"
+  },
+  "viewProfile": {
+    "title": "Profile",
+    "name":"Name",
+    "email":"Email",
+    "status": "Status",
+    "phone": "Phone",
+    "address": "Complete address"
   }
 }
