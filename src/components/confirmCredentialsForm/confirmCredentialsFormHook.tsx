@@ -1,5 +1,5 @@
-import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import * as yup from 'yup';
 
 export const useConfirmCredentialsSchema = () => {
   const { t } = useTranslation();
