@@ -146,13 +146,28 @@ export const PieDataTitle = styled.div<{ theme?: Theme }>`
   width: 100%;
   height: 15px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   color: ${({ theme }) => theme.colors.gray};
   font-family: ${({ theme }) => theme.fontNames.dmSans};
   font-size: ${({ theme }) => theme.fontSize.sm};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    gap: 8%;
+    font-size: ${({ theme }) => theme.fontSize.sm};
+
+    p {
+      width: 60px;
+    }
+  }
+
+  .transient {
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      display: none;
+    }
+  }
 `;
 
 export const PieDataRow = styled.div<{ theme?: Theme }>`
@@ -160,11 +175,49 @@ export const PieDataRow = styled.div<{ theme?: Theme }>`
   height: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 20%;
   align-items: center;
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   font-size: ${({ theme }) => theme.fontSize.md};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
+
+  p {
+    width: 100px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    gap: 0%;
+    font-size: ${({ theme }) => theme.fontSize.sm};
+
+    justify-content: space-between;
+
+    p {
+      width: 60px;
+      min-width: 50px;
+    }
+  }
+
+  .transient {
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      display: none;
+    }
+  }
+`;
+
+export const PieTableSource = styled.div`
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 2px;
+`;
+
+export const ColorBox = styled.div<{ index: number; theme?: Theme }>`
+  height: 10px;
+  width: 10px;
+  background-color: ${({ theme, index }) => theme.colors.dashboard_pie[index]};
+  margin-top: 5px;
+  margin-right: 3px;
 `;
 
 export const RecentOrders = styled.div<{ theme?: Theme }>`
@@ -255,6 +308,20 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
     }
   }
 
+  a {
+    text-decoration: underline;
+  }
+
+  .status {
+    padding: 3px;
+    border-radius: 20px;
+    background-color: ${({ theme }) => theme.colors.error_light_red};
+    color: ${({ theme }) => theme.colors.error_red};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+    display: flex;
+    justify-content: center;
+  }
+
   .recent-transient-laptop {
     @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
       display: none;
@@ -268,20 +335,15 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
   }
 `;
 
-export const PieTableSource = styled.div`
+export const NoRecentOrders = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-content: center;
   justify-content: center;
-  gap: 2px;
-`;
-
-export const ColorBox = styled.div<{ index: number; theme?: Theme }>`
-  height: 10px;
-  width: 10px;
-  background-color: ${({ theme, index }) => theme.colors.dashboard_pie[index]};
-  margin-top: 5px;
-  margin-right: 3px;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.gray};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${({ theme }) => theme.fontSize.lg}'
 `;
 
 export const getChartParams = (

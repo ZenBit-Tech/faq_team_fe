@@ -1,15 +1,18 @@
 import { apiSlice } from 'redux/apiSlice';
 import {
+  AverageSales,
+  RecentSales,
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
   RequestUpdateUser,
   RequestVerifyOtp,
-  RequestVerifyOtp,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
+  SalesPerCategory,
+  SalesPerMonth,
 } from 'redux/types';
 
 import { apiEndpoints } from 'const/apiEndpoints';
@@ -76,7 +79,7 @@ const appApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
       }),
     }),
-    getAverageSales: builder.query({
+    getAverageSales: builder.query<AverageSales, string>({
       query: id => ({
         url: `${apiEndpoints.getOrders}${apiEndpoints.getAverageSales}?userId=${id}`,
         method: 'GET',
@@ -88,19 +91,19 @@ const appApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
       }),
     }),
-    getTotalSalesPerMonth: builder.query({
+    getTotalSalesPerMonth: builder.query<SalesPerMonth, string>({
       query: id => ({
         url: `${apiEndpoints.getOrders}${apiEndpoints.getTotalSalesPerMonth}?userId=${id}`,
         method: 'GET',
       }),
     }),
-    getTotalSalesPerCategory: builder.query({
+    getTotalSalesPerCategory: builder.query<SalesPerCategory, string>({
       query: id => ({
         url: `${apiEndpoints.getOrders}${apiEndpoints.getTotalSalesPerCategory}?userId=${id}`,
         method: 'GET',
       }),
     }),
-    getLastOrders: builder.query({
+    getLastOrders: builder.query<RecentSales, string>({
       query: id => ({
         url: `${apiEndpoints.getOrders}${apiEndpoints.getLastOrders}?userId=${id}`,
         method: 'GET',

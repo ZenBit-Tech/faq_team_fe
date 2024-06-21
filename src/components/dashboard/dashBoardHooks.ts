@@ -1,5 +1,13 @@
 import { MutableRefObject, useEffect, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
+import {
+  useGetAverageSalesQuery,
+  useGetLastOrdersQuery,
+  useGetNumberOfOrdersQuery,
+  useGetTotalSalesPerCategoryQuery,
+  useGetTotalSalesPerMonthQuery,
+  useGetTotalSalesQuery,
+} from 'redux/authApiSlice';
 
 const useResponsiveCharts = (
   chartContainerRef: MutableRefObject<HTMLDivElement | null>,
@@ -58,4 +66,125 @@ const useResponsiveXLabel = () => {
   return { tickLabelStyle };
 };
 
-export { useResponsiveCharts, useResponsiveXLabel };
+const useDashboardData = (userId: string) => {
+  const [total, setTotal] = useState({
+    title: 'Total Sales',
+    totValue: 0,
+    relValue: 0,
+  });
+  const [aver, setAver] = useState({
+    title: 'Average Sales',
+    totValue: 0,
+    relValue: 0,
+  });
+  const [number, setNumber] = useState({
+    title: 'Number of Orders',
+    totValue: 0,
+    relValue: 0,
+  });
+  const [perMonth, setPerMonth] = useState<number[]>([]);
+  const [perCategoryPie, setPerCategoryPie] = useState<
+    { id: number; value: number }[]
+  >([]);
+  const [perCategoryTable, setPerCategoryTable] = useState<
+    {
+      source: string;
+      orders: number;
+      amount: number;
+    }[]
+  >([]);
+  const [lastOrders, setLastOrders] = useState<
+    {
+      id: string;
+      product: string;
+      price: number;
+      status: string;
+    }[]
+  >([]);
+
+  const { data: averData } = useGetAverageSalesQuery(userId);
+  const { data: lastData } = useGetLastOrdersQuery(userId);
+  const { data: numberData } = useGetNumberOfOrdersQuery(userId);
+  const { data: perCategoryData } = useGetTotalSalesPerCategoryQuery(userId);
+  const { data: perMonthData } = useGetTotalSalesPerMonthQuery(userId);
+  const { data: totalData } = useGetTotalSalesQuery(userId);
+
+  const totals = [total, aver, number];
+
+  useEffect(() => {
+    if (totalData) {
+      setTotal(prev => ({
+        ...prev,
+        totValue: totalData.totalSales,
+        relValue: totalData.lastWeekPercentage,
+      }));
+    }
+
+    if (averData) {
+      setAver(prev => ({
+        ...prev,
+        totValue: averData.averageSales,
+        relValue: averData.lastWeekAveragePercentage,
+      }));
+    }
+
+    if (numberData) {
+      setNumber(prev => ({
+        ...prev,
+        totValue: numberData.totalOrders,
+        relValue: numberData.lastWeekOrderPercentage,
+      }));
+    }
+
+    if (perMonthData) {
+      setPerMonth(perMonthData.map(element => element.total));
+    }
+
+    if (perCategoryData) {
+      setPerCategoryPie(
+        perCategoryData.map((element, index) => ({
+          id: index,
+          value: element.orderCount,
+        })),
+      );
+      setPerCategoryTable(
+        perCategoryData.map(element => ({
+          source: element.category,
+          orders: element.orderCount,
+          amount: element.totalSales,
+        })),
+      );
+    }
+
+    if (lastData) {
+      setLastOrders(
+        lastData.map(element => ({
+          id: element.order_id,
+          product: 'Product Name',
+          price: element.order_price,
+          status: 'Sold',
+        })),
+      );
+    }
+  }, [
+    lastData,
+    perCategoryData,
+    perMonthData,
+    numberData,
+    averData,
+    totalData,
+  ]);
+
+  return {
+    total,
+    aver,
+    number,
+    perMonth,
+    perCategoryPie,
+    perCategoryTable,
+    lastOrders,
+    totals,
+  };
+};
+
+export { useDashboardData, useResponsiveCharts, useResponsiveXLabel };

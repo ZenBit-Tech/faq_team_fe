@@ -94,3 +94,28 @@ export type ResponseGetUsersWithFilters = {
   users: ResponseGetUser[];
   totalCount: number;
 };
+
+export type AverageSales = {
+  averageSales: number;
+  lastWeekAveragePercentage: number;
+};
+
+export type SalesPerMonth = {
+  month: number;
+  total: number;
+}[];
+
+export type SalesPerCategory = {
+  category: string;
+  totalSales: number;
+  orderCount: number;
+}[];
+
+export type RecentSales = {
+  order_id: string;
+  created_at: Date;
+  updated_at: Date;
+  product_id: string;
+  buyer_id: string;
+  order_price: number;
+}[];
