@@ -118,7 +118,6 @@
       "title": "Card info title",
       "subTitle": "Card info subtitle",
       "cardNumber": "Card number"
-      
     },
     "sizeCard": {
       "clothTitle": "Cloth size card title",
@@ -282,30 +281,32 @@
     "state": "State",
     "card": "Payment Method",
     "cardPlaceholder": "**** **** **** 4567",
-    "button": "Save",
-    "footer": {
-      "text": "Some text will be here two - three lines",
-      "shop": "Shop",
-      "login": "Login",
-      "wishlist": "Wishlist",
-      "cart": "Cart",
-      "company": "Company",
-      "about": "About us",
-      "terms": "Terms & Conditions",
-      "privacy": "Privacy Policy",
-      "contact": "Contact Us",
-      "help": "Help",
-      "faq": "FAQs",
-      "delivery": "Shipping and Delivery",
-      "rent": "Rent your closet",
-      "resell": "Resell your closet",
-      "copyright": "© 2023 Black Cycle"
-    },
-    "header": {
-      "shop": "Shop",
-      "vendor": "Vendor",
-      "messages": "Messages"
-    }
+    "button": "Save"
+  },
+
+  "footer": {
+    "text": "Some text will be here two - three lines",
+    "shop": "Shop",
+    "login": "Login",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "company": "Company",
+    "about": "About us",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us",
+    "help": "Help",
+    "faq": "FAQs",
+    "delivery": "Shipping and Delivery",
+    "rent": "Rent your closet",
+    "resell": "Resell your closet",
+    "copyright": "© 2023 Black Cycle"
+  },
+  "header": {
+    "shop": "Shop",
+    "vendor": "Vendor",
+    "messages": "Messages"
+  },
 
   "admin": {
     "usersTitle": "Users",
@@ -316,7 +317,7 @@
     "roles": "User Roles"
   },
   "table": {
-    "name":"NAME",
+    "name": "NAME",
     "email": "EMAIL",
     "address": "ADDRESS",
     "date": "DATE",
@@ -330,7 +331,7 @@
     "cart": "Cart",
     "company": "Company",
     "about": "About us",
-    "terms":"Terms & Conditions",
+    "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "contact": "Contact Us",
     "help": "Help",
@@ -347,10 +348,17 @@
   },
   "viewProfile": {
     "title": "Profile",
-    "name":"Name",
-    "email":"Email",
+    "name": "Name",
+    "email": "Email",
     "status": "Status",
     "phone": "Phone",
     "address": "Complete address"
+  },
+
+  "topVendors": {
+    "title": "Best Vendors",
+    "vendorName": "Vendor Name",
+    "productName": "Product Name",
+    "productPrice": "$ 213,99"
   }
 }
