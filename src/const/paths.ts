@@ -12,6 +12,7 @@ export const paths = {
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
   getUser: '/users',
+  publicProfile: '/user/:id',
   profile: '/profile',
   personalInfo: '/profile',
   userList: '/admin/user-list',
