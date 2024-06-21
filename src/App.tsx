@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { SuperAdminLayout } from 'pages/superAdminLayout';
 import { paths } from 'const/paths';
 import PublicProfilePage from 'pages/publicProfilePage';
 import { SharedLayout } from 'pages/sharedLayout';
+import { SuperAdminLayout } from 'pages/superAdminLayout';
 
 const UserListPage = lazy(() => import('pages/userListPage'));
 const ViewUserProfilePage = lazy(() => import('pages/viewUserProfilePage'));
@@ -23,6 +23,7 @@ const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
 const ProfilePage = lazy(() => import('pages/profilePage'));
 const PersonalInfoPage = lazy(() => import('pages/personalInfoPage'));
 const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
+const DashboardPage = lazy(() => import('pages/dashboardPage'));
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function App() {
             element={<ConfirmCredentialsPage />}
           />
         </Route>
+        <Route path={paths.dashboard} element={<DashboardPage />} />
+
         <Route path={paths.superAdminRoot} element={<SuperAdminLayout />}>
           <Route path={paths.userList} element={<UserListPage />} />
           <Route
