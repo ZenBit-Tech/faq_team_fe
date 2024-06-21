@@ -1,0 +1,316 @@
+import styled from '@emotion/styled';
+
+import { Theme, theme } from 'styles/theme';
+
+export const FuturePageContainer = styled.div<{ theme?: Theme }>`
+  width: 100vw;
+  height: 100vh;
+  min-height: 690px;
+  background-color: ${({ theme }) => theme.colors.for_card_bg};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    height: auto;
+  }
+`;
+
+export const DashHeader = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const StatsContainer = styled.div<{ theme?: Theme }>`
+  padding: 20px;
+  background-color: ${({ theme }) => theme.colors.for_card_bg};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const TotalsContainer = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+`;
+
+export const TotalDiv = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 32%;
+  background-color: red;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
+`;
+
+export const TotalTitle = styled.p<{ theme?: Theme }>`
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+`;
+
+export const TotalNumbers = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const TotalValue = styled.p<{ theme?: Theme }>`
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const RelativeValue = styled.p<{ theme?: Theme }>`
+  padding-top: 5px;
+  color: ${({ theme }) => theme.colors.green_success};
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const GraphsContainer = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+`;
+
+export const Chart = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 66%;
+  background-color: red;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
+`;
+
+export const Pie = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 32%;
+  background-color: red;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
+`;
+
+export const PieDataContainer = styled.div`
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const PieDataTitle = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.gray};
+  font-family: ${({ theme }) => theme.fontNames.dmSans};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+`;
+
+export const PieDataRow = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+  font-size: ${({ theme }) => theme.fontSize.md};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
+`;
+
+export const RecentOrders = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.white};
+`;
+
+export const RecentTitle = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.for_card_bg};
+
+  p {
+    min-width: 120px;
+    font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      font-size: ${({ theme }) => theme.fontSize.sm};
+    }
+  }
+
+  .recent-transient-laptop {
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      display: none;
+    }
+  }
+
+  .recent-transient-mobile {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+      display: none;
+    }
+  }
+`;
+
+export const RecentElementsContainer = styled.div<{ theme?: Theme }>`
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & > *:not(:last-child) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.greyish_red};
+    padding-bottom: 10px;
+  }
+`;
+
+export const RecentElement = styled.div<{ theme?: Theme }>`
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    min-width: 120px;
+    min-height: 20px;
+    font-family: ${({ theme }) => theme.fontNames.dmSans};
+    font-size: ${({ theme }) => theme.fontSize.md};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      font-size: ${({ theme }) => theme.fontSize.sm};
+    }
+  }
+
+  .recent-transient-laptop {
+    @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+      display: none;
+    }
+  }
+
+  .recent-transient-mobile {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+      display: none;
+    }
+  }
+`;
+
+export const getChartParams = (
+  data: number[],
+  chartWidth: number,
+  last12Months: string[],
+  tickLabelStyle: object,
+) => {
+  const chartParams = {
+    margin: { top: 10, bottom: 40, right: 30 },
+    borderRadius: 5,
+    height: 240,
+    width: chartWidth,
+    grid: { horizontal: true },
+    xAxis: [
+      {
+        data: last12Months,
+        scaleType: 'band' as const,
+        tickLabelStyle: tickLabelStyle,
+      },
+    ],
+    yAxis: [
+      {
+        tickInterval: 'auto' as const,
+        valueFormatter: (value: number) => `$${value}`,
+        tickMaxStep: 10000,
+        tickMinStep: 1,
+      },
+    ],
+    series: [
+      {
+        data,
+        color: theme.colors.black,
+      },
+    ],
+  };
+  return chartParams;
+};
+
+export const getPieParams = (
+  data: { id: number; value: number }[],
+  pieWidth: number,
+) => {
+  const pieParams = {
+    height: 150,
+    margin: { right: 0, left: 0 },
+    width: pieWidth,
+    series: [
+      {
+        data,
+        innerRadius: 30,
+      },
+    ],
+  };
+  return pieParams;
+};

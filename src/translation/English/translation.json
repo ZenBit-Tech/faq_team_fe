@@ -305,7 +305,7 @@
       "shop": "Shop",
       "vendor": "Vendor",
       "messages": "Messages"
-    }
+    }},
 
   "admin": {
     "usersTitle": "Users",
