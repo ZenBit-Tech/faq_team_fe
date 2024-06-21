@@ -24,4 +24,5 @@ export const paths = {
   support: '#',
   logout: '#',
   topVendors: '/top-vendors',
+  dashboard: 'dashboard',
 };

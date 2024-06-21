@@ -16,7 +16,7 @@ import {
   TabsSection,
 } from 'components/fillProfileForm/styles';
 
-const firstTabIndex = 3;
+const firstTabIndex = 0;
 
 const FillProfileForm = () => {
   const { t } = useTranslation();

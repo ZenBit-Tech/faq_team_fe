@@ -19,6 +19,7 @@ export type Color = {
   thirdary_black: string;
   box_shadow: string;
   light_gray: string;
+  dashboard_pie: string[];
 };
 
 export type Breakpoint = {

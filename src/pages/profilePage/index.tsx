@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
+
 import { DeleteAccountModal } from 'components/deleteAccountModal';
 import { ProfileNavBar } from 'components/profileNavBar';
 
