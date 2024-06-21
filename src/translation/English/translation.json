@@ -278,5 +278,14 @@
     "status": "Status",
     "phone": "Phone",
     "address": "Complete address"
+  }, 
+  "productsFilter": {
+    "price": "Price",
+    "size": "Size",
+    "color": "Color",
+    "style": "Style",
+    "checkbox": "Show only my sizes",
+    "apply": "Apply",
+    "clear": "Clear"
   }
 }

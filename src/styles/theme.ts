@@ -30,6 +30,7 @@ export const theme: Theme = {
     green_success: '#36b37e',
     error_tablet: '#ff4b4b',
     overlay_black: 'rgba(0, 0, 0, 0.6)',
+    style_border: '#e0e0e0',
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',

@@ -12,6 +12,7 @@ export type Color = {
   green_success: string;
   error_tablet: string;
   overlay_black: string;
+  style_border: string;
 };
 
 export type Breakpoint = {
