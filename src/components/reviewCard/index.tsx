@@ -1,13 +1,14 @@
+import RatingStarIcon from 'assets/icons/iconRatingStar.tsx';
+import bgImg from 'assets/images/default_profile_img.png';
+import { UserRating } from 'components/publicProfileSidebar/styles.ts';
+import ReadMore from 'components/readMore';
+
 import {
   ReviewDate,
   ReviewerAvatar,
   ReviewerInfo,
   ReviewerName,
 } from './styles.ts';
-import bgImg from 'assets/images/default_profile_img.png';
-import { UserRating } from 'components/publicProfileSidebar/styles.ts';
-import RatingStarIcon from 'assets/icons/iconRatingStar.tsx';
-import ReadMore from 'components/readMore';
 
 const text =
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, enim, ' +

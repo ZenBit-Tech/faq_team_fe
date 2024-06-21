@@ -1,7 +1,9 @@
-import PublicProfileSidebar from 'components/publicProfileSidebar';
-import PublicProfileInfo from 'components/publicProfileInfo';
-import { PublicProfileContainer } from 'pages/publicProfilePage/styles.ts';
 import { useParams } from 'react-router-dom';
+
+import PublicProfileInfo from 'components/publicProfileInfo';
+import PublicProfileSidebar from 'components/publicProfileSidebar';
+import { PublicProfileContainer } from 'pages/publicProfilePage/styles.ts';
+
 import { useGetPublicInfoQuery } from '../../redux/authApiSlice.ts';
 
 const PublicProfilePage = () => {

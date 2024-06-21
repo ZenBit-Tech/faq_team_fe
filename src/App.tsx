@@ -23,6 +23,7 @@ const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
 const ProfilePage = lazy(() => import('pages/profilePage'));
 const PersonalInfoPage = lazy(() => import('pages/personalInfoPage'));
 const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
+const TopVendorsPage = lazy(() => import('pages/topVendorsPage'));
 const DashboardPage = lazy(() => import('pages/dashboardPage'));
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
             element={<ViewUserProfilePage />}
           />
         </Route>
+        <Route path={paths.topVendors} element={<TopVendorsPage />} />
       </Routes>
     </>
   );

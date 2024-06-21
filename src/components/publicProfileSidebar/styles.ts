@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
-import { Theme } from 'styles/theme.ts';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import { Theme } from 'styles/theme.ts';
 
 export const SideBarWrapper = styled.div`
   width: 31%;

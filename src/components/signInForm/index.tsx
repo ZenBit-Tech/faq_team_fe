@@ -1,26 +1,28 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useTranslation } from 'react-i18next';
-import { Inputs } from './types';
-import {
-  StyledForm,
-  PasswordLink,
-  SubmitBtn,
-  ErrorMsg,
-} from 'components/sharedUI/form/styles';
 import { useState } from 'react';
-import { useSignInSchema } from './signInFormHook';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { setToken } from 'redux/auth/authSlice';
 import { useLoginMutation, useRestorePassMutation } from 'redux/authApiSlice';
 import { useAppDispatch } from 'redux/hooks';
-import { useNavigate } from 'react-router-dom';
-import { setToken } from 'redux/auth/authSlice';
+
+import EyeIcon from 'assets/icons/iconEye';
+import EyeCloseIcon from 'assets/icons/iconEyeClose';
+import {
+  ErrorMsg,
+  PasswordLink,
+  StyledForm,
+  SubmitBtn,
+} from 'components/sharedUI/form/styles';
+import { paths } from 'const/paths';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
-import EyeIcon from 'assets/icons/iconEye';
-import EyeCloseIcon from 'assets/icons/iconEyeClose';
-import { paths } from 'const/paths';
+
+import { useSignInSchema } from './signInFormHook';
+import { Inputs } from './types';
 
 export const SignInForm = () => {
   const [login, { isLoading }] = useLoginMutation();

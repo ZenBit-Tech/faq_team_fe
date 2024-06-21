@@ -1,9 +1,10 @@
-import ReviewsList from 'components/reviewsList';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import ProductsList from 'components/productsList';
 import { useState } from 'react';
-import { PublicProfileInfoType } from 'components/publicProfileInfo/types.ts';
 import { useTranslation } from 'react-i18next';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+
+import ProductsList from 'components/productsList';
+import { PublicProfileInfoType } from 'components/publicProfileInfo/types.ts';
+import ReviewsList from 'components/reviewsList';
 
 const PublicVendorTab = ({
   userReviews,

@@ -1,4 +1,5 @@
 import AddToCartIcon from 'assets/icons/addToCartIcon.tsx';
+import Carousel from 'components/carousel';
 import {
   ProductImageWrapper,
   ProductInfo,
@@ -6,7 +7,6 @@ import {
   ProductPrice,
   VendorName,
 } from 'components/productCard/styles.ts';
-import Carousel from 'components/carousel';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ProductCard = ({ imageUrl }) => {

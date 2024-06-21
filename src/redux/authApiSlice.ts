@@ -5,12 +5,13 @@ import {
   RequestRegistration,
   RequestUpdateUser,
   RequestVerifyOtp,
+  RequestVerifyOtp,
+  RequestVerifyOtp,
+  ResponseGetUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
-  ResponseGetUser,
 } from 'redux/types';
 
 import { apiEndpoints } from 'const/apiEndpoints';

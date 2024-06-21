@@ -23,5 +23,6 @@ export const paths = {
   wishlist: '#',
   support: '#',
   logout: '#',
+  topVendors: '/top-vendors',
   dashboard: 'dashboard',
 };
