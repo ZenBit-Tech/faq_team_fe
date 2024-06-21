@@ -7,7 +7,7 @@ import {
   useGetTotalSalesPerCategoryQuery,
   useGetTotalSalesPerMonthQuery,
   useGetTotalSalesQuery,
-} from 'redux/authApiSlice';
+} from 'redux/ordersApiSlice';
 
 const useResponsiveCharts = (
   chartContainerRef: MutableRefObject<HTMLDivElement | null>,
@@ -68,17 +68,17 @@ const useResponsiveXLabel = () => {
 
 const useDashboardData = (userId: string) => {
   const [total, setTotal] = useState({
-    title: 'Total Sales',
+    title: '',
     totValue: 0,
     relValue: 0,
   });
   const [aver, setAver] = useState({
-    title: 'Average Sales',
+    title: '',
     totValue: 0,
     relValue: 0,
   });
   const [number, setNumber] = useState({
-    title: 'Number of Orders',
+    title: '',
     totValue: 0,
     relValue: 0,
   });
@@ -155,12 +155,11 @@ const useDashboardData = (userId: string) => {
         })),
       );
     }
-
     if (lastData) {
       setLastOrders(
         lastData.map(element => ({
           id: element.order_id,
-          product: 'Product Name',
+          product: element.product_product_name,
           price: element.order_price,
           status: 'Sold',
         })),

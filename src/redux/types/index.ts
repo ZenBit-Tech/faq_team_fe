@@ -118,4 +118,5 @@ export type RecentSales = {
   product_id: string;
   buyer_id: string;
   order_price: number;
+  product_product_name: string;
 }[];

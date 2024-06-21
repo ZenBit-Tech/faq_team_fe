@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const totalTitles = [
     t('dashboard.totalTitle'),
-    t('dashboard.averTiele'),
+    t('dashboard.averTitle'),
     t('dashboard.numberTitle'),
   ];
 

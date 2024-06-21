@@ -241,11 +241,11 @@ export const RecentTitle = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.for_card_bg};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    gap: 8%;
+    justify-content: space-between;
   }
 
   p {
-    min-width: 120px;
+    width: 120px;
     font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
     font-size: ${({ theme }) => theme.fontSize.sm};
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
@@ -293,11 +293,11 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    gap: 8%;
+    justify-content: space-between;
   }
 
   p {
-    min-width: 120px;
+    width: 120px;
     min-height: 20px;
     font-family: ${({ theme }) => theme.fontNames.dmSans};
     font-size: ${({ theme }) => theme.fontSize.md};
@@ -309,6 +309,7 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
   }
 
   a {
+    width: 120px;
     text-decoration: underline;
   }
 
