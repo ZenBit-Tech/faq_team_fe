@@ -1,18 +1,18 @@
-
-import { apiEndpoints } from 'const/apiEndpoints';
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
-  RequestVerifyOtp,
   RequestUpdateUser,
+  RequestVerifyOtp,
   RequestVerifyOtp,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
 } from 'redux/types';
+
+import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -70,6 +70,42 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getTotalSales: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getTotalSales}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
+    getAverageSales: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getAverageSales}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
+    getNumberOfOrders: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getNumberOfOrders}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
+    getTotalSalesPerMonth: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getTotalSalesPerMonth}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
+    getTotalSalesPerCategory: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getTotalSalesPerCategory}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
+    getLastOrders: builder.query({
+      query: id => ({
+        url: `${apiEndpoints.getOrders}${apiEndpoints.getLastOrders}?userId=${id}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
@@ -82,4 +118,10 @@ export const {
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
+  useGetAverageSalesQuery,
+  useGetLastOrdersQuery,
+  useGetNumberOfOrdersQuery,
+  useGetTotalSalesPerCategoryQuery,
+  useGetTotalSalesPerMonthQuery,
+  useGetTotalSalesQuery,
 } = appApiSlice;

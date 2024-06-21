@@ -85,9 +85,10 @@ export const TotalValue = styled.p<{ theme?: Theme }>`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
-export const RelativeValue = styled.p<{ theme?: Theme }>`
+export const RelativeValue = styled.p<{ theme?: Theme; val: number }>`
   padding-top: 5px;
-  color: ${({ theme }) => theme.colors.green_success};
+  color: ${({ theme, val }) =>
+    val <= 0 ? theme.colors.error_red : theme.colors.green_success};
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   font-size: ${({ theme }) => theme.fontSize.sm};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -181,11 +182,14 @@ export const RecentTitle = styled.div<{ theme?: Theme }>`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 10%;
   align-items: center;
-  background-color: blue;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.for_card_bg};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    gap: 8%;
+  }
 
   p {
     min-width: 120px;
@@ -232,8 +236,12 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 10%;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    gap: 8%;
+  }
 
   p {
     min-width: 120px;
@@ -258,6 +266,22 @@ export const RecentElement = styled.div<{ theme?: Theme }>`
       display: none;
     }
   }
+`;
+
+export const PieTableSource = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 2px;
+`;
+
+export const ColorBox = styled.div<{ index: number; theme?: Theme }>`
+  height: 10px;
+  width: 10px;
+  background-color: ${({ theme, index }) => theme.colors.dashboard_pie[index]};
+  margin-top: 5px;
+  margin-right: 3px;
 `;
 
 export const getChartParams = (
@@ -297,6 +321,8 @@ export const getChartParams = (
   return chartParams;
 };
 
+export const pieColors = theme.colors.dashboard_pie;
+
 export const getPieParams = (
   data: { id: number; value: number }[],
   pieWidth: number,
@@ -311,6 +337,7 @@ export const getPieParams = (
         innerRadius: 30,
       },
     ],
+    colors: pieColors,
   };
   return pieParams;
 };

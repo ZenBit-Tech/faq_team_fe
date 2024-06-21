@@ -34,6 +34,7 @@ export const theme: Theme = {
     thirdary_black: '#141519',
     box_shadow: 'rgba(25, 25, 25, 0.06)',
     light_gray: '#a0a8b0',
+    dashboard_pie: ['#8E7AB5', '#B784B7', '#E493B3', '#EEA5A6'],
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
