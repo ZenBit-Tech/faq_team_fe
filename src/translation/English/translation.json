@@ -311,6 +311,7 @@
     "card": "Payment Method",
     "cardPlaceholder": "**** **** **** 4567",
     "button": "Save"
+}
 },
 "admin": {
   "usersTitle": "Users",
