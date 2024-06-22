@@ -9,15 +9,6 @@ export const isValidFileList = (value: FileList): boolean => {
   return true;
 };
 
-export const convertToBase64 = file => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-};
-
 export const countries = (defaultCountries: CountryData[]): CountryData[] =>
   defaultCountries.filter(country => {
     const { iso2 } = parseCountry(country);

@@ -12,7 +12,8 @@ import CreditCardForm from 'components/fillProfileForm/cardInfoCard';
 import GeneralInfoCard from 'components/fillProfileForm/generalInfoCard';
 import RoleCard from 'components/fillProfileForm/roleCard';
 import SizeForm from 'components/fillProfileForm/sizeCard';
-import { TabProps } from 'components/fillProfileForm/types';
+import { TabProps, UserData } from 'components/fillProfileForm/types';
+import { countriesOptions, countryCodes } from 'const/constants';
 
 export const iconsActive = [
   <FirstStepActive />,
@@ -30,19 +31,64 @@ export const iconsInactive = [
 ];
 
 export const tabs = [
-  ({ setSelectedIndex, index }: TabProps) => (
-    <RoleCard setSelectedIndex={setSelectedIndex} index={index} />
+  ({ setSelectedIndex, index, data }: TabProps) => (
+    <RoleCard setSelectedIndex={setSelectedIndex} index={index} data={data} />
   ),
-  ({ setSelectedIndex, index }: TabProps) => (
-    <GeneralInfoCard setSelectedIndex={setSelectedIndex} index={index} />
+  ({ setSelectedIndex, index, data }: TabProps) => (
+    <GeneralInfoCard
+      setSelectedIndex={setSelectedIndex}
+      index={index}
+      data={data}
+    />
   ),
-  ({ setSelectedIndex, index }: TabProps) => (
-    <AddressForm setSelectedIndex={setSelectedIndex} index={index} />
+  ({ setSelectedIndex, index, data }: TabProps) => (
+    <AddressForm
+      setSelectedIndex={setSelectedIndex}
+      index={index}
+      data={data}
+    />
   ),
-  ({ setSelectedIndex, index }: TabProps) => (
-    <CreditCardForm setSelectedIndex={setSelectedIndex} index={index} />
+  ({ setSelectedIndex, index, data }: TabProps) => (
+    <CreditCardForm
+      setSelectedIndex={setSelectedIndex}
+      index={index}
+      data={data}
+    />
   ),
-  ({ setSelectedIndex, index }: TabProps) => (
-    <SizeForm setSelectedIndex={setSelectedIndex} index={index} />
+  ({ setSelectedIndex, index, data }: TabProps) => (
+    <SizeForm setSelectedIndex={setSelectedIndex} index={index} data={data} />
   ),
 ];
+
+export const paymentElementOptions = {
+  layout: 'tabs',
+  fields: {
+    billingDetails: 'never',
+  },
+};
+
+export const billingDetails = (data: UserData) => {
+  const billing_details = {
+    name: data.full_name,
+    email: data.email,
+    phone: data.phone,
+    address: {
+      country: countryCodes[countriesOptions.indexOf(data.country)],
+      postal_code: '',
+      state: data.state,
+      city: data.city,
+      line1: data.address,
+      line2: data.address_2,
+    },
+  };
+  return billing_details;
+};
+
+export const elementsOptions = {
+  mode: 'setup',
+  currency: 'usd',
+  paymentMethodCreation: 'manual',
+  appearance: {
+    theme: 'stripe',
+  },
+};

@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useUpdateUserMutation } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -23,21 +25,32 @@ import {
   TabProps,
   UserRoles,
 } from 'components/fillProfileForm/types';
-import { roleSchema } from 'components/fillProfileForm/validation';
+import useFillProfileSchemas from 'components/fillProfileForm/validation';
 
-const RoleCard = ({ setSelectedIndex, index }: TabProps) => {
+const RoleCard = ({ setSelectedIndex, index, data }: TabProps) => {
   const { t } = useTranslation();
+
+  const [registrationUpdate] = useUpdateUserMutation();
+  const { roleSchema } = useFillProfileSchemas();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<RoleFormData>({
     resolver: yupResolver(roleSchema),
   });
 
-  const onSubmit: SubmitHandler<RoleFormData> = data => {
-    JSON.stringify(data);
+  useEffect(() => {
+    data && data.user_role && setValue('role', data.user_role);
+  }, [data, setValue]);
+
+  const onSubmit: SubmitHandler<RoleFormData> = async roleData => {
+    await registrationUpdate({
+      id: data.id,
+      data: { user_role: roleData.role },
+    }).unwrap();
     setSelectedIndex(index + 1);
   };
 

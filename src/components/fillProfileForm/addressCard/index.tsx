@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useUpdateUserMutation } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
-import * as yup from 'yup';
 
 import { StyledForm } from 'components/fillProfileForm/addressCard/styles';
 import {
@@ -19,55 +20,28 @@ import {
 import {
   AddressSchema,
   ButtonVariant,
-  Country,
   TabProps,
 } from 'components/fillProfileForm/types';
+import useFillProfileSchemas from 'components/fillProfileForm/validation';
 import {
   citiesOptions,
   countriesOptions,
   statesOptions,
 } from 'const/constants';
 
-const addressValidationRegex = /^[a-zA-Z0-9\s,-]*$/;
-
-const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
+const AddressForm = ({ setSelectedIndex, index, data }: TabProps) => {
   const { t } = useTranslation();
 
-  const schema = yup.object().shape({
-    address1: yup
-      .string()
-      .required(t('fillProfile.addressCard.address1Required'))
-      .matches(
-        addressValidationRegex,
-        t('fillProfile.addressCard.address1Invalid'),
-      )
-      .min(5, t('fillProfile.addressCard.address1Short'))
-      .max(100, t('fillProfile.addressCard.address1Long')),
-    address2: yup
-      .string()
-      .optional()
-      .matches(
-        addressValidationRegex,
-        t('fillProfile.addressCard.address2Invalid'),
-      )
-      .max(100, t('fillProfile.addressCard.address2Long')),
-    country: yup
-      .mixed<Country>()
-      .required(t('fillProfile.addressCard.countryRequired')),
-    state: yup
-      .mixed<(typeof statesOptions)[Country][number]>()
-      .required(t('fillProfile.addressCard.stateRequired')),
-    city: yup
-      .mixed<(typeof citiesOptions)[Country][number]>()
-      .required(t('fillProfile.addressCard.cityRequired')),
-  });
+  const [registrationUpdate] = useUpdateUserMutation();
+  const { addressSchema } = useFillProfileSchemas();
 
   const {
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<AddressSchema>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(addressSchema),
     defaultValues: {
       address1: '',
       address2: '',
@@ -77,9 +51,26 @@ const AddressForm = ({ setSelectedIndex, index }: TabProps) => {
     },
   });
 
-  const onSubmit: SubmitHandler<AddressSchema> = data => {
-    JSON.stringify(data);
-    setSelectedIndex(index + 1);
+  useEffect(() => {
+    data && data.address && setValue('address1', data.address);
+    data && data.address_2 && setValue('address2', data.address_2);
+    data && data.country && setValue('country', data.country);
+    data && data.state && setValue('state', data.state);
+    data && data.city && setValue('city', data.city);
+  }, [data, setValue]);
+
+  const onSubmit: SubmitHandler<AddressSchema> = async addressData => {
+    await registrationUpdate({
+      id: data.id,
+      data: {
+        address: addressData.address1,
+        address_2: addressData.address2,
+        country: addressData.country,
+        state: addressData.state,
+        city: addressData.city,
+      },
+    }).unwrap();
+    !data.stripe_id ? setSelectedIndex(index + 1) : setSelectedIndex(index + 2);
   };
 
   return (
