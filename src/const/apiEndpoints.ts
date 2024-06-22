@@ -2,6 +2,7 @@ export const apiEndpoints = {
   getAllUsers: '/users/get-all',
   signUp: '/auth/sign-up',
   signIn: '/auth/sign-in',
+  getAllProducts: '/products/get-products',
   updateUser: '/users/update',
   findUser: '/users/user',
   getUser: '/users/user',
