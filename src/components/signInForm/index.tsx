@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { setToken } from 'redux/auth/authSlice';
+import { setEmail, setToken } from 'redux/auth/authSlice';
 import { useLoginMutation, useRestorePassMutation } from 'redux/authApiSlice';
 import { useAppDispatch } from 'redux/hooks';
 
@@ -52,9 +52,10 @@ export const SignInForm = () => {
     try {
       const response = await login(data).unwrap();
       if (!response?.is_verified) {
-        await sendOtp(data.email);
+        await sendOtp({ email: data.email });
         reset();
-        navigate('');
+        dispatch(setEmail(data.email));
+        navigate('../verify-email');
       } else {
         dispatch(setToken(response?.access_token));
         console.log(response.access_token);
