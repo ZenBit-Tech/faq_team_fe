@@ -5,18 +5,22 @@ import { Theme } from 'styles/theme';
 
 export const HomeSection = styled.section<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.white};
+
   .flex-container {
     display: flex;
     margin: 0 auto;
     max-width: 1200px;
     padding: 15px;
   }
+
   .right {
     flex-grow: 1;
   }
+
   .products {
     margin-bottom: 22px;
   }
+
   .sorting {
     display: flex;
     justify-content: space-between;

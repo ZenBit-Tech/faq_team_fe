@@ -24,6 +24,7 @@ const Filter: React.FC = () => {
   const [showOnlyMySizes, setShowOnlyMySizes] = useState<boolean>(false);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
   const { t } = useTranslation();
+
   const handleClear = () => {
     setSelectedColor(null);
     setSelectedSize(null);
@@ -31,6 +32,7 @@ const Filter: React.FC = () => {
     setPriceRange([minRange, maxRange]);
     setShowOnlyMySizes(false);
   };
+
   const handleApply = () => {
     // TODO add logic to send request with filters
     console.log({

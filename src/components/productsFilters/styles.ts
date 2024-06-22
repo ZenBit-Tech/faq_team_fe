@@ -11,6 +11,7 @@ export const FilterWrapper = styled.div<{ theme?: Theme }>`
 
 export const Section = styled.div`
   margin-bottom: 16px;
+
   .price-range {
     margin-top: 22px;
   }
@@ -31,11 +32,13 @@ export const CheckboxLabel = styled.label`
 export const CheckboxInput = styled.input`
   cursor: pointer;
 `;
+
 export const Actions = styled.div<{ theme?: Theme }>`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 22px;
+
   button {
     padding: 10px 20px;
     border: none;
