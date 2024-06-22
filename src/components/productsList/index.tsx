@@ -11,12 +11,9 @@ const ProductsList = ({ userProducts }: Partial<PublicProfileInfoType>) => {
     <ProductsWrapper>
       <h2>{t('titleText.vendorCloset')}</h2>
       <ul>
-        <ProductCard imageUrl={userProducts?.image} />
-        <ProductCard imageUrl={userProducts?.image} />
-        <ProductCard imageUrl={userProducts?.image} />
-        <ProductCard imageUrl={userProducts?.image} />
-        <ProductCard imageUrl={userProducts?.image} />
-        <ProductCard imageUrl={userProducts?.image} />
+        {userProducts?.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
       </ul>
     </ProductsWrapper>
   );

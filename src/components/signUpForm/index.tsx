@@ -1,27 +1,35 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Inputs } from './types';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { setEmail } from 'redux/auth/authSlice';
 import {
+  useRegistrationMutation,
+  useRestorePassMutation,
+} from 'redux/authApiSlice';
+import { useAppDispatch } from 'redux/hooks';
+
+import EyeIcon from 'assets/icons/iconEye';
+import EyeCloseIcon from 'assets/icons/iconEyeClose';
+import {
+  ErrorMsg,
   StyledForm,
   SubmitBtn,
-  ErrorMsg,
 } from 'components/sharedUI/form/styles';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSignUpSchema } from './signUpFormHooks';
-import { useAppDispatch } from 'redux/hooks';
-import { useRegistrationMutation } from 'redux/authApiSlice';
-import { setEmail } from 'redux/auth/authSlice';
+import { paths } from 'const/paths';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
-import EyeIcon from 'assets/icons/iconEye';
-import EyeCloseIcon from 'assets/icons/iconEyeClose';
+
+import { useSignUpSchema } from './signUpFormHooks';
+import { Inputs } from './types';
 
 export const SignUpForm = () => {
   const [registration, { isLoading }] = useRegistrationMutation();
+  const [sendOtp] = useRestorePassMutation();
+
   const signUpSchema = useSignUpSchema();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -45,14 +53,15 @@ export const SignUpForm = () => {
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
       const { name, email, password } = data;
-      const response = await registration({
+      await registration({
         full_name: name,
         email,
         password,
       }).unwrap();
-      dispatch(setEmail(response?.email));
+      dispatch(setEmail(email));
       reset();
-      navigate('');
+      await sendOtp({ email: data.email });
+      navigate(paths.verifyEmail);
     } catch (err) {
       if (isFetchBaseQueryError(err)) {
         const errMsg = 'error' in err ? err.error : JSON.stringify(err.data);

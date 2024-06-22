@@ -8,6 +8,7 @@ export type User = {
   email: string;
   role: string;
   id: string;
+  step: number;
 };
 
 export type RequestRegistration = {
@@ -25,7 +26,6 @@ export type ResponseGetUser = {
   created_at: Date;
   full_name: string;
   email: string;
-  password?: string;
   is_verified: boolean;
   filled_profile_step: number;
   otp_code?: string;
@@ -42,9 +42,6 @@ export type ResponseGetUser = {
   jeans_size?: string;
   shoes_size?: number;
   avgRate?: number;
-  user_reviews?: UserReview[];
-  rates?: number;
-  products?: ResponseGetProduct[];
 };
 
 export type ResponseGetProduct = {
@@ -71,6 +68,7 @@ export type RequestLogin = {
 export type ResponseLogin = {
   access_token: string;
   is_verified: boolean;
+  filled_profile_step: number;
 };
 
 export type AuthState = {

@@ -15,6 +15,7 @@ import {
   StyledForm,
   SubmitBtn,
 } from 'components/sharedUI/form/styles';
+import { fillProfileMaxStep } from 'const/constants';
 import { paths } from 'const/paths';
 import {
   isErrorWithMessage,
@@ -55,10 +56,12 @@ export const SignInForm = () => {
         await sendOtp({ email: data.email });
         reset();
         dispatch(setEmail(data.email));
-        navigate('../verify-email');
-      } else {
+        navigate(paths.verifyEmail);
+      } else if (response?.filled_profile_step > fillProfileMaxStep) {
         dispatch(setToken(response?.access_token));
         console.log(response.access_token);
+        navigate(paths.fillProfile);
+      } else {
         navigate(paths.root);
       }
     } catch (err) {

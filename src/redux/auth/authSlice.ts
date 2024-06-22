@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState } from 'redux/types';
 
 const initialState: AuthState = {
-  user: { name: '', email: '', role: '', id: '' },
+  user: { name: '', email: '', role: '', id: '', step: 1 },
   access_token: localStorage.getItem('token')
     ? JSON.parse(localStorage.getItem('token')!)
     : null,

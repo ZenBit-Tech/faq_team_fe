@@ -18,6 +18,7 @@ import {
 import { OptFormProps, OtpFormValue } from 'components/otpForm/types';
 import {
   clockPrecision,
+  fillProfileMaxStep,
   otpExpirationTime,
   otpFormVersions,
   otpNumberOfDigits,
@@ -27,7 +28,7 @@ import { paths } from 'const/paths';
 const otpInputMaxLength = 1;
 const otpInputPlaceholder = '1';
 
-export const OtpForm = ({ email, action }: OptFormProps) => {
+export const OtpForm = ({ step, email, action }: OptFormProps) => {
   const { t } = useTranslation();
 
   const { timer, resetTimer } = useOtpTimer(otpExpirationTime, clockPrecision);
@@ -83,7 +84,11 @@ export const OtpForm = ({ email, action }: OptFormProps) => {
       }).unwrap();
 
       if (action === otpFormVersions.verifyEmail) {
-        navigate(paths.root);
+        if (step > fillProfileMaxStep) {
+          navigate(paths.root);
+        } else {
+          navigate(paths.fillProfile);
+        }
       } else {
         navigate(paths.newPassword);
       }

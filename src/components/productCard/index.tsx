@@ -9,17 +9,18 @@ import {
 } from 'components/productCard/styles.ts';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ProductCard = ({ imageUrl }) => {
+const ProductCard = ({ product }) => {
   return (
     <li>
       <ProductImageWrapper>
         <Carousel />
       </ProductImageWrapper>
-      <ProductName>Product Name</ProductName> {/*TODO change to fetched data*/}
+      <ProductName>{product.product_name}</ProductName>{' '}
+      {/*TODO change to fetched data*/}
       <ProductInfo>
         <div>
-          <ProductPrice>$ 213,99</ProductPrice>
-          <VendorName>Vendor Name</VendorName>
+          <ProductPrice>$ {product.price}</ProductPrice>
+          <VendorName>{product.owner.full_name}</VendorName>
         </div>
         <div>
           <AddToCartIcon></AddToCartIcon>
