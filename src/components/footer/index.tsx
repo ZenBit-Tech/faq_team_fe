@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import logo from 'src/assets/images/logo.png';
-
 import EmailIcon from 'assets/icons/iconEmail';
 import FacebookIcon from 'assets/icons/iconFacebook';
 import InstagramIcon from 'assets/icons/iconInstagram';
 import { Container } from 'components/section/styles';
+import logo from 'src/assets/images/logo.png';
 
 import {
   Credentials,

@@ -2,8 +2,12 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { paths } from 'const/paths';
+import PublicProfilePage from 'pages/publicProfilePage';
 import { SharedLayout } from 'pages/sharedLayout';
+import { SuperAdminLayout } from 'pages/superAdminLayout';
 
+const UserListPage = lazy(() => import('pages/userListPage'));
+const ViewUserProfilePage = lazy(() => import('pages/viewUserProfilePage'));
 const HomePage = lazy(() => import('pages/homePage'));
 const SignUpPage = lazy(() => import('pages/signUpPage'));
 const SignInPage = lazy(() => import('pages/signInPage'));
@@ -16,7 +20,11 @@ const ConfirmCredentialsPage = lazy(
 const NewPassPage = lazy(() => import('pages/newPassPage'));
 const VerifyOtpPAge = lazy(() => import('pages/verifyOtpPage'));
 const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
+const ProfilePage = lazy(() => import('pages/profilePage'));
+const PersonalInfoPage = lazy(() => import('pages/personalInfoPage'));
 const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
+const TopVendorsPage = lazy(() => import('pages/topVendorsPage'));
+const DashboardPage = lazy(() => import('pages/dashboardPage'));
 
 function App() {
   return (
@@ -36,11 +44,25 @@ function App() {
           <Route path={paths.verifyEmail} element={<VerifyEmailPAge />} />
           <Route path={paths.fillProfile} element={<FillProfilePage />} />
           <Route path={paths.termsOfUse} element={<TermsOfUsePage />} />
+          <Route path={paths.publicProfile} element={<PublicProfilePage />} />
+          <Route path={paths.profile} element={<ProfilePage />}>
+            <Route index element={<PersonalInfoPage />} />
+          </Route>
           <Route
             path={paths.confirmCredentials}
             element={<ConfirmCredentialsPage />}
           />
         </Route>
+        <Route path={paths.dashboard} element={<DashboardPage />} />
+
+        <Route path={paths.superAdminRoot} element={<SuperAdminLayout />}>
+          <Route path={paths.userList} element={<UserListPage />} />
+          <Route
+            path={`${paths.viewUserProfile}:id`}
+            element={<ViewUserProfilePage />}
+          />
+        </Route>
+        <Route path={paths.topVendors} element={<TopVendorsPage />} />
       </Routes>
     </>
   );

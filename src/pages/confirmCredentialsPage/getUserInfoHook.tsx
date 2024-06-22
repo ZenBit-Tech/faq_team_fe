@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useFindUserMutation } from 'redux/authApiSlice';
-
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
+import { useFindUserMutation } from 'redux/authApiSlice';
 
 const UseGetUserInfoHook = () => {
   const [searchParams] = useSearchParams();

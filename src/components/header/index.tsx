@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from 'redux/hooks';
-
 import BagIcon from 'assets/icons/iconBag';
 import BellIcon from 'assets/icons/iconBell';
 import UserIcon from 'assets/icons/iconUser';
@@ -8,6 +6,7 @@ import logo from 'assets/images/logo.png';
 import { Button } from 'components/button';
 import { ButtonVariant } from 'components/button/types';
 import { Container } from 'components/section/styles';
+import { useAppSelector } from 'redux/hooks';
 
 import {
   Circle,

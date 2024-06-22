@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import bgImg from 'src/assets/images/sign-up.png';
-
 import { ArrowBackLink } from 'components/arrowBackLink';
 import { ConfirmCredentialsForm } from 'components/confirmCredentialsForm';
 import {
@@ -12,6 +10,7 @@ import {
   Title,
 } from 'components/sharedUI/form/styles';
 import { links } from 'const/links';
+import bgImg from 'src/assets/images/sign-up.png';
 
 import UseGetUserInfoHook from './getUserInfoHook';
 

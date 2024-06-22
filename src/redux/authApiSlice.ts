@@ -3,7 +3,11 @@ import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
+  RequestUpdateUser,
   RequestVerifyOtp,
+  RequestVerifyOtp,
+  RequestVerifyOtp,
+  ResponseGetUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
@@ -11,58 +15,62 @@ import {
 } from 'redux/types';
 
 import { paths } from 'const/paths';
-
 const AUTH_URL = '/auth';
 const USERS_URL = '/users';
 const FIND_USER_URL = 'users/user';
+import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation<ResponseLogin, RequestLogin>({
       query: data => ({
-        url: `${AUTH_URL}${paths.signIn}`,
+        url: `${apiEndpoints.signIn}`,
         method: 'POST',
         body: data,
       }),
     }),
     registration: builder.mutation<ResponseRegistration, RequestRegistration>({
       query: data => ({
-        url: `${AUTH_URL}${paths.signUp}`,
+        url: `${apiEndpoints.signUp}`,
         method: 'POST',
         body: data,
       }),
     }),
-
-    findUser: builder.mutation<ResponseGetUser, { token: string }>({
-      query: data => ({
-        url: `${FIND_USER_URL}`,
-        method: 'POST',
-        body: data,
-      }),
-    }),
-
-    getUser: builder.query({
+    getUser: builder.query<ResponseGetUser, string>({
       query: id => ({
         url: `${USERS_URL}${paths.getUser}/${id}`,
       }),
     }),
+    findUser: builder.mutation<ResponseGetUser[], { token: string }>({
+      query: data => ({
+        url: `${apiEndpoints.findUser}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    getPublicInfo: builder.query<ResponseGetUser, string | undefined>({
+      query: id => ({
+        url: `${paths.getUser}/user/${id}`,
+      }),
+    }),
+
     restorePass: builder.mutation({
       query: data => ({
-        url: `${AUTH_URL}${paths.restorePassword}`,
+        url: `${apiEndpoints.restorePassword}`,
         method: 'POST',
         body: data,
       }),
     }),
     newPass: builder.mutation<void, RequestNewPass>({
       query: data => ({
-        url: `${AUTH_URL}${paths.newPassword}`,
+        url: `${apiEndpoints.newPassword}`,
         method: 'POST',
         body: data,
       }),
     }),
     verifyOtp: builder.mutation<ResponseVerifyOtp, RequestVerifyOtp>({
       query: data => ({
-        url: `${AUTH_URL}${paths.verifyOtp}`,
+        url: `${apiEndpoints.verifyOtp}`,
         method: 'POST',
         body: data,
       }),
@@ -102,4 +110,5 @@ export const {
   useUpdateUserMutation,
   useSaveGeneralInfoMutation,
   useSaveCardInfoMutation,
+  useGetPublicInfoQuery,
 } = appApiSlice;
