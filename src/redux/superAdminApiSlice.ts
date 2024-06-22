@@ -1,5 +1,6 @@
-import { apiEndpoints } from 'const/apiEndpoints';
 import { apiSlice } from 'redux/apiSlice';
+
+import { apiEndpoints } from 'const/apiEndpoints';
 
 import {
   RequestGetUsersWithFilters,

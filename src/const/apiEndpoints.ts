@@ -1,5 +1,6 @@
 export const apiEndpoints = {
   getAllUsers: '/users/get-all',
+  getAllProducts: '/products/get-products',
   signUp: '/authorization/sign-up',
   signIn: '/authorization/sign-in',
   updateUser: '/users/update',
