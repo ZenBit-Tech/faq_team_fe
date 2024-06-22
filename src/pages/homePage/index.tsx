@@ -7,14 +7,8 @@ import SearchInput from 'components/searchInput';
 
 import { HomeSection } from './styles';
 /// TODO should be moved to product page
-const minRange = 0;
-const maxRange = 10000;
 
 const HomePage = () => {
-  const [priceRange, setPriceRange] = useState([minRange, maxRange]);
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [limit] = useState<number>(5);
   const [search, setSearch] = useState<string>('');
@@ -22,11 +16,6 @@ const HomePage = () => {
   const [order, setOrder] = useState<ESort.ASC | ESort.DESC>(ESort.ASC);
   const { data } = useGetProductsQuery({
     search: debouncedSearch,
-    min: priceRange[0],
-    max: priceRange[1],
-    color: selectedColor!,
-    size: selectedSize!,
-    style: selectedStyle!,
     page: currentPage,
     limit: limit,
     order,
@@ -59,16 +48,7 @@ const HomePage = () => {
     <HomeSection>
       <div className="flex-container">
         <div className="left">
-          <Filter
-            priceRange={priceRange}
-            setPriceRange={setPriceRange}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-            selectedSize={selectedSize}
-            setSelectedSize={setSelectedSize}
-            selectedStyle={selectedStyle}
-            setSelectedStyle={setSelectedStyle}
-          />
+          <Filter />
         </div>
         <div className="right">
           <SearchInput
@@ -77,7 +57,7 @@ const HomePage = () => {
             onChange={handleSearchChange}
           />
           <div className="sorting">
-            {selectedColor} {selectedSize} {selectedStyle}
+            {/* {selectedColor} {selectedSize} {selectedStyle} */}
             <button onClick={handleSortChange} className="sort-btn">
               sort
               {order}

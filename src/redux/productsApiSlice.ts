@@ -32,7 +32,7 @@ const productsApiSlice = apiSlice.injectEndpoints({
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
-      // Always merge incoming data to the cache entry
+      //Always merge incoming data to the cache entry
       merge: (currentCache, newItems) => {
         return {
           ...currentCache,
@@ -47,4 +47,5 @@ const productsApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetProductsQuery } = productsApiSlice;
+export const { useGetProductsQuery, useLazyGetProductsQuery } =
+  productsApiSlice;

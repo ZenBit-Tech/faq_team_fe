@@ -124,6 +124,7 @@ export type RequestGetProductsWithFilters = {
   style?: string;
   size?: string;
   color?: string;
+  prevPage?: number;
 };
 
 export type ResponseGetUsersWithFilters = {

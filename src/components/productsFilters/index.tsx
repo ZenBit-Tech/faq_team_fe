@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLazyGetProductsQuery } from 'redux/productsApiSlice';
 
 import ColorSelector from './colorSelector';
 import DualRangeSlider from './priceRange';
@@ -16,31 +17,15 @@ import StyleSelector from './styleSelector';
 
 const minRange = 0;
 const maxRange = 10000;
-type FilterProps = {
-  priceRange: number[];
-  setPriceRange: (range: number[]) => void;
-  selectedColor: string | null;
-  setSelectedColor: (color: string | null) => void;
-  selectedSize: string | null;
-  setSelectedSize: (size: string | null) => void;
-  selectedStyle: string | null;
-  setSelectedStyle: (style: string | null) => void;
-};
-const Filter: React.FC<FilterProps> = ({
-  priceRange,
-  setPriceRange,
-  selectedColor,
-  setSelectedColor,
-  selectedSize,
-  setSelectedSize,
-  selectedStyle,
-  setSelectedStyle,
-}) => {
-  //const [priceRange, setPriceRange] = useState([minRange, maxRange]);
-  //const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  //const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+const Filter: React.FC = () => {
+  const [priceRange, setPriceRange] = useState([minRange, maxRange]);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showOnlyMySizes, setShowOnlyMySizes] = useState<boolean>(false);
-  //const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+  const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+  const [getProducts] = useLazyGetProductsQuery();
+
   const { t } = useTranslation();
   const handleClear = () => {
     setSelectedColor(null);
@@ -57,6 +42,15 @@ const Filter: React.FC<FilterProps> = ({
       style: selectedStyle,
       price: priceRange,
       checkbox: showOnlyMySizes,
+    });
+    getProducts({
+      max: priceRange[1],
+      min: priceRange[0],
+      size: selectedSize!,
+      color: selectedColor!,
+      style: selectedStyle!,
+      page: 1,
+      limit: 5,
     });
   };
 
