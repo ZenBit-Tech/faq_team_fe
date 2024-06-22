@@ -25,7 +25,6 @@ export const StyledForm = styled.div<{ theme?: Theme }>`
   }
 
   select {
-    // margin-bottom: 15px;
     padding: 10px;
     font-size: ${({ theme }) => theme.fontSize.md};
     font-family: ${({ theme }) => theme.fontNames.dmSans};

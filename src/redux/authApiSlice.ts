@@ -14,6 +14,10 @@ import {
   ResponseVerifyOtp,
 } from 'redux/types';
 
+import { paths } from 'const/paths';
+const AUTH_URL = '/auth';
+const USERS_URL = '/users';
+const FIND_USER_URL = 'users/user';
 import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
@@ -34,7 +38,7 @@ const appApiSlice = apiSlice.injectEndpoints({
     }),
     getUser: builder.query<ResponseGetUser, string>({
       query: id => ({
-        url: `${apiEndpoints.getUser}/${id}`,
+        url: `${USERS_URL}${paths.getUser}/${id}`,
       }),
     }),
     findUser: builder.mutation<ResponseGetUser[], { token: string }>({
@@ -71,11 +75,25 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    update: builder.mutation<void, { id: string; data: RequestUpdateUser }>({
-      query: ({ id, data }) => ({
-        url: `${apiEndpoints.updateUser}/${id}`,
+    updateUser: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `${USERS_URL}${paths.updateUser}/${id}`,
         method: 'PATCH',
         body: data,
+      }),
+    }),
+    saveGeneralInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveGeneralInfo}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    saveCardInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveCardInfo}`,
+        method: 'POST',
+        body: { paymentMethod: data.paymentMethod, id: data.id },
       }),
     }),
   }),
@@ -86,9 +104,11 @@ export const {
   useRegistrationMutation,
   useRestorePassMutation,
   useFindUserMutation,
-  useUpdateMutation,
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
+  useUpdateUserMutation,
+  useSaveGeneralInfoMutation,
+  useSaveCardInfoMutation,
   useGetPublicInfoQuery,
 } = appApiSlice;

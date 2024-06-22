@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { defaultCountries, PhoneInput } from 'react-international-phone';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useSaveGeneralInfoMutation } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
 
@@ -15,7 +16,6 @@ import {
   UploadPhotoWrapper,
 } from 'components/fillProfileForm/generalInfoCard/styles';
 import {
-  convertToBase64,
   countries,
   isValidFileList,
 } from 'components/fillProfileForm/generalInfoCard/utils';
@@ -38,14 +38,16 @@ import { imageFormat, phoneLength } from 'const/constants';
 
 import 'react-international-phone/style.css';
 
-const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
+const GeneralInfoCard = ({ setSelectedIndex, index, data }: TabProps) => {
   const { t } = useTranslation();
 
   const schema = yup.object().shape({
     image: yup
       .mixed()
-      .test('fileType', t('fillProfile.generalInfoCard.imageRequired'), value =>
-        isValidFileList(value as FileList),
+      .test(
+        'fileType',
+        t('fillProfile.generalInfoCard.imageRequired'),
+        value => (!data.avatar ? isValidFileList(value as FileList) : true),
       ),
     phone: yup
       .string()
@@ -57,12 +59,19 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
     control,
     formState: { errors },
     register,
+    setValue,
   } = useForm<GeneralInfoSchema>({
     resolver: yupResolver(schema),
   });
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { ref: registerRef, onChange, ...rest } = register('image');
+  const [registrationSaveGeneralInfo] = useSaveGeneralInfoMutation();
+
+  useEffect(() => {
+    data.avatar && setSelectedImage(data.avatar);
+    data.phone && setValue('phone', data.phone);
+  }, [data, setValue]);
 
   const handleButtonClick = (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -84,9 +93,20 @@ const GeneralInfoCard = ({ setSelectedIndex, index }: TabProps) => {
   };
 
   const onSubmit: SubmitHandler<GeneralInfoSchema> = async (
-    data,
+    generalData,
   ): Promise<void> => {
-    await convertToBase64(data.image[0]);
+    const formData = new FormData();
+    formData.append('file', generalData.image[0]);
+    formData.append('phone', generalData.phone);
+    formData.append('id', data.id);
+
+    if (generalData.image.length) {
+      try {
+        await registrationSaveGeneralInfo(formData).unwrap();
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
     setSelectedIndex(index + 1);
   };
 

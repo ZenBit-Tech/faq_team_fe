@@ -1,24 +1,26 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Inputs } from './types';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { setEmail } from 'redux/auth/authSlice';
+import { useRegistrationMutation } from 'redux/authApiSlice';
+import { useAppDispatch } from 'redux/hooks';
+
+import EyeIcon from 'assets/icons/iconEye';
+import EyeCloseIcon from 'assets/icons/iconEyeClose';
 import {
+  ErrorMsg,
   StyledForm,
   SubmitBtn,
-  ErrorMsg,
 } from 'components/sharedUI/form/styles';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSignUpSchema } from './signUpFormHooks';
-import { useAppDispatch } from 'redux/hooks';
-import { useRegistrationMutation } from 'redux/authApiSlice';
-import { setEmail } from 'redux/auth/authSlice';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler';
-import EyeIcon from 'assets/icons/iconEye';
-import EyeCloseIcon from 'assets/icons/iconEyeClose';
+
+import { useSignUpSchema } from './signUpFormHooks';
+import { Inputs } from './types';
 
 export const SignUpForm = () => {
   const [registration, { isLoading }] = useRegistrationMutation();
