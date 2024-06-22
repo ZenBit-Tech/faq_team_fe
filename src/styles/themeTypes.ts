@@ -13,6 +13,7 @@ export type Color = {
   green_success: string;
   error_tablet: string;
   overlay_black: string;
+  style_border: string;
   primary_text: string;
   review_text: string;
   secondary_black: string;

@@ -264,6 +264,7 @@
   "userInfo": {
     "noRate": "No rate"
   },
+
   "profileNav": {
     "title": "My Profile",
     "mobTitle": "Your Profile",
@@ -276,9 +277,7 @@
       "wishlist": "Wishlist",
       "support": "Support",
       "logout": "Log Out"
-    }
   },
-
   "deleteAccount": {
     "button": "Delete account",
     "title": "Are you sure want to delete your account?",
@@ -312,78 +311,63 @@
     "card": "Payment Method",
     "cardPlaceholder": "**** **** **** 4567",
     "button": "Save"
+}
+},
+"admin": {
+  "usersTitle": "Users",
+  "usersSubTitle": "User List",
+  "sort": "Sort",
+  "products": "Products",
+  "chat": "Chat",
+  "roles": "User Roles"
+},
+"table": {
+  "name":"NAME",
+  "email": "EMAIL",
+  "address": "ADDRESS",
+  "date": "DATE",
+  "action": "ACTIONS"
+},
+"footer": {
+  "text": "Some text will be here two - three lines",
+  "shop": "Shop",
+  "login": "Login",
+  "wishlist": "Wishlist",
+  "cart": "Cart",
+  "company": "Company",
+  "about": "About us",
+  "terms":"Terms & Conditions",
+  "privacy": "Privacy Policy",
+  "contact": "Contact Us",
+  "help": "Help",
+  "faq": "FAQs",
+  "delivery": "Shipping and Delivery",
+  "rent": "Rent your closet",
+  "resell": "Resell your closet",
+  "copyright": "© 2023 Black Cycle"
+},
+"header": {
+  "shop": "Shop",
+  "vendor": "Vendor",
+  "messages": "Messages"
+},
+"viewProfile": {
+  "title": "Profile",
+  "name":"Name",
+  "email":"Email",
+  "status": "Status",
+  "phone": "Phone",
+  "address": "Complete address"
+},
+"productsFilter": {
+    "price": "Price",
+    "size": "Size",
+    "color": "Color",
+    "style": "Style",
+    "checkbox": "Show only my sizes",
+    "apply": "Apply",
+    "clear": "Clear"
   },
-
-  "footer": {
-    "text": "Some text will be here two - three lines",
-    "shop": "Shop",
-    "login": "Login",
-    "wishlist": "Wishlist",
-    "cart": "Cart",
-    "company": "Company",
-    "about": "About us",
-    "terms": "Terms & Conditions",
-    "privacy": "Privacy Policy",
-    "contact": "Contact Us",
-    "help": "Help",
-    "faq": "FAQs",
-    "delivery": "Shipping and Delivery",
-    "rent": "Rent your closet",
-    "resell": "Resell your closet",
-    "copyright": "© 2023 Black Cycle"
-  },
-  "header": {
-    "shop": "Shop",
-    "vendor": "Vendor",
-    "messages": "Messages"
-  },
-  "admin": {
-    "usersTitle": "Users",
-    "usersSubTitle": "User List",
-    "sort": "Sort",
-    "products": "Products",
-    "chat": "Chat",
-    "roles": "User Roles"
-  },
-  "table": {
-    "name": "NAME",
-    "email": "EMAIL",
-    "address": "ADDRESS",
-    "date": "DATE",
-    "action": "ACTIONS"
-  },
-  "footer": {
-    "text": "Some text will be here two - three lines",
-    "shop": "Shop",
-    "login": "Login",
-    "wishlist": "Wishlist",
-    "cart": "Cart",
-    "company": "Company",
-    "about": "About us",
-    "terms": "Terms & Conditions",
-    "privacy": "Privacy Policy",
-    "contact": "Contact Us",
-    "help": "Help",
-    "faq": "FAQs",
-    "delivery": "Shipping and Delivery",
-    "rent": "Rent your closet",
-    "resell": "Resell your closet",
-    "copyright": "© 2023 Black Cycle"
-  },
-  "header": {
-    "shop": "Shop",
-    "vendor": "Vendor",
-    "messages": "Messages"
-  },
-  "viewProfile": {
-    "title": "Profile",
-    "name": "Name",
-    "email": "Email",
-    "status": "Status",
-    "phone": "Phone",
-    "address": "Complete address"
-  },
-
   "topVendors": {
     "title": "Best Vendors",
     "vendorName": "Vendor Name",

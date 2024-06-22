@@ -31,6 +31,7 @@ export const theme: Theme = {
     green_success: '#36b37e',
     error_tablet: '#ff4b4b',
     overlay_black: 'rgba(0, 0, 0, 0.6)',
+    style_border: '#e0e0e0',
     primary_text: '#282344',
     review_text: '#807e7e',
     secondary_black: '#1c1c1e',
