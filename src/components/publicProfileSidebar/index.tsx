@@ -1,3 +1,12 @@
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  useFollowUserMutation,
+  useGetIsFollowingQuery,
+} from 'redux/userApiSlice.ts';
+
+import RatingStarIcon from 'assets/icons/iconRatingStar.tsx';
+import bgImg from 'assets/images/default_profile_img.png';
 import {
   FollowButton,
   FollowButtonWrapper,
@@ -8,19 +17,11 @@ import {
   UserName,
   UserRating,
 } from 'components/publicProfileSidebar/styles.ts';
-import bgImg from 'assets/images/default_profile_img.png';
-import RatingStarIcon from 'assets/icons/iconRatingStar.tsx';
 import { PublicProfileSidebarType } from 'components/publicProfileSidebar/types.ts';
-import { useTranslation } from 'react-i18next';
-import {
-  useFollowUserMutation,
-  useGetIsFollowingQuery,
-} from 'redux/userApiSlice.ts';
 import {
   isErrorWithMessage,
   isFetchBaseQueryError,
 } from 'helpers/errorHandler.ts';
-import { useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PublicProfileSidebar = ({

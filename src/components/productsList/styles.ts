@@ -1,5 +1,6 @@
-import { Theme } from 'styles/theme.ts';
 import styled from '@emotion/styled';
+
+import { Theme } from 'styles/theme.ts';
 
 export const ProductsWrapper = styled.div<{ theme?: Theme }>`
   width: 100%;

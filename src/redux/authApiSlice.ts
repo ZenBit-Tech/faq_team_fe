@@ -1,20 +1,20 @@
-
-import { apiEndpoints } from 'const/apiEndpoints';
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
-  RequestVerifyOtp,
   RequestUpdateUser,
   RequestVerifyOtp,
+  RequestVerifyOtp,
+  RequestVerifyOtp,
+  ResponseGetUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
-  ResponseGetUser,
 } from 'redux/types';
+
+import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({

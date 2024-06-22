@@ -10,4 +10,11 @@ export const apiEndpoints = {
   newPassword: '/authorization/new-password',
   verifyOtp: '/authorization/verify-otp',
   deleteUser: '/users/user-delete',
+  getOrders: '/orders',
+  getTotalSales: '/get-total-sales',
+  getAverageSales: '/get-average-sales',
+  getNumberOfOrders: '/get-number-of-orders',
+  getTotalSalesPerMonth: '/get-total-sales-per-month',
+  getTotalSalesPerCategory: '/get-total-sales-for-categories',
+  getLastOrders: '/get-last-orders',
 };
