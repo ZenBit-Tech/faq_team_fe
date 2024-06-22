@@ -57,10 +57,8 @@ const HomePage = () => {
             onChange={handleSearchChange}
           />
           <div className="sorting">
-            {/* {selectedColor} {selectedSize} {selectedStyle} */}
             <button onClick={handleSortChange} className="sort-btn">
               sort
-              {order}
             </button>
           </div>
           <div className="products">

@@ -29,23 +29,8 @@ const productsApiSlice = apiSlice.injectEndpoints({
           url: `${apiEndpoints.getAllProducts}?${params.toString()}`,
         };
       },
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName;
-      },
-      //Always merge incoming data to the cache entry
-      merge: (currentCache, newItems) => {
-        return {
-          ...currentCache,
-          products: [...currentCache.products, ...newItems.products],
-        };
-      },
-      // Refetch when the arg changes
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg !== previousArg;
-      },
     }),
   }),
 });
 
-export const { useGetProductsQuery, useLazyGetProductsQuery } =
-  productsApiSlice;
+export const { useGetProductsQuery } = productsApiSlice;

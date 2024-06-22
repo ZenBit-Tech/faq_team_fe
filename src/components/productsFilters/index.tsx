@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLazyGetProductsQuery } from 'redux/productsApiSlice';
 
 import ColorSelector from './colorSelector';
 import DualRangeSlider from './priceRange';
@@ -24,8 +23,6 @@ const Filter: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showOnlyMySizes, setShowOnlyMySizes] = useState<boolean>(false);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
-  const [getProducts] = useLazyGetProductsQuery();
-
   const { t } = useTranslation();
   const handleClear = () => {
     setSelectedColor(null);
@@ -42,15 +39,6 @@ const Filter: React.FC = () => {
       style: selectedStyle,
       price: priceRange,
       checkbox: showOnlyMySizes,
-    });
-    getProducts({
-      max: priceRange[1],
-      min: priceRange[0],
-      size: selectedSize!,
-      color: selectedColor!,
-      style: selectedStyle!,
-      page: 1,
-      limit: 5,
     });
   };
 
