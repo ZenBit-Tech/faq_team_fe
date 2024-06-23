@@ -48,6 +48,7 @@ export type ResponseGetUser = {
 };
 
 export type ResponseGetProduct = {
+  id: string;
   product_name: string;
   photos: string[];
   product_description: string;
@@ -58,6 +59,7 @@ export type ResponseGetProduct = {
 };
 
 export type UserReview = {
+  id: string;
   review_text: string;
   reviewer_id: string;
   user_target_id: string;
@@ -106,28 +108,7 @@ export type RequestVerifyOtp = {
   otp_code: string;
   email: string;
 };
-export type ResponseGetUser = {
-  id: string;
-  created_at: Date;
-  full_name: string;
-  email: string;
-  password?: string;
-  is_verified: boolean;
-  filled_profile_step: number;
-  otp_code?: string;
-  user_status: string;
-  is_deleted_by_admin: boolean;
-  user_role?: string;
-  avatar?: string;
-  phone?: string;
-  address?: string;
-  address_2?: string;
-  country?: string;
-  city?: string;
-  cloth_size?: string;
-  jeans_size?: string;
-  shoes_size?: number;
-};
+
 export type RequestGetUsersWithFilters = {
   page: number;
   limit: number;

@@ -1,12 +1,12 @@
 export const apiEndpoints = {
   getAllUsers: '/users/get-all',
-  signUp: '/authorization/sign-up',
-  signIn: '/authorization/sign-in',
+  signUp: '/auth/sign-up',
+  signIn: '/auth/sign-in',
   updateUser: '/users/update',
   findUser: '/users/user',
   getUser: '/users/user',
-  restorePassword: '/authorization/restore-password',
-  newPassword: '/authorization/new-password',
-  verifyOtp: '/authorization/verify-otp',
+  restorePassword: '/auth/restore-password',
+  newPassword: '/auth/new-password',
+  verifyOtp: '/auth/verify-otp',
   deleteUser: '/users/user-delete',
 };

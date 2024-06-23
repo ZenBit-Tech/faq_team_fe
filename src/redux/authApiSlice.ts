@@ -1,20 +1,17 @@
-
-import { apiEndpoints } from 'const/apiEndpoints';
 import { apiSlice } from 'redux/apiSlice';
 import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
-  RequestVerifyOtp,
   RequestUpdateUser,
   RequestVerifyOtp,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
   ResponseVerifyOtp,
-  RequestVerifyOtp,
-  ResponseGetUser,
 } from 'redux/types';
+
+import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -42,11 +39,6 @@ const appApiSlice = apiSlice.injectEndpoints({
         url: `${apiEndpoints.findUser}`,
         method: 'POST',
         body: data,
-      }),
-    }),
-    getPublicInfo: builder.query<ResponseGetUser, string | undefined>({
-      query: id => ({
-        url: `${paths.getUser}/user/${id}`,
       }),
     }),
 
@@ -90,5 +82,4 @@ export const {
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
-  useGetPublicInfoQuery,
 } = appApiSlice;

@@ -1,4 +1,5 @@
 import AddToCartIcon from 'assets/icons/addToCartIcon.tsx';
+import Carousel from 'components/carousel';
 import {
   ProductImageWrapper,
   ProductInfo,
@@ -6,20 +7,19 @@ import {
   ProductPrice,
   VendorName,
 } from 'components/productCard/styles.ts';
-import Carousel from 'components/carousel';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ProductCard = ({ imageUrl }) => {
+const ProductCard = ({ product, fullName }) => {
   return (
     <li>
       <ProductImageWrapper>
         <Carousel />
       </ProductImageWrapper>
-      <ProductName>Product Name</ProductName> {/*TODO change to fetched data*/}
+      <ProductName>{product.product_name}</ProductName>{' '}
+      {/*TODO change to fetched data*/}
       <ProductInfo>
         <div>
-          <ProductPrice>$ 213,99</ProductPrice>
-          <VendorName>Vendor Name</VendorName>
+          <ProductPrice>$ {product.price}</ProductPrice>
+          <VendorName>{fullName}</VendorName>
         </div>
         <div>
           <AddToCartIcon></AddToCartIcon>

@@ -23,5 +23,5 @@ export const paths = {
   wishlist: '#',
   support: '#',
   logout: '#',
-
+  productFeed: '/productfeed',
 };
