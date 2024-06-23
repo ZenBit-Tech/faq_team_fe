@@ -15,29 +15,25 @@ import { useGetAllProductsQuery } from '../../redux/productApiSlice.ts';
 const ProductFeed = () => {
   // const {data} = useGetAllProductsQuery({});
 
-  const [products, serProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const limit = 10;
   const { data } = useGetAllProductsQuery({ page, limit });
 
   useEffect(() => {
-    const loadProducts = async () => {
+    const loadProducts = () => {
       try {
-        setIsLoading(true);
-
-        serProducts([...products, ...data.products]);
+        setIsloading(true);
+        setProducts([...products, ...data.products]);
         setErrorMsg('');
       } catch (error) {
         setErrorMsg('Error while loading data. Try again later.');
-      } finally {
-        setIsLoading(false);
       }
     };
-
     loadProducts();
-  }, [data, isLoading]);
+  }, [data]);
 
   const loadMore = () => {
     setPage(page => page + 1);
