@@ -29,3 +29,22 @@ export const countryCodes = ['ca'];
 export const phoneLength = 10;
 
 export const imageFormat = '.png,.heic,.jpeg';
+
+export const productCard = {
+  size: {
+    small: '15%',
+    medium: '20%',
+    large: '23%',
+  },
+
+  gap: {
+    small: '10px',
+    medium: '20px',
+    large: '35px',
+  },
+};
+
+export const shownTextLimit = 20;
+
+export const showProductsLimit = 10;
+

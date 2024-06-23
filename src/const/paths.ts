@@ -27,6 +27,7 @@ export const paths = {
   wishlist: '#',
   support: '#',
   logout: '#',
+  productFeed: '/productfeed',
   topVendors: '/top-vendors',
   dashboard: 'dashboard',
 };

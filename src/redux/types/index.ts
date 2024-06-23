@@ -48,6 +48,7 @@ export type ResponseGetUser = {
 };
 
 export type ResponseGetProduct = {
+  id: string;
   product_name: string;
   photos: string[];
   product_description: string;
@@ -58,6 +59,7 @@ export type ResponseGetProduct = {
 };
 
 export type UserReview = {
+  id: string;
   review_text: string;
   reviewer_id: string;
   user_target_id: string;

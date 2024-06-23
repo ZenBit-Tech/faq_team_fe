@@ -14,10 +14,6 @@ import {
   ResponseVerifyOtp,
 } from 'redux/types';
 
-import { paths } from 'const/paths';
-const AUTH_URL = '/auth';
-const USERS_URL = '/users';
-const FIND_USER_URL = 'users/user';
 import { apiEndpoints } from 'const/apiEndpoints';
 
 const appApiSlice = apiSlice.injectEndpoints({
@@ -46,11 +42,6 @@ const appApiSlice = apiSlice.injectEndpoints({
         url: `${apiEndpoints.findUser}`,
         method: 'POST',
         body: data,
-      }),
-    }),
-    getPublicInfo: builder.query<ResponseGetUser, string | undefined>({
-      query: id => ({
-        url: `${paths.getUser}/user/${id}`,
       }),
     }),
 
