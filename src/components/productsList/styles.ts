@@ -9,7 +9,6 @@ export const ProductsWrapper = styled.div<{
 }>`
   width: 100%;
   list-style: none;
-  height: 80vh;
 
   overflow: scroll;
 

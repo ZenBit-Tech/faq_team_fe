@@ -27,3 +27,15 @@ export const AppliedFiltersWrapper = styled.div<{ theme?: Theme }>`
   }
 `;
 export const SortSelect = styled.div``;
+
+export const LoadMoreBtnWrapper = styled.div`
+  text-align: center;
+`;
+
+export const LoadMoreBtn = styled.button<{ theme?: Theme }>`
+  background-color: ${({ theme }) => theme.colors.thirdary_black};
+  color: ${({ theme }) => theme.colors.greyish_red};
+  padding: 12px 26px;
+  border-radius: 6px;
+  margin: 80px auto 130px;
+`;

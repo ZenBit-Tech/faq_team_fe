@@ -12,15 +12,14 @@ const ProductsList = ({
     <ProductsWrapper cardSize={cardSize!} gapSize={gapSize!}>
       <ul>
         {products &&
-          products.map(product => (
+          products.map((product, index) => (
             <ProductCard
-              key={product?.id}
+              key={index}
               product={product}
               fullName={fullName || product.owner.full_name}
             />
           ))}
       </ul>
-      q
     </ProductsWrapper>
   );
 };

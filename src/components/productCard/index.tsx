@@ -14,8 +14,7 @@ const ProductCard = ({ product, fullName }) => {
       <ProductImageWrapper>
         <Carousel />
       </ProductImageWrapper>
-      <ProductName>{product.product_name}</ProductName>{' '}
-      {/*TODO change to fetched data*/}
+      <ProductName>{product.product_name}</ProductName>
       <ProductInfo>
         <div>
           <ProductPrice>$ {product.price}</ProductPrice>

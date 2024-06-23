@@ -201,6 +201,15 @@
   "loading": {
     "text": "Loading..."
   },
+
+  "loadMore": {
+    "text": "Load More"
+  },
+
+  "errors": {
+    "loadError": "Error while loading data. Try again later."
+  },
+
   "privacyPolicy": {
     "heading": "Privacy Policy",
     "title": "SomeTitle",

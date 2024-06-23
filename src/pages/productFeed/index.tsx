@@ -1,26 +1,28 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useGetAllProductsQuery } from 'redux/productApiSlice.ts';
 
 import ProductsList from 'components/productsList';
-import { productCard } from 'const/constants.ts';
+import { productCard, showProductsLimit } from 'const/constants.ts';
 import {
   AppliedFiltersWrapper,
   FilterSection,
+  LoadMoreBtn,
+  LoadMoreBtnWrapper,
   ProductFeedContainer,
   ProductsSection,
   SortSelect,
 } from 'pages/productFeed/styles.ts';
 
-import { useGetAllProductsQuery } from '../../redux/productApiSlice.ts';
+const productsText = 'products';
 
 const ProductFeed = () => {
-  // const {data} = useGetAllProductsQuery({});
-
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsloading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const limit = 10;
-  const { data } = useGetAllProductsQuery({ page, limit });
+  const { data } = useGetAllProductsQuery({ page, limit: showProductsLimit });
 
   useEffect(() => {
     const loadProducts = () => {
@@ -29,11 +31,13 @@ const ProductFeed = () => {
         setProducts([...products, ...data.products]);
         setErrorMsg('');
       } catch (error) {
-        setErrorMsg('Error while loading data. Try again later.');
+        setErrorMsg(t('errors.loadError'));
+      } finally {
+        setIsloading(false);
       }
     };
     loadProducts();
-  }, [data]);
+  }, [data, isLoading]);
 
   const loadMore = () => {
     setPage(page => page + 1);
@@ -46,7 +50,9 @@ const ProductFeed = () => {
         <div></div> {/*TODO put inside search input*/}
         <AppliedFiltersWrapper>
           <div>
-            <p>Total Products</p>
+            <p>
+              {data?.totalCount} {productsText}
+            </p>
             <ul>
               <li>Filter 1</li>
               <li>Filter 2</li>
@@ -66,12 +72,12 @@ const ProductFeed = () => {
           cardSize={productCard.size.large}
           gapSize={productCard.gap.medium}
         ></ProductsList>
-        {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-        <div className="load-more">
-          <button onClick={loadMore} className="btn-grad">
-            {isLoading ? 'Loading...' : 'Load More'}
-          </button>
-        </div>
+        {errorMsg && <p>{errorMsg}</p>}
+        <LoadMoreBtnWrapper>
+          <LoadMoreBtn onClick={loadMore}>
+            {isLoading ? t('loading.text') : t('loadMore.text')}
+          </LoadMoreBtn>
+        </LoadMoreBtnWrapper>
       </ProductsSection>
     </ProductFeedContainer>
   );

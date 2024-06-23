@@ -45,3 +45,5 @@ export const productCard = {
 };
 
 export const shownTextLimit = 20;
+
+export const showProductsLimit = 10;
