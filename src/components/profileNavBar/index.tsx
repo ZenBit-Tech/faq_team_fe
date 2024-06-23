@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import LogoutIcon from 'assets/icons/logoutIcon';
 import OrdersIcon from 'assets/icons/ordersIcon';
 import SupportIcon from 'assets/icons/supportIcon';

@@ -1,24 +1,23 @@
 import { css } from '@emotion/react';
-import 'modern-normalize';
-import dmSansRegular from 'src/fonts/DMSans-Regular.woff';
-import dmSansRegularSecond from 'src/fonts/DMSans-Regular.woff2';
-import dmSansMedium from 'src/fonts/DMSans-Medium.woff';
-import dmSansMediumSecond from 'src/fonts/DMSans-Medium.woff2';
 import dmSansBold from 'src/fonts/DMSans-Bold.woff';
 import dmSansBoldSecond from 'src/fonts/DMSans-Bold.woff2';
-import playfairDisplayRegular from 'src/fonts/PlayfairDisplay-Regular.woff';
-import playfairDisplayRegularSecond from 'src/fonts/PlayfairDisplay-Regular.woff2';
+import dmSansMedium from 'src/fonts/DMSans-Medium.woff';
+import dmSansMediumSecond from 'src/fonts/DMSans-Medium.woff2';
+import dmSansRegular from 'src/fonts/DMSans-Regular.woff';
+import dmSansRegularSecond from 'src/fonts/DMSans-Regular.woff2';
+import interRegular from 'src/fonts/Inter-Regular.woff';
+import interRegularSecond from 'src/fonts/Inter-Regular.woff2';
+import interSemiBoldSecond from 'src/fonts/Inter-SemiBold.woff';
+import interSemiBold from 'src/fonts/Inter-SemiBold.woff2';
 import playfairDisplayMedium from 'src/fonts/Playfair Display Medium.woff';
 import playfairDisplayMediumSecond from 'src/fonts/Playfair Display Medium.woff2';
 import playfairDisplayBold from 'src/fonts/PlayfairDisplay-Bold.woff';
 import playfairDisplayBoldSecond from 'src/fonts/PlayfairDisplay-Bold.woff2';
+import playfairDisplayRegular from 'src/fonts/PlayfairDisplay-Regular.woff';
+import playfairDisplayRegularSecond from 'src/fonts/PlayfairDisplay-Regular.woff2';
 import playfairDisplaySemiBold from 'src/fonts/PlayfairDisplay-SemiBold.ttf';
 import playfairDisplaySCBold from 'src/fonts/PlayfairDisplaySC-Bold.woff';
 import playfairDisplaySCBoldSecond from 'src/fonts/PlayfairDisplaySC-Bold.woff2';
-import interRegular from 'src/fonts/Inter-Regular.woff';
-import interRegularSecond from 'src/fonts/Inter-Regular.woff2';
-import interSemiBold from 'src/fonts/Inter-SemiBold.woff2';
-import interSemiBoldSecond from 'src/fonts/Inter-SemiBold.woff';
 import quicksandMedium from 'src/fonts/Quicksand-Medium.woff';
 import quicksandMediumSecond from 'src/fonts/Quicksand-Medium.woff2';
 import sourceSerifProRegular from 'src/fonts/SourceSerifPro-Regular.woff';
@@ -29,6 +28,9 @@ import spaceGroteskMedium from 'src/fonts/SpaceGrotesk-Medium.woff';
 import spaceGroteskMediumSecond from 'src/fonts/SpaceGrotesk-Medium.woff2';
 import urbanistRegular from 'src/fonts/Urbanist-Regular.woff';
 import urbanistRegularSecond from 'src/fonts/Urbanist-Regular.woff2';
+
+import 'modern-normalize';
+
 import { theme } from 'styles/theme';
 
 export const globalStyles = css`

@@ -220,18 +220,42 @@
     "title": "SomeTitle",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a viverra nisi. Curabitur at consectetur lectus, et dictum mauris.   Donec molestie ultricies justo, ac euismod tortor consequat suscipit. Pellentesque fermentum massa eget nisi tempus ornare. Aliquam porttitor viverra ante, ut venenatis erat vehicula id. Duis ultrices mauris euismod dictum luctus. Fusce vitae luctus ipsum. Cras condimentum, arcu quis molestie consectetur, sem mi rhoncus libero, ut mollis libero nulla eu ipsum. Phasellus vel finibus ligula. Donec id porttitor ligula, sed finibus enim. Fusce felis neque, egestas vel purus et, tempus lacinia est. Cras aliquet consectetur ligula at vulputate. Aenean nec lacus et sem mollis pulvinar. Donec ac ligula lacinia, molestie nisi et, auctor sem. Sed vel suscipit risus. Duis ipsum mauris, tristique eu congue ut, dictum sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut dapibus, odio nec feugiat elementum, metus nisl mattis elit, vitae egestas lectus elit vitae erat. Mauris ultricies ut mauris vel venenatis. Ut efficitur mauris rutrum, commodo nunc tempus, fringilla orci. Ut iaculis ullamcorper lacus, vel elementum libero euismod eget. Pellentesque faucibus pellentesque dolor. Duis id egestas mi"
   },
+
+  "dashboard": {
+    "dashboardHeader": "Dashboard",
+    "recentOrdersHeader": "Recent orders",
+    "totalTitle": "Sales Total",
+    "averTitle": "Average order value",
+    "numberTitle": "Total orders",
+    "salesPerCategoryTitle": "Sales by categories",
+    "totalSalesTitle": "Revenue analytics",
+    "source": "Source",
+    "orders": "Orders",
+    "amount": "Amount",
+    "recentOpenOrder": "Open Order",
+    "recentId": "ID",
+    "recentProduct": "Product",
+    "recentPrice": "Price",
+    "recentStatus": "Status",
+    "recentAction": "Action",
+    "recentNoOrders": "You have no orders in the last three days"
+  },
+
   "buttonText": {
     "follow": "Follow",
     "followed": "Followed"
   },
+  
   "titleText": {
     "reviews": "Reviews",
     "products": "Products",
     "vendorCloset": "Vendor's Closet"
   },
+  
   "userInfo": {
     "noRate": "No rate"
   },
+
   "profileNav": {
     "title": "My Profile",
     "mobTitle": "Your Profile",
@@ -251,6 +275,7 @@
       "support": "Support",
       "logout": "Log Out"
     },
+    
     "deleteAccount": {
       "button": "Delete account",
       "title": "Are you sure want to delete your account?",
@@ -258,6 +283,7 @@
       "cancel": "No",
       "delete": "Yes"
     },
+    
     "editProfile": {
       "title": "Personal Information",
       "sizesTitle": "Sizes",
@@ -272,6 +298,7 @@
         "shoes": "Shoes Size",
         "jeans": "Jeans Size"
       },
+      
       "sizeLink": "Size guide",
       "address": "Address",
       "addressPlaceholder": "Your address",
@@ -301,11 +328,13 @@
         "resell": "Resell your closet",
         "copyright": "© 2023 Black Cycle"
       },
+      
       "header": {
         "shop": "Shop",
         "vendor": "Vendor",
         "messages": "Messages"
       },
+      
       "admin": {
         "usersTitle": "Users",
         "usersSubTitle": "User List",
@@ -314,6 +343,7 @@
         "chat": "Chat",
         "roles": "User Roles"
       },
+      
       "table": {
         "name": "NAME",
         "email": "EMAIL",
@@ -331,5 +361,108 @@
         "address": "Complete address"
       }
     }
+  },
+  
+  "deleteAccount": {
+    "button": "Delete account",
+    "title": "Are you sure want to delete your account?",
+    "subtitle": "You will lose access to the application and all your data",
+    "cancel": "No",
+    "delete": "Yes"
+  },
+
+  "editProfile": {
+    "title": "Personal Information",
+    "sizesTitle": "Sizes",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "your_email@gmail.com",
+    "phone": "Phone",
+    "phonePlaceholder": "82120142305",
+    "sizes": {
+      "clothes": "Clothes Size",
+      "shoes": "Shoes Size",
+      "jeans": "Jeans Size"
+    },
+    "sizeLink": "Size guide",
+    "address": "Address",
+    "addressPlaceholder": "Your address",
+    "addressOne": "Address Line 1",
+    "addressTwo": "Address Line 2 (optional)",
+    "city": "City",
+    "country": "Country",
+    "state": "State",
+    "card": "Payment Method",
+    "cardPlaceholder": "**** **** **** 4567",
+    "button": "Save"
+}
+},
+
+"admin": {
+  "usersTitle": "Users",
+  "usersSubTitle": "User List",
+  "sort": "Sort",
+  "products": "Products",
+  "chat": "Chat",
+  "roles": "User Roles"
+},
+
+"table": {
+  "name":"NAME",
+  "email": "EMAIL",
+  "address": "ADDRESS",
+  "date": "DATE",
+  "action": "ACTIONS"
+},
+
+"footer": {
+  "text": "Some text will be here two - three lines",
+  "shop": "Shop",
+  "login": "Login",
+  "wishlist": "Wishlist",
+  "cart": "Cart",
+  "company": "Company",
+  "about": "About us",
+  "terms":"Terms & Conditions",
+  "privacy": "Privacy Policy",
+  "contact": "Contact Us",
+  "help": "Help",
+  "faq": "FAQs",
+  "delivery": "Shipping and Delivery",
+  "rent": "Rent your closet",
+  "resell": "Resell your closet",
+  "copyright": "© 2023 Black Cycle"
+},
+
+"header": {
+  "shop": "Shop",
+  "vendor": "Vendor",
+  "messages": "Messages"
+},
+
+"viewProfile": {
+  "title": "Profile",
+  "name":"Name",
+  "email":"Email",
+  "status": "Status",
+  "phone": "Phone",
+  "address": "Complete address"
+},
+
+"productsFilter": {
+    "price": "Price",
+    "size": "Size",
+    "color": "Color",
+    "style": "Style",
+    "checkbox": "Show only my sizes",
+    "apply": "Apply",
+    "clear": "Clear"
+  },
+  "topVendors": {
+    "title": "Best Vendors",
+    "vendorName": "Vendor Name",
+    "productName": "Product Name",
+    "productPrice": "$ 213,99"
   }
 }

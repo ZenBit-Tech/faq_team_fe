@@ -7,7 +7,8 @@ import { PublicProfileInfoType } from 'components/publicProfileInfo/types.ts';
 import ReviewsList from 'components/reviewsList';
 import { productCard } from 'const/constants.ts';
 
-import { useGetAllProductsQuery } from '../../redux/productApiSlice.ts';
+import { useGetAllProductsQuery } from 'redux/productApiSlice.ts';
+
 
 const PublicVendorTab = ({
   fullName,

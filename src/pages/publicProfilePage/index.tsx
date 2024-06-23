@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetPublicInfoQuery } from 'redux/userApiSlice.ts';
 
+
 import PublicProfileInfo from 'components/publicProfileInfo';
 import PublicProfileSidebar from 'components/publicProfileSidebar';
 import { PublicProfileContainer } from 'pages/publicProfilePage/styles.ts';

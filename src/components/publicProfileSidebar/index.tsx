@@ -13,7 +13,6 @@ import {
 } from 'components/publicProfileSidebar/styles.ts';
 import { PublicProfileSidebarType } from 'components/publicProfileSidebar/types.ts';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PublicProfileSidebar = ({
   fullName,
   avgRate,
@@ -23,7 +22,6 @@ const PublicProfileSidebar = ({
 
   return (
     <SideBarWrapper>
-      {/*TEXT IN ELEMENTS IS NOT FINAL RESULT!!! Just during feature in progress*/}
       <SideBarInfo>
         <div></div>
         <UserInfo>
@@ -32,7 +30,6 @@ const PublicProfileSidebar = ({
           <UserRating>
             <RatingStarIcon />
             <span>{avgRate ? avgRate : t('userInfo.noRate')}</span>{' '}
-            {/*TODO change to rate from db*/}
           </UserRating>
           <FollowButton userId={userId} />
         </UserInfo>

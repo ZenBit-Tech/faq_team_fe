@@ -24,6 +24,8 @@ const VerifyEmailPAge = lazy(() => import('pages/verifyEmailPage'));
 const ProfilePage = lazy(() => import('pages/profilePage'));
 const PersonalInfoPage = lazy(() => import('pages/personalInfoPage'));
 const FillProfilePage = lazy(() => import('pages/fillProfilePage'));
+const TopVendorsPage = lazy(() => import('pages/topVendorsPage'));
+const DashboardPage = lazy(() => import('pages/dashboardPage'));
 
 function App() {
   return (
@@ -53,6 +55,8 @@ function App() {
             element={<ConfirmCredentialsPage />}
           />
         </Route>
+        <Route path={paths.dashboard} element={<DashboardPage />} />
+
         <Route path={paths.superAdminRoot} element={<SuperAdminLayout />}>
           <Route path={paths.userList} element={<UserListPage />} />
           <Route
@@ -60,6 +64,7 @@ function App() {
             element={<ViewUserProfilePage />}
           />
         </Route>
+        <Route path={paths.topVendors} element={<TopVendorsPage />} />
       </Routes>
     </>
   );

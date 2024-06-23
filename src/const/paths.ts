@@ -11,6 +11,10 @@ export const paths = {
   newPassword: '/new-password',
   verifyOtp: '/verify-otp',
   verifyEmail: '/verify-email',
+  updateUser: '/update',
+  fillProfile: '/fill-profile',
+  saveGeneralInfo: '/save-general-info',
+  saveCardInfo: '/save-card-info',
   getUser: '/users',
   publicProfile: '/user/:id',
   profile: '/profile',
@@ -24,4 +28,6 @@ export const paths = {
   support: '#',
   logout: '#',
   productFeed: '/productfeed',
+  topVendors: '/top-vendors',
+  dashboard: 'dashboard',
 };

@@ -115,7 +115,54 @@ export type RequestGetUsersWithFilters = {
   order: 'ASC' | 'DESC';
   search?: string;
 };
+
+export type RequestGetProductsWithFilters = {
+  page?: number;
+  limit?: number;
+  min?: number;
+  max?: number;
+  order?: 'ASC' | 'DESC';
+  search?: string;
+  style?: string;
+  size?: string;
+  color?: string;
+  prevPage?: number;
+};
+
 export type ResponseGetUsersWithFilters = {
   users: ResponseGetUser[];
   totalCount: number;
 };
+
+
+export type ResponseGetProductsWithFilters = {
+  products: ResponseGetProduct[];
+  totalCount: number;
+};
+
+export type AverageSales = {
+  averageSales: number;
+  lastWeekAveragePercentage: number;
+};
+
+export type SalesPerMonth = {
+  month: number;
+  total: number;
+}[];
+
+export type SalesPerCategory = {
+  category: string;
+  totalSales: number;
+  orderCount: number;
+}[];
+
+export type RecentSales = {
+  order_id: string;
+  created_at: Date;
+  updated_at: Date;
+  product_id: string;
+  buyer_id: string;
+  order_price: number;
+  product_product_name: string;
+}[];
+

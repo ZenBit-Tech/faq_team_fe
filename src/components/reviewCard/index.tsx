@@ -4,7 +4,8 @@ import { UserRating } from 'components/publicProfileSidebar/styles.ts';
 import ReadMore from 'components/readMore';
 import { shownTextLimit } from 'const/constants.ts';
 
-import { useGetUserQuery } from '../../redux/authApiSlice.ts';
+import { useGetUserQuery } from 'redux/authApiSlice.ts';
+
 import {
   ReviewDate,
   ReviewerAvatar,

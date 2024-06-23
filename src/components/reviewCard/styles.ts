@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
-import { Theme } from 'styles/theme.ts';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import { Theme } from 'styles/theme.ts';
 
 export const ReviewerAvatar = styled.div<{ img: string; theme?: Theme }>`
   ${({ img }) => css`

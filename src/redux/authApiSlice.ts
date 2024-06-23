@@ -5,6 +5,9 @@ import {
   RequestRegistration,
   RequestUpdateUser,
   RequestVerifyOtp,
+  RequestVerifyOtp,
+  RequestVerifyOtp,
+  ResponseGetUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
@@ -31,7 +34,7 @@ const appApiSlice = apiSlice.injectEndpoints({
     }),
     getUser: builder.query<ResponseGetUser, string>({
       query: id => ({
-        url: `${apiEndpoints.getUser}/${id}`,
+        url: `${USERS_URL}${paths.getUser}/${id}`,
       }),
     }),
     findUser: builder.mutation<ResponseGetUser[], { token: string }>({
@@ -63,11 +66,25 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    update: builder.mutation<void, { id: string; data: RequestUpdateUser }>({
-      query: ({ id, data }) => ({
-        url: `${apiEndpoints.updateUser}/${id}`,
+    updateUser: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `${USERS_URL}${paths.updateUser}/${id}`,
         method: 'PATCH',
         body: data,
+      }),
+    }),
+    saveGeneralInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveGeneralInfo}`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    saveCardInfo: builder.mutation({
+      query: data => ({
+        url: `${USERS_URL}${paths.saveCardInfo}`,
+        method: 'POST',
+        body: { paymentMethod: data.paymentMethod, id: data.id },
       }),
     }),
   }),
@@ -78,8 +95,11 @@ export const {
   useRegistrationMutation,
   useRestorePassMutation,
   useFindUserMutation,
-  useUpdateMutation,
   useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
+  useUpdateUserMutation,
+  useSaveGeneralInfoMutation,
+  useSaveCardInfoMutation,
+  useGetPublicInfoQuery,
 } = appApiSlice;

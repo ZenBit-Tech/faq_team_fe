@@ -13,12 +13,14 @@ export type Color = {
   green_success: string;
   error_tablet: string;
   overlay_black: string;
+  style_border: string;
   primary_text: string;
   review_text: string;
   secondary_black: string;
   thirdary_black: string;
   box_shadow: string;
   light_gray: string;
+  dashboard_pie: string[];
 };
 
 export type Breakpoint = {

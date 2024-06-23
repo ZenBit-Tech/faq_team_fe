@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useUpdateUserMutation } from 'redux/authApiSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -23,15 +25,21 @@ import {
   Sizes,
   TabProps,
 } from 'components/fillProfileForm/types';
-import { sizeSchema } from 'components/fillProfileForm/validation';
+import useFillProfileSchemas from 'components/fillProfileForm/validation';
 
-const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
+const userId = '8a6e0804-2bd0-4672-b79d-d97027f9071a';
+
+const SizeForm = ({ setSelectedIndex, index, data }: TabProps) => {
   const { t } = useTranslation();
+
+  const [registrationUpdate] = useUpdateUserMutation();
+  const { sizeSchema } = useFillProfileSchemas();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Sizes>({
     defaultValues: {
       clothSize: clothesSizes[0],
@@ -41,8 +49,21 @@ const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
     resolver: yupResolver(sizeSchema),
   });
 
-  const onSubmit: SubmitHandler<Sizes> = data => {
-    JSON.stringify(data);
+  useEffect(() => {
+    data && data.cloth_size && setValue('clothSize', data.cloth_size);
+    data && data.shoes_size && setValue('shoeSize', data.shoes_size);
+    data && data.jeans_size && setValue('jeansSize', data.jeans_size);
+  }, [data, setValue]);
+
+  const onSubmit: SubmitHandler<Sizes> = async sizesData => {
+    await registrationUpdate({
+      id: userId,
+      data: {
+        cloth_size: sizesData.clothSize,
+        shoes_size: sizesData.shoeSize,
+        jeans_size: sizesData.jeansSize,
+      },
+    }).unwrap();
   };
 
   return (
@@ -102,7 +123,11 @@ const SizeForm = ({ setSelectedIndex, index }: TabProps) => {
         <StyledButton
           key={uuidv4()}
           variant={ButtonVariant.White}
-          onClick={() => setSelectedIndex(index - 1)}
+          onClick={() =>
+            !data.stripe_id
+              ? setSelectedIndex(index - 1)
+              : setSelectedIndex(index - 2)
+          }
         >
           {t('fillProfile.prevButton')}
         </StyledButton>

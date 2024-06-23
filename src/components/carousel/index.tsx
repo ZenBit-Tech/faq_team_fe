@@ -1,6 +1,9 @@
 import { CCarousel, CCarouselItem, CImage } from '@coreui/react';
-import '@coreui/coreui/dist/css/coreui.min.css';
+
 import productDefault from 'assets/images/prductDefault.png';
+
+import '@coreui/coreui/dist/css/coreui.min.css';
+
 const Carousel = () => {
   return (
     <CCarousel indicators transition="crossfade" interval={false}>
