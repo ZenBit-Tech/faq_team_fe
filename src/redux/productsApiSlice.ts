@@ -29,6 +29,19 @@ const productsApiSlice = apiSlice.injectEndpoints({
           url: `${apiEndpoints.getAllProducts}?${params.toString()}`,
         };
       },
+
+      // serializeQueryArgs: ({ endpointName }) => {
+      //   return endpointName;
+      // },
+
+      //
+      // merge: (currentCache, newItems, { arg }) => {
+      //   if (arg.page === 1) {
+      //     return newItems;
+      //   }
+      //
+      //   return [...currentCache, ...newItems];
+      // },
     }),
   }),
 });

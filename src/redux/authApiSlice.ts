@@ -3,11 +3,7 @@ import {
   RequestLogin,
   RequestNewPass,
   RequestRegistration,
-  RequestUpdateUser,
   RequestVerifyOtp,
-  RequestVerifyOtp,
-  RequestVerifyOtp,
-  ResponseGetUser,
   ResponseGetUser,
   ResponseLogin,
   ResponseRegistration,
@@ -101,5 +97,4 @@ export const {
   useUpdateUserMutation,
   useSaveGeneralInfoMutation,
   useSaveCardInfoMutation,
-  useGetPublicInfoQuery,
 } = appApiSlice;
