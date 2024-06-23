@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { setEmail, setToken } from 'redux/auth/authSlice';
+import { setEmail, setToken, setUserId } from 'redux/auth/authSlice';
 import { useLoginMutation, useRestorePassMutation } from 'redux/authApiSlice';
 import { useAppDispatch } from 'redux/hooks';
 
@@ -52,13 +52,14 @@ export const SignInForm = () => {
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
       const response = await login(data).unwrap();
+      dispatch(setUserId(response?.id));
+      dispatch(setToken(response?.access_token));
+      dispatch(setEmail(data.email));
       if (!response?.is_verified) {
         await sendOtp({ email: data.email });
         reset();
-        dispatch(setEmail(data.email));
         navigate(paths.verifyEmail);
-      } else if (response?.filled_profile_step > fillProfileMaxStep) {
-        dispatch(setToken(response?.access_token));
+      } else if (response?.filled_profile_step < fillProfileMaxStep) {
         console.log(response.access_token);
         navigate(paths.fillProfile);
       } else {

@@ -18,7 +18,7 @@ export type RequestRegistration = {
 };
 
 export type ResponseRegistration = {
-  email: string;
+  id: string;
 };
 
 export type ResponseGetUser = {
@@ -38,6 +38,7 @@ export type ResponseGetUser = {
   address_2?: string;
   country?: string;
   city?: string;
+  state?: string;
   cloth_size?: string;
   jeans_size?: string;
   shoes_size?: number;
@@ -66,6 +67,7 @@ export type RequestLogin = {
 };
 
 export type ResponseLogin = {
+  id: string;
   access_token: string;
   is_verified: boolean;
   filled_profile_step: number;

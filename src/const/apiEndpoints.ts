@@ -4,6 +4,8 @@ export const apiEndpoints = {
   signIn: '/auth/sign-in',
   getAllProducts: '/products/get-products',
   updateUser: '/users/update',
+  saveGeneralInfo: 'users/save-general-info',
+  saveCardInfo: 'users/save-card-info',
   findUser: '/users/user',
   getUser: '/users/user',
   restorePassword: '/auth/send-otp',
