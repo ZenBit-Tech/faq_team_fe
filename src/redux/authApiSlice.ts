@@ -62,13 +62,6 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    updateUser: builder.mutation({
-      query: ({ data, id }) => ({
-        url: `${USERS_URL}${paths.updateUser}/${id}`,
-        method: 'PATCH',
-        body: data,
-      }),
-    }),
     saveGeneralInfo: builder.mutation({
       query: data => ({
         url: `${USERS_URL}${paths.saveGeneralInfo}`,
@@ -91,7 +84,6 @@ export const {
   useRegistrationMutation,
   useRestorePassMutation,
   useFindUserMutation,
-  useGetUserQuery,
   useNewPassMutation,
   useVerifyOtpMutation,
   useUpdateUserMutation,

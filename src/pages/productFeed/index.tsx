@@ -44,23 +44,24 @@ const ProductFeed = () => {
 
     return () => {
       clearTimeout(timer);
+      setProducts([]);
     };
   }, [search]);
 
-  // useEffect(() => {
-  //   const loadProducts = () => {
-  //     try {
-  //       setIsloading(true);
-  //       setProducts([...products, ...data.products]);
-  //       setErrorMsg('');
-  //     } catch (error) {
-  //       setErrorMsg(t('errors.loadError'));
-  //     } finally {
-  //       setIsloading(false);
-  //     }
-  //   };
-  //   loadProducts();
-  // }, [data, isLoading]);
+  useEffect(() => {
+    const loadProducts = () => {
+      try {
+        setIsloading(true);
+        setProducts([...products, ...data.products]);
+        setErrorMsg('');
+      } catch (error) {
+        setErrorMsg(t('errors.loadError'));
+      } finally {
+        setIsloading(false);
+      }
+    };
+    loadProducts();
+  }, [data, isLoading]);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -86,11 +87,7 @@ const ProductFeed = () => {
             <p>
               {data?.totalCount} {productsText}
             </p>
-            <ul>
-              <li>Filter 1</li>
-              <li>Filter 2</li>
-              <li>Filter 3</li>
-            </ul>
+            <ul></ul>
           </div>
           <SortSelect>
             <select name="sort" id="sort">
@@ -101,7 +98,7 @@ const ProductFeed = () => {
           </SortSelect>
         </AppliedFiltersWrapper>
         <ProductsList
-          products={data?.products}
+          products={products}
           cardSize={productCard.size.large}
           gapSize={productCard.gap.medium}
         ></ProductsList>
