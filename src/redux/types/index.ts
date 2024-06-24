@@ -112,6 +112,7 @@ export type RequestGetUsersWithFilters = {
   limit: number;
   order: 'ASC' | 'DESC';
   search?: string;
+  role: string | null;
 };
 
 export type RequestGetProductsWithFilters = {
