@@ -6,7 +6,6 @@ import OrdersIcon from 'assets/icons/ordersIcon';
 import SupportIcon from 'assets/icons/supportIcon';
 import UserIcon from 'assets/icons/userIcon';
 import WishListIcon from 'assets/icons/wishListIcon';
-import defaultAvatar from 'assets/images/default-avatar.png';
 import { paths } from 'const/paths';
 
 import {
@@ -21,10 +20,17 @@ import {
 } from './styles';
 import { ProfileNavBarProps } from './types';
 
-const avatarSize: number = 120;
 const iconsSize: number = 32;
 
-export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
+export const ProfileNavBar = ({
+  toggleModal,
+  avatar,
+  name,
+}: {
+  toggleModal: ProfileNavBarProps;
+  avatar: string;
+  name: string;
+}) => {
   const { t } = useTranslation();
   const [isVendor, setIsVendor] = useState<boolean>(false);
 
@@ -35,13 +41,8 @@ export const ProfileNavBar = ({ toggleModal }: ProfileNavBarProps) => {
   return (
     <>
       <MobTitle>{t('profileNav.mobTitle')}</MobTitle>
-      <Avatar
-        src={defaultAvatar}
-        alt="user-avatar"
-        width={avatarSize}
-        height={avatarSize}
-      />
-      <UserName>{t('profileNav.username')}</UserName>
+      <Avatar src={avatar} alt="user-avatar" />
+      <UserName>{name}</UserName>
       <ModeList>
         <li>
           <p>

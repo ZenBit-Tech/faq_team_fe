@@ -277,7 +277,8 @@
       "wishlist": "Wishlist",
       "support": "Support",
       "logout": "Log Out"
-  },
+  }
+},
   "deleteAccount": {
     "button": "Delete account",
     "title": "Are you sure want to delete your account?",
@@ -311,7 +312,6 @@
     "card": "Payment Method",
     "cardPlaceholder": "**** **** **** 4567",
     "button": "Save"
-}
 },
 "admin": {
   "usersTitle": "Users",

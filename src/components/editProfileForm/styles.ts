@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { SubmitBtn } from 'components/sharedUI/form/styles';
 import { Theme } from 'styles/theme';
 
@@ -26,6 +27,9 @@ export const ImgWrap = styled.div`
 
   img {
     border-radius: 50%;
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
   }
 `;
 
